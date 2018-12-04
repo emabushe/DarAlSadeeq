@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+.item_rep{
+	width: 100%;
+	float: left;
+	height: 193px;
+	text-align: center;
+	border-color: #666666;
+	border-width: 1px;
+	border-style: groove;
+}
+.item_image{
+	float: left;
+	height: 85px;
+	width: 100%;
+	background-color: #48C7F7;
+	padding-top: 5px;
+}
+.number_vist{
+	float: left;
+	height: 20px;
+	width: 100%;
+	background-color: #F05DA3;
+	font-size: 14px;
+	padding-top: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.titel_item{
+	float: left;
+	height: 25px;
+	width: 100%;
+	background-color: #F05DA3;
+	font-family: Arial;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-top:5px;
+	font-size: 12pt;
+}
+.descreption_item{
+	float: left;
+	height: 50px;
+	width: 100%;
+	background-color: #48C7F7;
+	color: #FFFFFF;
+	font-family: Arial;
+	font-size: 13pt;
+	font-weight: normal;
+}
+#all{
+	width: 756px;
+	height: auto;
+	float: left;
+}
+.space_img{
+	width: 20%;
+	height: 80px;
+	float: left;
+}
+.img_data_item{
+	float: left;
+	height: 80px;
+	width: 60%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #F05DA3;
+}
+.spacer_item_l{
+	width:10%;
+	height:217px;
+	float:left;
+}
+.spacer_up_item{
+width:100%;
+height:20px;
+float:left;
+}
+.item_vi{
+width:151px;
+height:215px;
+float:left;}
+.rep_tekrar{
+width:100%;
+height:auto;
+float:left;}
+
+.item_1
+{
+    width:250px;
+    height:auto;
+    float:right;
+    }
+    
+    #Video
+    {
+        text-align:left;
+    }
+    
+    
+    /* Rating */
+.ratingStar {
+    font-size: 0pt;
+    width: 17px;
+    height: 17px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+.filledRatingStar {
+    background-image: url(../images/FilledStar.png);
+
+}
+
+.emptyRatingStar {
+    background-image: url(../images/EmptyStar.png);
+}
+
+.savedRatingStar {
+    background-image: url(../images/FilledStar.png);
+}
+#Rating1
+{
+   background-color: #48C7F7; 
+}
+.center_kiswany
+{
+    text-align:center;
+    
+    }
+    .tahoma
+    {
+        font-family:Tahoma;
+        font-size:12pt;
+        }
+        .tahoma_red
+    {
+        font-family:Tahoma;
+        font-size:11pt;
+        color:#ff0000;
+        }
+        .Verdana
+        {
+            font-family:Verdana;
+            color:#000000;
+            font-size:10pt;
+            }
+            .Verdana_green
+            {
+                 font-family:Verdana;
+            color:Green;
+            font-size:10pt;
+                
+                }
+            .Sans
+            {
+                font-family:Sans-Serif;
+                }
+                .tahoma_s
+                {
+                    font-family:Tahoma;
+                    font-size:10pt;
+                        color:Purple;
+                    
+                    }

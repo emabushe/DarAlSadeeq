@@ -1,0 +1,185 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="ar_MasterPage" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26594561-2']);
+        _gaq.push(['_setDomainName', '.daralsadeeq.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="enss" />
+    <title>دار الصديق </title>
+    <!-- Script Start-->
+    <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../javascript/javascript.js"></script>
+    <!-- Styles Start-->
+    <link rel="stylesheet" type="text/css" href="~/style/reset-min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/style/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/pages.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/ibooks.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/font-awesome.css" />
+    <!-- Styles End-->
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div class="site-container">
+            <div class="clouds-container">
+                <div class="content-container">
+                    <div class="userBox">
+                        <ul>
+                            <li><a href="Subscriptions.aspx" id="registerTab">الإشتراكات</a></li>
+                            <li><a href="#" id="loginBtn">تسجيل الدخول</a></li>
+                        </ul>
+                    </div>
+                    <div class="enlanguage">
+                        <ul>
+                            <li><a href="#" onclick="toEn(window.location);">English</a></li>
+                        </ul>
+                    </div>
+                    <div id="everythingInside" class="everything-inside">
+                        <div id="page2">
+                            <div class="blocks-container">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                                <div class="logo-img">
+                                </div>
+                                <div class="footerDiv">
+                                    <ul>
+                                        <li><a href="Partners.aspx" id="A5">شركاؤنا</a> * <a href="Schools.aspx" id="A6">مدارسنا
+                                        </a></li>
+                                        <li style="padding-top: 10px"><a href="AboutUs.aspx" id="a7">من نحن</a> * <a href="ContactUs.aspx"
+                                            id="A8">إتصل بنا</a></li>
+                                    </ul>
+                                </div>
+                                <div class="smIcons">
+                                    <a href="http://www.facebook.com/daralsadeeq" class="fb" target="_blank"></a><a href="http://www.youtube.com/daralsadeeq"
+                                        class="youtube" target="_blank"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="page1" style="display: none;">
+                            <div class="blocks-container">
+                                <div class="block-main" onclick="location.href='OurProducts.aspx'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span id="gamesTab">إنتجاتنا</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block2" onclick="location.href='ibooks.aspx'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span id="eBooksTab">المنهاج الإلكتروني</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block3" onclick="location.href='Stories.aspx?Level=1'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span>منهاج المستوى الأول</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block4" onclick="location.href='Books.aspx'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span>الكتب المطبوعة</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block5" onclick="location.href='Stories.aspx'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span>القصص</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block6" onclick="location.href='WorkSheets.aspx'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span id="workSheetsTab">أوراق عمل</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block7" onclick="location.href='Teacher.aspx'">
+                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span id="teachTab">للمعلم</span>
+                                    </div>
+                                </div>
+                                <div class="block-main block8 no-margin" onclick="location.href='SongStories.aspx'">
+                                    <span id="songStoriesTab">فيديوهات</span>
+                                </div>
+                                <div class="block-main block9" onclick="location.href='Guidance.aspx'">
+                                    <span id="guidanceTab">إرشادات للطفل والأسرة</span>
+                                </div>
+                                <div class="block-main block10 clear-block" onclick="location.href='ChangeYourLife.aspx'">
+                                    <span id="changeYourLifeTab">غير حياتك</span>
+                                </div>
+                                <div class="logo-container">
+                                    <div class="logo-img">
+                                    </div>
+                                    <div class="footerDiv">
+                                        <ul>
+                                            <li><a href="Partners.aspx" id="partnersTab">شركاؤنا</a> * <a href="Schools.aspx"
+                                                id="schoolsTab">مدارسنا </a></li>
+                                            <li style="padding-top: 10px"><a href="AboutUs.aspx" id="aboutUsTab">من نحن</a> * <a
+                                                href="ContactUs.aspx" id="contactUsTab">إتصل بنا</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="smIcons">
+                                        <a href="http://www.facebook.com/daralsadeeq" class="fb" target="_blank"></a><a href="http://www.youtube.com/daralsadeeq"
+                                            class="youtube" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-footer">
+                        © 2009-<script type="text/javascript">                           var mdate = new Date(); document.write(mdate.getFullYear());</script>All
+                content is copyrighted for Dar Al-Sadeeq publication and distribution and their
+                respective publishers. Powered by <a href="http://www.shkhaidem.com" target="_blank">Shkhaidem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <div class="modal fade fill-in" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+        
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <img src="../images/close-icon.png" width="25" height="25" />
+        </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="../images/login.png" width="50" height="50" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 no-padding sm-m-t-10 sm-text-center">
+                            <table class="table table-responsive">
+                                <tr><td><span>اسم المستخدم</span></td><td><asp:TextBox ID="txtUserName" runat="server"></asp:TextBox></td></tr>
+                                <tr><td><span>كلمة السر</span></td><td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></td></tr>
+                                <tr><td><span><a href="">مساعدة؟</a></span></td><td><asp:Button ID="btnLogin" runat="server" Text="دخول"></asp:Button></td></tr>
+                                <tr><td colspan="2"><span><asp:Label ID="lblResult" runat="server" Text=""></asp:Label></span></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+        </form>
+</body>
+</html>

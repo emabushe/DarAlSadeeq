@@ -1,0 +1,105 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage_admin.master.vb" Inherits="MasterPage_admin" %>
+
+
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head runat="server">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/reset.css" />
+    <!-- RESET -->
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/main.css" />
+    <!-- MAIN STYLE SHEET -->
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/2col.css" title="2col" />
+    <!-- DEFAULT: 2 COLUMNS -->
+    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="~/css/1col.css" title="1col" />
+    <!-- ALTERNATE: 1 COLUMN -->
+    <!--[if lte IE 6]><link rel="stylesheet" media="screen,projection" type="text/css" href="css/main-ie6.css" /><![endif]-->
+    <!-- MSIE6 -->
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/styleAdmin.css" />
+    <!-- GRAPHIC THEME -->
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/mystyle.css" />
+    <!-- WRITE YOUR CSS CODE HERE -->
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+    <script type="text/javascript" src="~/js/switcher.js"></script>
+    <script type="text/javascript" src="~/js/toggle.js"></script>
+    <script type="text/javascript" src="~/js/ui.core.js"></script>
+    <script type="text/javascript" src="~/js/ui.tabs.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".tabs > ul").tabs();
+        });
+    </script>
+    <title>Dar Al-Sadeeq:: Control Panel</title>
+</head>
+
+<body>
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div id="main">
+
+            <!-- Tray -->
+            <div id="tray" class="box">
+
+                <p class="f-left box">
+                    <strong>Dar Al-Sadeeq</strong>
+                </p>
+
+                <p class="f-right">
+                    User: <strong><a href="UserPage.aspx">My Profile</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>
+                        <asp:LinkButton ID="logout" runat="server">Log out</asp:LinkButton></strong>
+                </p>
+
+            </div>
+            <!--  /tray -->
+
+            <hr class="noscreen" />
+
+            <!-- Menu -->
+            <div id="menu" class="box">
+
+                <ul class="box f-right">
+                    <li><a href="http://www.daralsadeeq.com" target="_blank"><span><strong>Visit Site &raquo;</strong></span></a></li>
+                </ul>
+
+                <ul class="box">
+                     <!-- Active -->
+                     <li><a href="ManageCOntent.aspx"><span>إدارة المحتوى</span></a></li>
+                   <%-- <li><a href="AddLearn.aspx"><span>هيا نتعلم</span></a></li>--%>
+                    <%--<li><a href="AddGame.aspx"><span>نلعب ونتعلم</span></a></li>
+                    <li><a href="AddKGMaterial.aspx"><span>رياض الأطفال</span></a></li>
+                    <li><a href="AddTeacherMaterial.aspx"><span>المعلم</span></a></li>
+                    <li><a href="AddSchool.aspx"><span>مدراسنا الصديقة</span></a></li>
+                    <li><a href="AddErshadSubject.aspx"><span>أصنع بيدي </span></a></li>
+                    <li><a href="AddLife.aspx"><span>غير حياتك</span></a></li>
+                    <li><a href="AddTalent.aspx"><span>موهبتي</span></a></li>
+                    <li><a href="AddChild.aspx"><span>أين أنت من طفلك</span></a></li>
+                    <li><a href="AddActivitySubject.aspx"><span>أنشطة</span></a></li>
+                    <li><a href="AddDemo.aspx"><span>نماذج</span></a></li>
+                    <li><a href="UpdateAboutUs.aspx"><span>من نحن</span></a></li>
+                    <li><a href="AddAds.aspx"><span>إعلانات </span></a></li>
+                    <li><a href="AddLinkGame.aspx"><span>ألعاب</span></a></li>
+                    <li><a href="AddPartner.aspx"><span>شركاء </span></a></li>
+                    <li><a href="AddSong.aspx"><span>أغاني وقصص </span></a></li>
+                    <li><a href="AddUser.aspx"><span>المستخدمين </span></a></li>--%>
+                </ul>
+
+            </div>
+            <!-- /header -->
+
+            <hr class="noscreen" />
+
+            <!-- Columns -->
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+            <!-- /main -->
+        </div>
+    </form>
+</body>
+</html>
