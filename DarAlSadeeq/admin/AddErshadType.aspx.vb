@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddErshadType
+﻿Partial Class admin_AddErshadType
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Save.Click
         Dim strName As String = UploaderMatFile.FileName
         Dim Result As Boolean = Admin.InsertErshadType(Trim(txtSubjectName.Text), "~/images/" + strName)

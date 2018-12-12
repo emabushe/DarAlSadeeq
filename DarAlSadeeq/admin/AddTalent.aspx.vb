@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddTalent
+﻿Partial Class admin_AddTalent
     Inherits System.Web.UI.Page
-
     Protected Sub btn_save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_save.Click
         Dim Result As Boolean = Admin.InsertTalent(txtName.Text, Trim(txtAge.Text), txtSchool.Text, txtTalents.Text, "~/Talents/" & UploaderTalentPic.FileName, "~/Talents/" & UploaderStdPic.FileName)
         UploaderStdPic.SaveAs(Server.MapPath("~/Talents/") & UploaderStdPic.FileName)
@@ -14,7 +12,5 @@ Partial Class admin_AddTalent
                 Label1.Visible = True
                 Label1.Text = "خطأ في عملية الإدخال"
             End If
-
-      
     End Sub
 End Class

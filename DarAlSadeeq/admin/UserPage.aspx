@@ -14,7 +14,6 @@
                 <!-- Create a new project -->
             </div>
             <!-- /padding -->
-       
         </div>
         <!-- /aside -->
         <hr class="noscreen" />
@@ -32,7 +31,6 @@
                 <tr>
                     <td style="width: 500px">
                          <table width="100%">
-   
         <tr>
             <td style="text-align: right; padding-right: 30px; font-size: 26px; border-bottom-style: solid;
                 border-bottom-width: 2px; border-bottom-color: #0d4475; height: 45px;">
@@ -50,7 +48,6 @@
                    ReadOnly="True" Enabled="False"></asp:TextBox>
             </td>
               <td align="right">
-               
             </td>
         </tr>
             <tr>
@@ -61,11 +58,9 @@
                 <asp:TextBox ID="txtEmail" runat="server" ForeColor="#FF6600" Font-Size="Large"></asp:TextBox>
             </td>
                <td align="right">
-               
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                        ControlToValidate="txtEmail" ErrorMessage="بريد إلكتروني خاطئ" 
                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-               
             </td>
         </tr>
             <tr>
@@ -76,10 +71,8 @@
                 <asp:TextBox ID="txtOldPassword" runat="server" ForeColor="#FF6600"  TextMode="Password" Font-Size="Large"></asp:TextBox>
             </td>
                <td align="right">
-               
                    <asp:Label ID="lblCheckPassword" runat="server" ForeColor="Red" 
                        Text="كلمة السر خاطئة" Visible="False"></asp:Label>
-               
             </td>
         </tr>
             <tr>
@@ -90,7 +83,6 @@
                 <asp:TextBox ID="txtNewPassword" runat="server" ForeColor="#FF6600"  TextMode="Password" Font-Size="Large"></asp:TextBox>
             </td>
                <td align="right">
-               
             </td>
         </tr>
             <tr>
@@ -101,17 +93,14 @@
                 <asp:TextBox ID="txtConfirmPassword" runat="server" ForeColor="#FF6600"  TextMode="Password" Font-Size="Large"></asp:TextBox>
             </td>
                <td align="right">
-               
                    <asp:CompareValidator ID="CompareValidator1" runat="server" 
                        ControlToCompare="txtNewPassword" ControlToValidate="txtConfirmPassword" 
                        ErrorMessage="تأكد من كلمة السر الجديدة"></asp:CompareValidator>
-               
             </td>
         </tr>
           <tr><td colspan="3">
                   <asp:Label ID="lblResult" runat="server"></asp:Label></td></tr>
               <tr>
-            
             <td align="right">
                 <asp:ImageButton ID="ImgBtnSave" runat="server"  ImageUrl="~/images/save.PNG" />
             </td>
@@ -119,15 +108,12 @@
                 <asp:ImageButton ID="ImgBtnClear" runat="server" ImageUrl="~/images/clear.PNG" />
             </td>
                <td align="right">
-               
             </td>
         </tr>
     </table>
                     </td>
                 </tr>
-                
             </table>
-
             </ContentTemplate>
                 </asp:UpdatePanel>
         </div>
@@ -137,7 +123,5 @@
         </div>
         <!-- /footer -->
     </div>
-   
 </asp:Content>
-
 

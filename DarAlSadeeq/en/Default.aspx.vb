@@ -1,5 +1,3 @@
-﻿
-Partial Class en_Default
+﻿Partial Class en_Default
     Inherits System.Web.UI.Page
-
 End Class

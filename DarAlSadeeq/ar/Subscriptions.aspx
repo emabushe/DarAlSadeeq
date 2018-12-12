@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/ar/MasterPage.master" AutoEventWireup="false" CodeFile="Subscriptions.aspx.vb" Inherits="ar_Subscriptions" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

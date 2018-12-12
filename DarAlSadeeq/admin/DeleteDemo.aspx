@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="DeleteDemo.aspx.vb" Inherits="admin_DeleteDemo" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -47,12 +46,9 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
                             SelectCommand="SELECT * FROM [Demos]">
-                           
                         </asp:SqlDataSource>
                     </td>
                 </tr>
-           
-           
                 <tr>
                     <td>
                     </td>
@@ -66,11 +62,9 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Delete" runat="server" Text="حذف" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>
-
             </ContentTemplate>
                 </asp:UpdatePanel>
         </div>

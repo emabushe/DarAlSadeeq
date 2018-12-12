@@ -18,7 +18,6 @@
             <ul class="box">
                 <li id="submenu-active"><a href="AddSong.aspx">إضافة أغنية أو قصة</a></li>
                 <li ><a href="DeleteSong.aspx">حذف  أغنية أو قصة</a></li>
-              
             </ul>
         </div>
         <!-- /aside -->
@@ -60,11 +59,9 @@
                              الرابط</p>
                     </td>
                     <td>
-                        
                         <asp:TextBox ID="txtWebsite" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                             ControlToValidate="txtWebsite" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>

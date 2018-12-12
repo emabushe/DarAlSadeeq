@@ -9,7 +9,6 @@
         _gaq.push(['_setAccount', 'UA-26594561-2']);
         _gaq.push(['_setDomainName', '.daralsadeeq.com']);
         _gaq.push(['_trackPageview']);
-
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -26,11 +25,15 @@
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
     <script type="text/javascript" src="../javascript/javascript.js"></script>
     <!-- Styles Start-->
+<%--     <link rel="stylesheet" type="text/css" href="~/style/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="~/style/demo.css" />--%>
+	
     <link rel="stylesheet" type="text/css" href="~/style/reset-min.css"/>
     <link rel="stylesheet" type="text/css" href="~/style/style.css" />
     <link rel="stylesheet" type="text/css" href="~/style/pages.css" />
     <link rel="stylesheet" type="text/css" href="~/style/ibooks.css" />
     <link rel="stylesheet" type="text/css" href="~/style/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/tooltip-sharp.css" />
     <!-- Styles End-->
 </head>
 <body>
@@ -74,8 +77,8 @@
                         </div>
                         <div id="page1" style="display: none;">
                             <div class="blocks-container">
-                                <div class="block-main" onclick="location.href='OurProducts.aspx'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                <div class="block-main" onclick="location.href='Content.aspx?section=1'">
+                                    <div>
                                         <span id="gamesTab">إنتجاتنا</span>
                                     </div>
                                 </div>
@@ -145,9 +148,7 @@
                 </div>
             </div>
         </div>
-    
     <div class="modal fade fill-in" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
-        
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

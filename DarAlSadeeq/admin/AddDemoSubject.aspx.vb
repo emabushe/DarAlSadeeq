@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddDemoSubject
+﻿Partial Class admin_AddDemoSubject
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Save.Click
         Dim Result As Boolean = Admin.InsertDemoSubject(Trim(txtSubjectName.Text))
         If Result Then

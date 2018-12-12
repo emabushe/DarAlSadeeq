@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_DeleteLink
+﻿Partial Class admin_DeleteLink
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim Result As Boolean = Admin.DeleteLink(DropDownList1.SelectedValue)
         If Result Then

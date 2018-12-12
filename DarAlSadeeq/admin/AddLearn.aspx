@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="AddLearn.aspx.vb" Inherits="admin_AddLearn" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="cols" class="box">
@@ -73,10 +72,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtMaterialName" runat="server"  Width="50%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtMaterialName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -86,21 +83,16 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="UploaderMatFile" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="UploaderMatFile" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
-                        
                         <asp:TextBox ID="txtFileCheck" runat="server" BorderWidth="0px" ForeColor="Red" 
                             ReadOnly="True" Visible="False">هذا الملف موجود مسبقاً</asp:TextBox>
-                        
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 111px">
-                       
                     </td>
                     <td>
-                        
                     </td>
                 </tr>
                 <tr>

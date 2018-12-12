@@ -13,12 +13,10 @@ Public Class Teacher
         Dim da As New Data.SqlClient.SqlDataAdapter(cmd)
         da.Fill(dt)
         ListTeachers = dt
-
         cmd.Dispose()
         dt.Dispose()
         da.Dispose()
     End Function
-
     Public Shared Function TeacherMaterials(ByVal ClassID As Integer, ByVal SubjectID As Integer) As Data.DataTable
         Dim cmd As New Data.SqlClient.SqlCommand
         cmd.Connection = con
@@ -26,12 +24,10 @@ Public Class Teacher
         cmd.CommandType = Data.CommandType.StoredProcedure
         cmd.Parameters.Add("@ClassID", SqlDbType.Int).Value = ClassID
         cmd.Parameters.Add("@SubjectID", SqlDbType.Int).Value = SubjectID
-
         Dim dt As New Data.DataTable
         Dim da As New Data.SqlClient.SqlDataAdapter(cmd)
         da.Fill(dt)
         TeacherMaterials = dt
-
         cmd.Dispose()
         dt.Dispose()
         da.Dispose()

@@ -2,12 +2,9 @@
 	<head>
 		<!-- Created using Articulate Storyline 1.2 - http://www.articulate.com  --> 
 		<!-- version: 1.2.1212.1412 --> 
-		
 		<!-- saved from url=(0014)about:internet -->
 		<title>&#1575;&#1604;&#1604;&#1594;&#1577; &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577; - &#1575;&#1604;&#1605;&#1587;&#1578;&#1608;&#1609; &#1575;&#1604;&#1579;&#1575;&#1606;&#1610; - &#1575;&#1604;&#1580;&#1586;&#1569; &#1575;&#1604;&#1579;&#1575;&#1606;&#1610;</title>
-		
 		<script>
-			
 			/******************************************************************************/
 			//
 			// NOTE TO DEVELOPERS:
@@ -18,33 +15,26 @@
 			// event is triggered.
 			//
 			/******************************************************************************/		
-		
-		
 			var Safari =  (navigator.appVersion.indexOf("Safari") >= 0);
-			
 			var g_bChromeless = true;
 			var g_bResizeable = true;
 			var g_nContentWidth = 780;
 			var g_nContentHeight = 484;
 			var g_strStartPage = "story.html";
 			var g_strBrowserSize = "default";
-		
 			function LaunchContent()
 			{
 				var nWidth = screen.availWidth;
 				var nHeight = screen.availHeight;
-
 				if (nWidth > g_nContentWidth && nHeight > g_nContentHeight && g_strBrowserSize != "fullscreen")
 				{
 					nWidth = g_nContentWidth;
 					nHeight = g_nContentHeight;
-					
 					if (!Safari && !g_bChromeless)
 					{
 						nWidth += 17;
 					}
 				}
-
 				// Build the options string
 				var strOptions = "width=" + nWidth +",height=" + nHeight;
 				if (g_bResizeable)
@@ -55,7 +45,6 @@
 				{
 					strOptions += ",resizable=no"
 				}
-
 				if (g_bChromeless)
 				{
 					strOptions += ", status=0, toolbar=0, location=0, menubar=0, scrollbars=0";
@@ -64,7 +53,6 @@
 				{
 					strOptions += ", status=1, toolbar=1, location=1, menubar=1, scrollbars=1";
 				}
-
 				// Launch the URL
 				if (Safari)
 				{
@@ -76,13 +64,8 @@
 					window.open(g_strStartPage , "_blank", strOptions);
 				}
 			}
-
-			
-			
 		</script>
-		
 	</head>
-	
 	<body onload="setTimeout('LaunchContent()', 100);">
 		<center>
 			<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">

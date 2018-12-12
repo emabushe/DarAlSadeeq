@@ -1,9 +1,6 @@
-﻿
-Partial Class admin_DeleteHandMakeType
+﻿Partial Class admin_DeleteHandMakeType
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
-    
         Dim Result As Boolean = Admin.DeleteHandMake(DrpDwnType.SelectedValue)
         If Result Then
             Label1.ForeColor = Drawing.Color.Green

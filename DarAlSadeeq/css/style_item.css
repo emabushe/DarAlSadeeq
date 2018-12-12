@@ -1,6 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-
 .item_rep{
 	width: 100%;
 	float: left;
@@ -85,20 +84,16 @@ float:left;}
 width:100%;
 height:auto;
 float:left;}
-
 .item_1
 {
     width:250px;
     height:auto;
     float:right;
     }
-    
     #Video
     {
         text-align:left;
     }
-    
-    
     /* Rating */
 .ratingStar {
     font-size: 0pt;
@@ -110,16 +105,12 @@ float:left;}
     display: block;
     background-repeat: no-repeat;
 }
-
 .filledRatingStar {
     background-image: url(../images/FilledStar.png);
-
 }
-
 .emptyRatingStar {
     background-image: url(../images/EmptyStar.png);
 }
-
 .savedRatingStar {
     background-image: url(../images/FilledStar.png);
 }
@@ -130,7 +121,6 @@ float:left;}
 .center_kiswany
 {
     text-align:center;
-    
     }
     .tahoma
     {
@@ -154,7 +144,6 @@ float:left;}
                  font-family:Verdana;
             color:Green;
             font-size:10pt;
-                
                 }
             .Sans
             {
@@ -165,5 +154,4 @@ float:left;}
                     font-family:Tahoma;
                     font-size:10pt;
                         color:Purple;
-                    
                     }

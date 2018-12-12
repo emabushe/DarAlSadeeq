@@ -9,12 +9,10 @@ Public Class AboutUs
         cmd.CommandText = "ES_GetPage"
         cmd.CommandType = Data.CommandType.StoredProcedure
         cmd.Parameters.Add("@PageCode", SqlDbType.NVarChar).Value = PageCode
-
         Dim dt As New Data.DataTable
         Dim da As New Data.SqlClient.SqlDataAdapter(cmd)
         da.Fill(dt)
         GetAboutUs = dt
-
         cmd.Dispose()
         dt.Dispose()
         da.Dispose()

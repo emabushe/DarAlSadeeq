@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/ar/ibooks/ibooks_Master.master"
     AutoEventWireup="false" CodeFile="BooksShelf.aspx.vb" Inherits="ar_ibooks_BooksShelf" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentClassContainer" runat="Server">
     <div class="classes-container" style="background: url(../../images/Bookshelf.png);">
         <asp:Repeater ID="RepeateribBooks" runat="server">

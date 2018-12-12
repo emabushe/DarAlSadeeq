@@ -35,7 +35,6 @@
                             إضافة موضوع إلى تعلم وإلعب</p>
                     </td>
                 </tr>
-          
                 <tr>
                     <td style="width: 111px">
                         <p>
@@ -43,11 +42,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtSubjectName" runat="server"  Width="50%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtSubjectName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
-                        
                     </td>
                 </tr>
                 <tr>
@@ -57,19 +53,14 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="UploaderMatFile" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="UploaderMatFile" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
-                      
-                        
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 111px">
-                       
                     </td>
                     <td>
-                        
                     </td>
                 </tr>
                 <tr>

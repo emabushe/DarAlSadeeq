@@ -18,7 +18,6 @@
             <ul class="box">
                 <li id="submenu-active"><a href="AddAds.aspx">إضافة إعلان</a></li>
                 <li ><a href="DeleteAds.aspx">حذف  إعلان</a></li>
-              
             </ul>
         </div>
         <!-- /aside -->
@@ -60,12 +59,9 @@
                              صورة الإعلان </p>
                     </td>
                     <td>
-                        
                         <asp:FileUpload ID="UploaderAdPic" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                             ControlToValidate="UploaderAdPic" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>

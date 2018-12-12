@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/ar/ibooks/ibooks_Master.master"
     AutoEventWireup="false" CodeFile="Lessons.aspx.vb" Inherits="ar_ibooks_Lessons" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentClassContainer" runat="Server">
     <div class="classes-container material">
         <div id="classDiv" runat="server" class="block-classes" style="margin-right: 10px;">

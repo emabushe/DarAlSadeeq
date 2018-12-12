@@ -1,7 +1,5 @@
-﻿
-Partial Class ar_WorkSheetsMaterial
+﻿Partial Class ar_WorkSheetsMaterial
     Inherits System.Web.UI.Page
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             Dim subjectID As Integer = Request.QueryString("sid")
@@ -20,7 +18,6 @@ Partial Class ar_WorkSheetsMaterial
                 End If
             Else
                 Dim DT As Data.DataTable = Worksheets.ViewLearnMaterails(subjectID)
-
                 If DT.Rows.Count <> 0 Then
                     Me.Title = "دار الصديق :: " & DT.Rows(0).Item("ClassNameAr") & " - " & DT.Rows(0).Item("SubjectNameAr")
                     aClassName.InnerText = DT.Rows(0).Item("ClassNameAr")
@@ -31,16 +28,11 @@ Partial Class ar_WorkSheetsMaterial
                     Repeater1.DataSource = DT
                     Repeater1.DataBind()
                 End If
-
             End If
-
-
             If subjectID = Nothing Then
                 lblBody.Visible = True
             End If
-
         End If
-
     End Sub
     Protected Sub Repeater1_ItemDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.RepeaterItemEventArgs) Handles Repeater1.ItemDataBound
         If e.Item.ItemType = ListItemType.Item Or e.Item.ItemType = ListItemType.AlternatingItem Then

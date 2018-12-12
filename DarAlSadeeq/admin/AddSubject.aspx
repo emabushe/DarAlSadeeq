@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="AddSubject.aspx.vb" Inherits="admin_AddSubject" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -29,7 +28,6 @@
         <hr class="noscreen" />
         <!-- Content (Right Column) -->
         <div id="content" class="box">
-       
             <table width="99%">
                 <tr>
                     <td colspan="2">
@@ -48,7 +46,6 @@
                             ControlToValidate="txtSubjectName" ErrorMessage="يجب إدخال الإسم"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-           
                <tr>
                     <td style="width: 111px">
                         <p>
@@ -56,7 +53,6 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="UploaderMatFile" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                             ControlToValidate="UploaderMatFile" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
                         &nbsp;</td>
@@ -74,7 +70,6 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Save" runat="server" Text="حفظ" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>

@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddGameClass
+﻿Partial Class admin_AddGameClass
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Save.Click
         Dim Result As Boolean = Admin.InsertGameClass(Trim(txtClassName.Text))
         If Result Then

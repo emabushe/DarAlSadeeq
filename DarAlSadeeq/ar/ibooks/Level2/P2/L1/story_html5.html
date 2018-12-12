@@ -9,10 +9,8 @@
 	<!--[if lt IE 9]><script>location.href = location.href.replace("_html5", "_unsupported");</script><![endif]-->
 </head>
 <body>
-
 	<div class="interstitial white"></div>
 	<span id="loadingSpinner" class="loading"></span>
-
 	<div class="framewrap">
 		<div class="landscape_menu no_logo">
 			<div class="logo_background"></div>
@@ -23,7 +21,6 @@
 				</ul>
 			</div>
 		</div>
-		
 		<div class="contentpane">
 			<div id="slidebg"></div>
 			<div id="topbar">
@@ -40,7 +37,6 @@
 				<div id="control-next" class="controlbar-button right"><div class="label next">NEXT</div><a class="icon next-slide"></a></div>
 				<div id="control-previous" class="controlbar-button right"><a class="icon previous-slide"></a><div class="label prev">PREV</div></div>
 				<div id="control-volume" class="controlbar-button compact"><a class="icon volume"></a></div>
-
 				<div id="control-progress" class="controlbar-button">
 					<div id="control-pauseplay" class="ignore">
 						<a class="icon wait"></a>
@@ -57,18 +53,14 @@
 		</div>
 	</div>
 </body>
-
 <script src="mobile/storyline_compiled.js" type="text/javascript"></script>
-
 <script>
-
 	player.autoplay = true;
 	trace.suppress = true;
 	console.suppress = true;
 	player.loopable = false;
 	player.allowRightClick = false;
 	player.isHTML5 = true;
-
 	var globals = {};
 	try
 	{
@@ -92,12 +84,9 @@
 	}
 	catch (e) {}
 	player.initGlobals();
-
-
 	var strParams = document.location.search.substr(1);
 	var arrParams = strParams.split("&");
 	var arrCmdValue;
-
 	for (var i = 0; i < arrParams.length; i++)
 	{
 		arrCmdValue = arrParams[i].split("=");
@@ -111,12 +100,10 @@
 				break;
 		}
 	}
-
 	if (globals.bLMS)
 	{
 		document.write("<scr" + "ipt src='lms/lms.js' type='text/javascript' charset='utf-8'><\/scr" + "ipt>");
 	}
-
 	document.write("<scr" + "ipt src='mobile/data.js' type='text/javascript' charset='utf-8'><\/scr" + "ipt>");
 	document.write("<scr" + "ipt src='" + globals.strContentFolder + "/frame.js' type='text/javascript' charset='utf-8'><\/scr" + "ipt>");
 	document.write("<scr" + "ipt src='" + globals.strContentFolder + "/user.js' type='text/javascript' charset='utf-8'><\/scr" + "ipt>");
@@ -125,5 +112,4 @@
 		document.write("<scr" + "ipt src='mobile/masks.js' type='text/javascript' charset='utf-8'><\/scr" + "ipt>");
 	}
 </script>
-
 </html>

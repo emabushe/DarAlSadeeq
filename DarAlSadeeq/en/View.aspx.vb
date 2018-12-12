@@ -1,7 +1,5 @@
-﻿
-Partial Class ar_View
+﻿Partial Class ar_View
     Inherits System.Web.UI.Page
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Request.QueryString("mid").ToString = "" Then
             lblBody.Visible = True
@@ -19,7 +17,6 @@ Partial Class ar_View
                 classDiv.Style("background") = dt2.Rows(0).Item("DivBg")
             Else
                 Dim dt As Data.DataTable = Worksheets.GetMaterial(MaterialID)
-
                 If dt.Rows.Count = 0 Then
                     lblBody.Visible = True
                 Else
@@ -33,13 +30,9 @@ Partial Class ar_View
                     classDiv.Style("background") = dt.Rows(0).Item("DivBg")
                 End If
             End If
-
-
         End If
-
     End Sub
     Protected Function GetFileName() As String
-
         If Request.QueryString("mid").ToString = "" Then
             Response.Redirect("WorkSheets.aspx")
         End If
@@ -51,12 +44,9 @@ Partial Class ar_View
             Return DT2.Rows(0).Item("MaterialFile").ToString
         Else
             Dim dt As Data.DataTable = Worksheets.GetMaterial(MaterialID)
-
             lblMaterialTitle.Text = dt.Rows(0).Item("TitleEn").ToString
             Me.Title = dt.Rows(0).Item("TitleEn").ToString
             Return dt.Rows(0).Item("MaterialFile").ToString
         End If
-
-      
     End Function
 End Class

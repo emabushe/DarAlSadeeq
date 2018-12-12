@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_DeleteLifeType
+﻿Partial Class admin_DeleteLifeType
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim Result As Boolean = Admin.DeleteLifeType(DrpDwnType.SelectedValue)
         If Result Then

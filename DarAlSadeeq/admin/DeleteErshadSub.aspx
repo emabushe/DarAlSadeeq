@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="DeleteErshadSub.aspx.vb" Inherits="admin_DeleteErshadSub" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -51,7 +50,6 @@
                             SelectCommand="SELECT * FROM [HandMake]"></asp:SqlDataSource>
                     </td>
                 </tr>
-           
            <tr>
                     <td style="width: 111px">
                         <p>
@@ -64,7 +62,6 @@
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
-                            
                             SelectCommand="SELECT * FROM [HandMakeSub] WHERE ([HandMakeID] = @HandMakeID)">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="DrpDwnType" Name="HandMakeID" 
@@ -86,11 +83,9 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Delete" runat="server" Text="حذف" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>
-
             </ContentTemplate>
                 </asp:UpdatePanel>
         </div>

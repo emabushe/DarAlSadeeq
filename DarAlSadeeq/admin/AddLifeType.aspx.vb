@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddLifeType
+﻿Partial Class admin_AddLifeType
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Save.Click
         Dim strName As String = UploaderMatFile.FileName
         Dim Result As Boolean = Admin.InsertLifeType(Trim(txtSubjectName.Text), "~/images/" + strName)

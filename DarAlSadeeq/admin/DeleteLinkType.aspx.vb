@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_DeleteLinkType
+﻿Partial Class admin_DeleteLinkType
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim Result As Boolean = Admin.DeleteLinkType(DrpDwnClassName.SelectedValue)
         If Result Then

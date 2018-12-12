@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddSchool
+﻿Partial Class admin_AddSchool
     Inherits System.Web.UI.Page
-
     Protected Sub btn_save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_save.Click
         Dim Result As Boolean = Admin.InsertSchool(Trim(txtName.Text), Trim(txtWebsite.Text), "~/images/" & Trim(UploaderMatFile.FileName), CInt(RadioButtonList2.SelectedValue), CInt(RadioButtonList1.SelectedValue))
         If Result Then

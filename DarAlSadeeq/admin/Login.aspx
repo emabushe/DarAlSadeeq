@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Login.aspx.vb" Inherits="admin_Login" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>ADMIN ONLY!!</title>
@@ -37,18 +35,15 @@
                                 <tr>
                                     <td style="padding-top: 10px; text-align: left; padding-left: 5px;">
                                         <asp:ImageButton ID="btnLogin" runat="server" ImageUrl="~/images/btnLogin.png" />
-                            
                                         <br />
                                         <asp:Label ID="Label1" runat="server" Text="Username or password is not available" ForeColor="Red" Visible="false" ></asp:Label>
                                     </td>
-                                    
                                 </tr>
                             </table>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            
                         </td>
                     </tr>
                 </table>

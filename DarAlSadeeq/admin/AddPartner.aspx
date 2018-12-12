@@ -18,7 +18,6 @@
             <ul class="box">
                 <li id="submenu-active"><a href="AddPartner.aspx">إضافة شريك</a></li>
                 <li ><a href="DeletePartner.aspx">حذف  شريك</a></li>
-              
             </ul>
         </div>
         <!-- /aside -->
@@ -60,11 +59,9 @@
                              الموقع الإلكتروني</p>
                     </td>
                     <td>
-                        
                         <asp:TextBox ID="txtWebsite" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                             ControlToValidate="txtWebsite" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -90,5 +87,4 @@
         <!-- /footer -->
     </div>
 </asp:Content>
-
 

@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_DeleteActivitySub
+﻿Partial Class admin_DeleteActivitySub
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim Result As Boolean = Admin.DeleteActivitySub(DropDownList1.SelectedValue)
         If Result Then

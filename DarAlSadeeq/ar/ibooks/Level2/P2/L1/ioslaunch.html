@@ -2,11 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<title>????? ??????? - ??????? ?????? - ????? ??????</title>
-			
 	<!-- META -->
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
 	<style>
 		html,body,div,h1,p,a{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}
 		a img{border:0; width 290}
@@ -33,50 +31,36 @@
 			div.container div.launch_meta{float:left;width:300px}
 			div.mobile_app h1{font-size:24px}
 		}
-
 	</style>
-	
 	 <script>
 		var g_strProjectId = "6PcGNJdYNKZ";
 		var g_bOfflineViewing = true;
-
 		var g_strHash = document.location.hash;
 		document.location.hash = "";		
-		
 		var g_strLink = "";
 		var g_strPath = window.location.protocol + "//" + window.location.host;
 		var arrPath = window.location.pathname.split("/");
 		var g_nLaunchTime = 0;
-
 		arrPath.length = arrPath.length - 1;
 		g_strPath += arrPath.join("/");
 		g_strPath = g_strPath.replace(/ /g, "%20");
-
 		g_strLink = "path=" + g_strPath;
 		g_strLink += "&projectid=" + g_strProjectId;
-		
 		var strQuery = g_strHash.substr(1);
 		g_strLink += "&" + decodeURIComponent(strQuery);
-
 		function LaunchMobilePlayer(bDownload)
 		{	
 			g_nLaunchTime = new Date().getTime();
-			
 			var strLink = "artmobileplayer://?" + escape(g_strLink)
-			
 			if (bDownload)
 			{
 				strLink += "&download=true";
 			}
-			
 			setTimeout(ShowNow, 1000);
-			
 			var frmLoad = document.getElementById("frame_load");
 			frmLoad.src = strLink;
-			
 			return false;
 		}
-
 		function ShowNow()
 		{
 			if ((new Date().getTime()) - g_nLaunchTime < 1500)
@@ -84,20 +68,14 @@
 				document.location = "mobile/mobileinstall.html" + g_strHash;
 			}
 		}
-		
 		function Launch()
 		{
 			setTimeout(LaunchMobilePlayer, 50);
 		}
-		
 	 </script>	
-	
 </head>
-	
 <body class="launch" onload="Launch()">
-
 	<div class="wrap">
-	
 		<div class="container">
 			<div class="launch_meta">
 				<h1>????? ??????? - ??????? ?????? - ????? ??????</h1>
@@ -108,11 +86,9 @@
 				<img src="story_content/thumbnail.jpg"  />
 			</div>
 		</div>
-
 	</div>
 	<div  style="display: none;">
 		<iframe id="frame_load"></iframe>
 	</div>	
 </body>
-
 </html>

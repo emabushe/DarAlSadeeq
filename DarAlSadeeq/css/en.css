@@ -2,7 +2,6 @@ html
 {
 	background-color: #A3CDFF;
 }
-
 #page
 {
 	z-index: 1;
@@ -16,7 +15,6 @@ html
 	margin-left: auto;
 	margin-right: auto;
 }
-
 #u419
 {
 	z-index: 2;
@@ -25,7 +23,6 @@ html
 	margin-right: -840px;
 	margin-top: 1px;
 }
-
 #u306
 {
 	z-index: 4;
@@ -36,7 +33,6 @@ html
 	margin-top: 361px;
 	left: 722px;
 }
-
 #u306:hover
 {
 	background-image: url("../images/flashcards_hover.png");
@@ -44,7 +40,6 @@ html
 	background-position: left top;
 	margin: 361px -118px 0px 0px;
 }
-
 #u323
 {
 	z-index: 6;
@@ -55,7 +50,6 @@ html
 	margin-top: 400px;
 	left: 599px;
 }
-
 #u323:hover
 {
 	background-image: url("../images/demos_hover.png");
@@ -63,13 +57,11 @@ html
 	background-position: left top;
 	margin: 400px -118px 0px 0px;
 }
-
 #u323.MuseLinkActive
 {
 	background-image: none;
 	margin: 400px -118px 0px 0px;
 }
-
 #u334
 {
 	z-index: 8;
@@ -80,7 +72,6 @@ html
 	margin-top: 407px;
 	left: 477px;
 }
-
 #u334:hover
 {
 	background-image: url("../images/songs_hover.png");
@@ -88,13 +79,11 @@ html
 	background-position: left top;
 	margin: 407px -118px 0px 0px;
 }
-
 #u334.MuseLinkActive
 {
 	background-image: none;
 	margin: 407px -118px 0px 0px;
 }
-
 #pu345
 {
 	width: 0.01px;
@@ -103,7 +92,6 @@ html
 	margin-top: 364px;
 	left: 350px;
 }
-
 #u345
 {
 	z-index: 11;
@@ -112,7 +100,6 @@ html
 	margin-right: -133px;
 	visibility: visible;
 }
-
 #u345-2
 {
 	z-index: 13;
@@ -121,17 +108,14 @@ html
 	margin-right: -133px;
 	visibility: hidden;
 }
-
 #pu345:hover #u345
 {
 	visibility: hidden;
 }
-
 #pu345:hover #u345-2
 {
 	visibility: visible;
 }
-
 #u356
 {
 	z-index: 15;
@@ -142,7 +126,6 @@ html
 	margin-top: 342px;
 	left: 232px;
 }
-
 #u356:hover
 {
 	background-image: url("../images/games_hover.png");
@@ -150,13 +133,11 @@ html
 	background-position: left top;
 	margin: 342px -118px 0px 0px;
 }
-
 #u356.MuseLinkActive
 {
 	background-image: none;
 	margin: 342px -118px 0px 0px;
 }
-
 #u367
 {
 	z-index: 17;
@@ -167,7 +148,6 @@ html
 	margin-top: 361px;
 	left: 113px;
 }
-
 #u367:hover
 {
 	background-image: url("../images/videos_hover.png");
@@ -175,13 +155,11 @@ html
 	background-position: left top;
 	margin: 361px -118px 0px 0px;
 }
-
 #u306.MuseLinkActive,#u367.MuseLinkActive
 {
 	background-image: none;
 	margin: 361px -118px 0px 0px;
 }
-
 #u378
 {
 	z-index: 19;
@@ -191,7 +169,6 @@ html
 	margin-top: 191px;
 	left: 97px;
 }
-
 #u383
 {
 	z-index: 21;
@@ -201,7 +178,6 @@ html
 	margin-top: 193px;
 	left: 37px;
 }
-
 #u389
 {
 	z-index: 23;
@@ -211,7 +187,6 @@ html
 	margin-top: 6px;
 	left: 38px;
 }
-
 #u402
 {
 	z-index: 25;
@@ -221,13 +196,11 @@ html
 	margin-top: 318px;
 	left: -4px;
 }
-
 #u345_img,#u345-2_img,#u402_img
 {
 	display: block;
 	vertical-align: top;
 }
-
 #u408
 {
 	z-index: 27;
@@ -238,7 +211,6 @@ html
 	margin-top: 417px;
 	left: 29px;
 }
-
 #u408:hover
 {
 	background-image: url("../images/aboutus_hover.png");
@@ -246,13 +218,11 @@ html
 	background-position: left top;
 	margin: 417px -82px 0px 0px;
 }
-
 #u408.MuseLinkActive
 {
 	background-image: none;
 	margin: 417px -82px 0px 0px;
 }
-
 #u419_img,#u306_img,#u323_img,#u334_img,#u356_img,#u367_img,#u378_img,#u383_img,#u389_img,#u408_img
 {
 	vertical-align: top;

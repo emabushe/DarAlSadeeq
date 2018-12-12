@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="DeleteLink.aspx.vb" Inherits="admin_DeleteLink" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -51,7 +50,6 @@
                             SelectCommand="SELECT * FROM [LinksTypes]"></asp:SqlDataSource>
                     </td>
                 </tr>
-           
            <tr>
                     <td style="width: 111px">
                         <p>
@@ -84,11 +82,9 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Delete" runat="server" Text="حذف" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>
-
             </ContentTemplate>
                 </asp:UpdatePanel>
         </div>

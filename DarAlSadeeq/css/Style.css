@@ -7,21 +7,16 @@
          url('../fonts/ge-ss-two-medium.svg#ge_ss_two_mediumregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
-
 @font-face {
     font-family: EnglishFont;
     src: url('../fonts/BreeSerif-Regular.otf');
 }
-
 html
 {
     background: #8dcacd;
     height:100%;
-
 }
-
 body
 {
     color: #5C5A5A;
@@ -80,7 +75,6 @@ a img
     margin: auto;
     text-align: left;
 }
-
 .site-container
 {
     text-align:center;
@@ -88,7 +82,6 @@ a img
     height:100%;
     background:url(../images/footer.png) repeat-x center bottom;
 }
-
 .clouds-container
 {
     text-align:center;
@@ -99,9 +92,7 @@ a img
     -moz-animation: moveclouds 100s linear infinite;
     -o-animation: moveclouds 100s linear infinite;
 	-webkit-transition:left;
-	
 }
-
 @-webkit-keyframes moveclouds {
 	0% {background-position: 0 0;}
 	100% {background-position: 5000px 0;}
@@ -114,7 +105,6 @@ a img
 	0% {background-position: 0 0;}
 	100% {background-position: 5000px 0;}
 }
-
 .everything-inside
 {
     height:630px;
@@ -134,8 +124,6 @@ a img
 	-moz-border-radius: 15px;
     border-radius: 15px;
     left:950px;
-	
-	
 }
 .enlanguage
 {
@@ -150,7 +138,6 @@ a img
     filter:alpha(opacity=60);
 	-moz-border-radius: 15px;
     border-radius: 15px;
-   
 }
 .enlanguage a
 {
@@ -187,14 +174,12 @@ a img
 {
     color:#00101D;
 }
-
 .blocks-container
 {
     margin:auto;
     width:935px;
     padding-top:22px;
 }
-
 .block-main
 {
     width: 230px;
@@ -203,7 +188,6 @@ a img
     float:right;
     height:140px;
     background:url(../images/ibooks.png) 0 200px no-repeat #00b3b5;
-    
     -moz-transition: background-position 1s ease;
     /* WebKit */
     -webkit-transition:background-position 1s ease;
@@ -215,78 +199,54 @@ a img
     border-radius: 15px;
     box-shadow: 5px 5px 5px #79471D;
 }
-
 .block-main.block2
 {
-
     background:url(../images/workSheets.png) 0 200px no-repeat #543070;
-
-	
 }
-
 .block-main.block3
 {
-	
     background:url(../images/teacher.png) 0 200px no-repeat #c9db2a;
-    
-  
 }
-
 .block-main.block4
 {
-
     background:url(../images/storiesSongs.png) 0 200px no-repeat #4789A5;
 	position:absolute;
-    
-    
 }
-
 .block-main.block5
 {
 	background:url(../images/games.png) 0 200px no-repeat #ffba00;
 }
-
 .block-main.block6
 {
 	background:url(../images/Activities.png) 0 200px no-repeat #93a923;
 }
-
 .block-main.block7
 {
 	background:url(../images/Guidence.png) 0 200px no-repeat #b9131a;
 }
-
 .block-main.block8
 {
 	background:url(../images/HandMake.png) 0 200px no-repeat #79aede;
 }
-
 .block-main.block9
 {
 		background:url(../images/ChangeYourLife.png) 0 200px no-repeat #ef4e22;
 }
-
 .block-main.block10
 {
 		background:url(../images/Talents.png) 0 200px no-repeat #c6187c;
 }
-
-
 .block-main:hover
 {
     cursor:pointer;
     background-position:0 50px;
 }
-
 .block-main span
 {
     color:#fff;
     font-size:30px;
     line-height:136px;
-
 }
-
-
 .footerDiv{
 	width: 140px;
     height:60px;
@@ -322,7 +282,6 @@ filter:alpha(opacity=100);
 	height:40px;
 	opacity:0.7;
 filter:alpha(opacity=70);
-	
 }
 .fb:hover
 {
@@ -345,17 +304,14 @@ filter:alpha(opacity=70);
 	opacity:1.0;
 filter:alpha(opacity=100);
 }
-
 .no-margin
 {
     margin-left:0;
 }
-
 .clear-block
 {
     clear:right;
 }
-
 .logo-img
 {
     width:200px;
@@ -370,14 +326,10 @@ filter:alpha(opacity=100);
     background:url(../images/Dar_Logo_en.png);
     background-repeat:no-repeat;
 }
-
-
 #page2
 {
     /*text-align:right;*/
-    
 }
-
 h1
 {
     color: #000;
@@ -390,20 +342,17 @@ h1
     width: 665px;
     height: 580px;
 }
-
 h1 p
 {
     font-size:20px;
     font-weight:normal;
     margin-bottom:30px;
 }
-
 .multi-img
 {
     overflow:hidden;
     float:right;
 }
-
 .multi-img .img-choise
 {
     padding:10px;
@@ -422,46 +371,37 @@ h1 p
     transition:all .3s ease-in;
     position:relative;
 }
-
 .multi-img .img-choise:hover
 {
     margin-top:3px;
     background:#BA131A !important;
     opacity:1 !important;
 }
-
 .multi-img .img-choise.block2
 {
     background:#FFD400;
 }
-
 .multi-img .img-choise.block3
 {
     background:#94A924;
 }
-
 .multi-img .img-choise.block4
 {
     background:#F04E23;
 }
-
 .button-container
 {
     margin-top:80px;
-    
 }
-
 .button-container img
 {
     margin-bottom:30px;
     cursor:pointer;
 }
-
 .button-container img:hover
 {
     opacity:.75;
 }
-
 .correct
 {
     border:solid 5px #fff;
@@ -479,36 +419,30 @@ h1 p
     direction:rtl;
     display:none;
 }
-
 .correct h3
 {
     font-size:30px;
     text-align:center;
     text-shadow: 0px 2px 0px #000;
 }
-
 .correct p
 {
     text-shadow: 0px 2px 0px #000;
     padding:10px 0;
     text-align:center;
 }
-
 .correct .btn-container
 {
     text-align:center;
 }
-
 .correct .btn-container img
 {
     cursor:pointer;
 }
-
 .correct .btn-container img:hover
 {
     opacity:.75;
 }
-
 .wrong
 {
     border:solid 5px #fff;
@@ -526,31 +460,26 @@ h1 p
     direction:rtl;
     display:none;
 }
-
 .wrong h3
 {
     font-size:30px;
     text-align:center;
     text-shadow: 0px 2px 0px #000;
 }
-
 .wrong p
 {
     text-shadow: 0px 2px 0px #000;
     padding:10px 0;
     text-align:center;
 }
-
 .wrong .btn-container
 {
     text-align:center;
 }
-
 .wrong .btn-container img
 {
     cursor:pointer;
 }
-
 .correct .btn-container img:hover
 {
     opacity:.75;

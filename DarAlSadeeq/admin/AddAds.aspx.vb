@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_AddAds
+﻿Partial Class admin_AddAds
     Inherits System.Web.UI.Page
-
     Protected Sub btn_save_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_save.Click
         Dim Result As Boolean = Admin.InsertAd(txtName.Text, "~/Ads/" & UploaderLogo.FileName, "~/Ads/" & UploaderAdPic.FileName)
         UploaderLogo.SaveAs(Server.MapPath("~/Ads/") & UploaderLogo.FileName)

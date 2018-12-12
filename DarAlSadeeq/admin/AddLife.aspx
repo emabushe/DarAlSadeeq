@@ -22,7 +22,6 @@
                 <li ><a href="DeleteLife.aspx">حذف  موضوع</a></li>
                 <li ><a href="AddLifeType.aspx"> إضافة تصنيف </a></li>
                 <li><a href="DeleteLifeType.aspx"> حذف تصنيف </a></li>
-            
             </ul>
         </div>
         <!-- /aside -->
@@ -49,7 +48,6 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
                             SelectCommand="SELECT * FROM [LifeType]">
-                           
                         </asp:SqlDataSource>
                     </td>
                 </tr>
@@ -60,10 +58,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtName" runat="server"  Width="50%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                <tr>
@@ -101,7 +97,6 @@
                         </td>
                     </tr>
                 </asp:Panel>
-             
                 <tr>
                     <td style="width: 150px">
                     </td>

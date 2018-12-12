@@ -1,5 +1,4 @@
-﻿
-.locked {
+﻿.locked {
     background: url(../images/lock.png) top left no-repeat !important;
 }
 .block-main
@@ -10,7 +9,6 @@
     float:right;
     height:140px;
     background:url(../images/OurProducts.png) 0 200px no-repeat #00b3b5;
-    
     -moz-transition: background-position 1s ease;
     /* WebKit */
     -webkit-transition:background-position 1s ease;
@@ -22,57 +20,44 @@
     border-radius: 15px;
     box-shadow: 5px 5px 5px #79471D;
 }
-
     .block-main.block2 {
         background: url(../images/ebooks.png) 0 200px no-repeat #543070;
     }
-
     .block-main.block3 {
         background: url(../images/1st.png) 0 200px no-repeat #c9db2a;
     }
-
     .block-main.block4 {
         background: url(../images/books.png) 0 200px no-repeat #4789A5;
     }
-
     .block-main.block5 {
         background: url(../images/storiesSongs.png) 0 200px no-repeat #ffba00;
     }
-
     .block-main.block6 {
         background: url(../images/workSheets.png) 0 200px no-repeat #93a923;
     }
-
     .block-main.block7 {
         background: url(../images/teacher.png) 0 200px no-repeat #b9131a;
     }
-
     .block-main.block8 {
         background: url(../images/videos.png) 0 200px no-repeat #79aede;
     }
-
     .block-main.block9 {
         background: url(../images/Guidence.png) 0 200px no-repeat #ef4e22;
     }
-
     .block-main.block10 {
         background: url(../images/ChangeYourLife.png) 0 200px no-repeat #c6187c;
     }
-
     .block-main:hover {
         cursor: pointer;
         background-position: 0 50px;
     }
-
     .block-main span {
         color: #fff;
         font-size: 18px;
         line-height: 136px;
     }
-
 .workSheets
 {
-
     background:url(../images/workSheets.png) 0 200px no-repeat #543070;
 	position:absolute;
     }
@@ -81,7 +66,6 @@
     color:#FFF;
     font-size:30px;
     line-height:136px;
-
 }
 .block-classes
 {
@@ -92,7 +76,6 @@
     float:right;
     height:100px;
     background:url(../images/kg1.png) 0 200px no-repeat #00b3b5;
-    
     -moz-transition: background-position 1s ease;
     /* WebKit */
     -webkit-transition:background-position 1s ease;
@@ -106,27 +89,16 @@
 }
 .blockKG2
 {
-
     background:url(../images/kg2.png) 0 200px no-repeat #543070;
-
-	
 }
 .block1st
 {
-	
     background:url(../images/1st.png) 0 200px no-repeat #c9db2a;
-    
-  
 }
-
 .block2nd
 {
-
     background:url(../images/2nd.png) 0 200px no-repeat #4789A5;
-    
-    
 }
-
 .block3rd
 {
 	background:url(../images/3rd.png) 0 200px no-repeat #ffba00;
@@ -150,23 +122,19 @@
 .blockStories {
     background: url(../images/storiesSongs.png) 0 200px no-repeat #4789A5;
 }
-
 .blockActivities {
     background: url(../images/Activities.png) 0 200px no-repeat #93a923;
 }
-
 .block-classes:hover
 {
     cursor:pointer;
     background-position:0 50px;
 }
-
 .block-classes span
 {
     color:#fff;
     font-size:20px;
     line-height:100px;
-
 }
 .classes-container
 {
@@ -175,7 +143,6 @@
     border-radius: 15px;
     box-shadow: 1px 1px 1px 2px #79471D;
 }
-
 .classes-container.material
 {
     height:115px;
@@ -192,7 +159,6 @@
     margin-top:25px;    
     overflow:auto;
 }
-
 .subjectsContainer.material
 {
     height:115px;
@@ -227,7 +193,6 @@
     padding-top:40px;
     padding-left:40px;
 }
-
 .hidden
 {
     display:none;
@@ -235,26 +200,22 @@
 /**************** iBooks ***************/
 .ibooks
 {
-
     background:url(../images/ibooks.png) 0 200px no-repeat #00b3b5;
 	position:absolute;
     }
 /**************** Teacher ***************/
 .teacherBlock
 {
-
     background:url(../images/teacher.png) 0 200px no-repeat #c9db2a;
 	position:absolute;
     }
 .classes-container.teacher
 {
     height:115px;
-   
 }
 .subjectsContainer.teacher
 {
     height:400px;
-    
 }
 /*************** Songs and Stories  ****************/
 .songsstoriesBlock
@@ -262,7 +223,6 @@
     background:url(../images/storiesSongs.png) 0 200px no-repeat #4789A5;
 	position:absolute;   
 }
-
 .songTitle
 {
     color:#307CB8;
@@ -277,7 +237,6 @@
 	background-color:Gray;
 	filter:alpha(opacity=70);
 	opacity:0.7;}
-	
 .ModalPopup
 {
 	background-color:White;
@@ -305,14 +264,12 @@
 	background-color:#79471D;
 	color:White;
 	margin-top:5px;
-	
 	}
 	.Content
 {
 	text-align:right;
 	padding-left:30px;
 	padding-right:30px;
-
 	}
 	/********** Activities *****/
 	.activities
@@ -320,29 +277,24 @@
     background:url(../images/Activities.png) 0 200px no-repeat #93a923;
 	position:absolute;
     }
-    
     /*********** Guidence ***************/
     .guidance
     {
     background:url(../images/Guidence.png) 0 200px no-repeat #b9131a;
 	position:absolute;
     }
-    
     /************** HandMake ***********/
-    
       .handMake
     {
     background:url(../images/HandMake.png) 0 200px no-repeat #79aede;
 	position:absolute;
     }
-    
     /************* ChangeYourLife ******/
           .changeYourLife
     {
     background:url(../images/ChangeYourLife.png) 0 200px no-repeat #ef4e22;
 	position:absolute;
     }
-    
     /************* Talents *********/
             .talents
     {
@@ -364,13 +316,11 @@
         border-width:1px;
         border-color:#000;
     }
-    
     /************* General ***********/
     .generalTab
     {
     background:url(../images/Dar_Icon.png) 0 200px no-repeat #F8EE78;
 	position:absolute;
-	
     }
     .generatTab span
     {
@@ -407,7 +357,6 @@ filter:alpha(opacity=90);
       top: 0;
       left: 0;
       color: white;
-      
     }
     .pop-content {
       background-color: white;
@@ -456,10 +405,8 @@ filter:alpha(opacity=90);
         color: #000;
     background:url(../images/white-bg.png);
     text-align:center;
-    
     font-size: 25px;
     border-radius: 7px;
-   
     width: 650px;
     height: 551px;
     }

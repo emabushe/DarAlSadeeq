@@ -1,5 +1,3 @@
-﻿
-Partial Class help_error
+﻿Partial Class help_error
     Inherits System.Web.UI.Page
-
 End Class

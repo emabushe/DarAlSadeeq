@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master"
     AutoEventWireup="false" CodeFile="AddActivitySubject.aspx.vb" Inherits="admin_AddActivitySubject" ValidateRequest="false"%>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Assembly="Winthusiasm.HtmlEditor" Namespace="Winthusiasm.HtmlEditor"
     TagPrefix="cc2" %>
@@ -30,7 +29,6 @@
         <hr class="noscreen" />
         <!-- Content (Right Column) -->
         <div id="content" class="box">
-    
             <table width="99%">
                 <tr>
                     <td colspan="2">
@@ -114,7 +112,6 @@
                     </td>
                 </tr>
             </table>
-         
         </div>
         <hr class="noscreen" />
         <!-- Footer -->

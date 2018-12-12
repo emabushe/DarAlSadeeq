@@ -1,7 +1,5 @@
-﻿
-Partial Class admin_DeleteDemoSubject
+﻿Partial Class admin_DeleteDemoSubject
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim Result As Boolean = Admin.DeleteDemoSubject(DrpDwnSubjectName.SelectedValue)
         If Result Then

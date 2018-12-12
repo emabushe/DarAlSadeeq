@@ -1,5 +1,4 @@
-﻿
-Partial Class ar_AboutUs
+﻿Partial Class ar_AboutUs
     Inherits System.Web.UI.Page
     Private Sub BindBody(ByVal PageCode As String)
         Dim DT As Data.DataTable = AboutUs.GetAboutUs(PageCode)
@@ -11,7 +10,6 @@ Partial Class ar_AboutUs
         Page.FindControl("subjectsArrow").Visible = True
         BindBody(HD.Value)
     End Sub
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         BindBody("about1")
     End Sub

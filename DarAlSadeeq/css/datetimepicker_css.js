@@ -10,10 +10,7 @@
 //Permission is granted to redistribute and modify this javascript under the terms of the GNU General Public License 3.0.
 //New Css style version added by Yvan Lavoie (Québec, Canada) 29-Jan-2009
 //Formatted for JSLint compatibility by Labsmedia.com (30-Dec-2010)
-
-
 //Global variables
-
 var winCal;
 var dtToday;
 var Cal;
@@ -36,7 +33,6 @@ var StartYear = 1940; //First Year in drop down year selection
 var EndYear = 5; // The last year of pickable date. if current year is 2011, the last year that still picker will be 2016 (2011+5)
 var CalPosOffsetX = -1; //X position offset relative to calendar icon, can be negative value
 var CalPosOffsetY = 0; //Y position offset relative to calendar icon, can be negative value
-
 //Configurable parameters start
 var SpanBorderColor = "#000000";//span border color
 var SpanBgColor = "#FFFFFF"; //span background color
@@ -53,7 +49,6 @@ var MthSelColor = "#cc0033"; //color of font of Month selector if "MonthSelector
 var HoverColor = "#E0FF38"; //color when mouse move over.
 var DisableColor = "#999966"; //color of disabled cell.
 var CalBgColor = "#ffffff"; //Background color of Calendar window.
-
 var WeekChar = 2;//number of character for week day. if 2 then Mo,Tu,We. if 3 then Mon,Tue,Wed.
 var DateSeparator = "-";//Date Separator, you can change it to "-" if you want.
 var ShowLongMonth = true;//Show long month name in Calendar header. example: "January".
@@ -64,18 +59,12 @@ var MondayFirstDay = true;//true:Use Monday as first day; false:Sunday as first 
 var UseImageFiles = true;//Use image files with "arrows" and "close" button
 var imageFilesPath = "images2/";
 //Configurable parameters end
-
 //use the Month and Weekday in your preferred language.
 var MonthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var WeekDayName1 = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var WeekDayName2 = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-
 //end Configurable parameters
-
 //end Global variable
-
-
 // Calendar prototype
 function Calendar(pDate, pCtrl)
 {
@@ -84,7 +73,6 @@ function Calendar(pDate, pCtrl)
 	this.Month = pDate.getMonth();//selected month number
 	this.Year = pDate.getFullYear();//selected year in 4 digits
 	this.Hours = pDate.getHours();
-
 	if (pDate.getMinutes() < 10)
 	{
 		this.Minutes = "0" + pDate.getMinutes();
@@ -93,7 +81,6 @@ function Calendar(pDate, pCtrl)
 	{
 		this.Minutes = pDate.getMinutes();
 	}
-
 	if (pDate.getSeconds() < 10)
 	{
 		this.Seconds = "0" + pDate.getSeconds();
@@ -119,7 +106,6 @@ function Calendar(pDate, pCtrl)
 	this.ShowSeconds = false;
 	this.EnableDateMode = ""
 }
-
 Calendar.prototype.GetMonthIndex = function (shortMonthName)
 {
 	for (var i = 0; i < 12; i += 1)
@@ -130,17 +116,14 @@ Calendar.prototype.GetMonthIndex = function (shortMonthName)
 		}
 	}
 };
-
 Calendar.prototype.IncYear = function () {
     if (Cal.Year <= dtToday.getFullYear()+EndYear)
 	    Cal.Year += 1;
 };
-
 Calendar.prototype.DecYear = function () {
     if (Cal.Year > StartYear)
 	    Cal.Year -= 1;
 };
-
 Calendar.prototype.IncMonth = function() {
     if (Cal.Year <= dtToday.getFullYear() + EndYear) {
         Cal.Month += 1;
@@ -150,7 +133,6 @@ Calendar.prototype.IncMonth = function() {
         }
     }
 };
-
 Calendar.prototype.DecMonth = function() {
     if (Cal.Year >= StartYear) {
         Cal.Month -= 1;
@@ -160,24 +142,20 @@ Calendar.prototype.DecMonth = function() {
         }
     }
 };
-
 Calendar.prototype.SwitchMth = function (intMth)
 {
 	Cal.Month = parseInt(intMth, 10);
 };
-
 Calendar.prototype.SwitchYear = function (intYear)
 {
 	Cal.Year = parseInt(intYear, 10);
 };
-
 Calendar.prototype.SetHour = function (intHour)
 {
 	var MaxHour,
 	MinHour,
 	HourExp = new RegExp("^\\d\\d"),
 	SingleDigit = new RegExp("\\d");
-
 	if (TimeMode === 24)
 	{
 		MaxHour = 23;
@@ -192,22 +170,18 @@ Calendar.prototype.SetHour = function (intHour)
 	{
 		alert("TimeMode can only be 12 or 24");
 	}
-
 	if ((HourExp.test(intHour) || SingleDigit.test(intHour)) && (parseInt(intHour, 10) > MaxHour))
 	{
 		intHour = MinHour;
 	}
-
 	else if ((HourExp.test(intHour) || SingleDigit.test(intHour)) && (parseInt(intHour, 10) < MinHour))
 	{
 		intHour = MaxHour;
 	}
-
 	if (SingleDigit.test(intHour))
 	{
 		intHour = "0" + intHour;
 	}
-
 	if (HourExp.test(intHour) && (parseInt(intHour, 10) <= MaxHour) && (parseInt(intHour, 10) >= MinHour))
 	{
 		if ((TimeMode === 12) && (Cal.AMorPM === "PM"))
@@ -221,92 +195,72 @@ Calendar.prototype.SetHour = function (intHour)
 				Cal.Hours = parseInt(intHour, 10) + 12;
 			}
 		}
-
 		else if ((TimeMode === 12) && (Cal.AMorPM === "AM"))
 		{
 			if (intHour === 12)
 			{
 				intHour -= 12;
 			}
-
 			Cal.Hours = parseInt(intHour, 10);
 		}
-
 		else if (TimeMode === 24)
 		{
 			Cal.Hours = parseInt(intHour, 10);
 		}
 	}
-
 };
-
 Calendar.prototype.SetMinute = function (intMin)
 {
 	var MaxMin = 59,
 	MinMin = 0,
-
 	SingleDigit = new RegExp("\\d"),
 	SingleDigit2 = new RegExp("^\\d{1}$"),
 	MinExp = new RegExp("^\\d{2}$"),
-
 	strMin = 0;
-
 	if ((MinExp.test(intMin) || SingleDigit.test(intMin)) && (parseInt(intMin, 10) > MaxMin))
 	{
 		intMin = MinMin;
 	}
-
 	else if ((MinExp.test(intMin) || SingleDigit.test(intMin)) && (parseInt(intMin, 10) < MinMin))
 	{
 		intMin = MaxMin;
 	}
-
 	strMin = intMin + "";
 	if (SingleDigit2.test(intMin))
 	{
 		strMin = "0" + strMin;
 	}
-
 	if ((MinExp.test(intMin) || SingleDigit.test(intMin)) && (parseInt(intMin, 10) <= 59) && (parseInt(intMin, 10) >= 0))
 	{
 		Cal.Minutes = strMin;
 	}
 };
-
 Calendar.prototype.SetSecond = function (intSec)
 {
 	var MaxSec = 59,
 	MinSec = 0,
-
 	SingleDigit = new RegExp("\\d"),
 	SingleDigit2 = new RegExp("^\\d{1}$"),
 	SecExp = new RegExp("^\\d{2}$"),
-
 	strSec = 0;
-
 	if ((SecExp.test(intSec) || SingleDigit.test(intSec)) && (parseInt(intSec, 10) > MaxSec))
 	{
 		intSec = MinSec;
 	}
-
 	else if ((SecExp.test(intSec) || SingleDigit.test(intSec)) && (parseInt(intSec, 10) < MinSec))
 	{
 		intSec = MaxSec;
 	}
-
 	strSec = intSec + "";
 	if (SingleDigit2.test(intSec))
 	{
 		strSec = "0" + strSec;
 	}
-
 	if ((SecExp.test(intSec) || SingleDigit.test(intSec)) && (parseInt(intSec, 10) <= 59) && (parseInt(intSec, 10) >= 0))
 	{
 		Cal.Seconds = strSec;
 	}
-
 };
-
 Calendar.prototype.SetAmPm = function (pvalue)
 {
 	this.AMorPM = pvalue;
@@ -318,17 +272,14 @@ Calendar.prototype.SetAmPm = function (pvalue)
 			this.Hours = 12;
 		}
 	}
-
 	else if (pvalue === "AM")
 	{
 		this.Hours -= 12;
 	}
 };
-
 Calendar.prototype.getShowHour = function ()
 {
 	var finalHour;
-
 	if (TimeMode === 12)
 	{
 		if (parseInt(this.Hours, 10) === 0)
@@ -336,13 +287,11 @@ Calendar.prototype.getShowHour = function ()
 			this.AMorPM = "AM";
 			finalHour = parseInt(this.Hours, 10) + 12;
 		}
-
 		else if (parseInt(this.Hours, 10) === 12)
 		{
 			this.AMorPM = "PM";
 			finalHour = 12;
 		}
-
 		else if (this.Hours > 12)
 		{
 			this.AMorPM = "PM";
@@ -368,7 +317,6 @@ Calendar.prototype.getShowHour = function ()
 			}
 		}
 	}
-
 	else if (TimeMode === 24)
 	{
 		if (this.Hours < 10)
@@ -380,15 +328,12 @@ Calendar.prototype.getShowHour = function ()
 			finalHour = this.Hours;
 		}
 	}
-
 	return finalHour;
 };
-
 Calendar.prototype.getShowAMorPM = function ()
 {
 	return this.AMorPM;
 };
-
 Calendar.prototype.GetMonthName = function (IsLong)
 {
 	var Month = MonthName[this.Month];
@@ -401,17 +346,13 @@ Calendar.prototype.GetMonthName = function (IsLong)
 		return Month.substr(0, 3);
 	}
 };
-
 Calendar.prototype.GetMonDays = function() { //Get number of days in a month
-
     var DaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (Cal.IsLeapYear()) {
         DaysInMonth[1] = 29;
     }
-
     return DaysInMonth[this.Month];
 };
-
 Calendar.prototype.IsLeapYear = function ()
 {
 	if ((this.Year % 4) === 0)
@@ -430,7 +371,6 @@ Calendar.prototype.IsLeapYear = function ()
 		return false;
 	}
 };
-
 Calendar.prototype.FormatDate = function (pDate)
 {
 	var MonthDigit = this.Month + 1;
@@ -445,7 +385,6 @@ Calendar.prototype.FormatDate = function (pDate)
 			MonthDigit = "0" + MonthDigit;
 		}
 	}
-
 	switch (this.Format.toUpperCase())
 	{
 		case "DDMMYYYY":
@@ -468,16 +407,13 @@ Calendar.prototype.FormatDate = function (pDate)
 		return (pDate + DateSeparator + (this.Month + 1) + DateSeparator + this.Year);
 	}
 };
-
 // end Calendar prototype
-
 function GenCell(pValue, pHighLight, pColor, pClickable)
 { //Generate table cell with value
 	var PValue,
 	PCellStr,
 	PClickable,
 	vTimeStr;
-
 	if (!pValue)
 	{
 		PValue = "";
@@ -486,17 +422,14 @@ function GenCell(pValue, pHighLight, pColor, pClickable)
 	{
 		PValue = pValue;
 	}
-
 	if (pColor === undefined)
 	    pColor = CalBgColor;
-	
 	if (pClickable !== undefined){
 		PClickable = pClickable;
 	}
 	else{
 		PClickable = true;
 	}
-
 	if (Cal.ShowTime)
 	{
 		vTimeStr = ' ' + Cal.Hours + ':' + Cal.Minutes;
@@ -509,12 +442,10 @@ function GenCell(pValue, pHighLight, pColor, pClickable)
 			vTimeStr += ' ' + Cal.AMorPM;
 		}
 	}
-
 	else
 	{
 		vTimeStr = "";
 	}
-
 	if (PValue !== "")
 	{
 		if (PClickable === true) {
@@ -527,10 +458,8 @@ function GenCell(pValue, pHighLight, pColor, pClickable)
 	}
 	else
 	{ PCellStr = "<td style='text-align:center;background-color:"+pColor+"' class='calTD'>&nbsp;</td>"; }
-
 	return PCellStr;
 }
-
 function RenderCssCal(bNewCal)
 {
 	if (typeof bNewCal === "undefined" || bNewCal !== true)
@@ -543,45 +472,32 @@ function RenderCssCal(bNewCal)
 	vCalClosing = "",
 	winCalData = "",
 	CalDate,
-
 	i,
 	j,
-
 	SelectStr,
 	vDayCount = 0,
 	vFirstDay,
-
 	WeekDayName = [],//Added version 1.7
 	strCell,
-
 	showHour,
 	ShowArrows = false,
 	HourCellWidth = "35px", //cell width with seconds.
-
 	SelectAm,
 	SelectPm,
-
 	funcCalback,
-
 	headID,
 	e,
 	cssStr,
 	style,
 	cssText,
 	span;
-
 	calHeight = 0; // reset the window height on refresh
-
 	// Set the default cursor for the calendar
-
 	winCalData = "<span style='cursor:auto;'>";
 	vCalHeader = "<table style='background-color:"+CalBgColor+";width:200px;padding:0;margin:5px auto 5px auto'><tbody>";
-
 	//Table for Month & Year Selector
-
 	vCalHeader += "<tr><td colspan='7'><table border='0' width='200px' cellpadding='0' cellspacing='0'><tr>";
 	//******************Month and Year selector in dropdown list************************
-
 	if (Cal.Scroller === "DROPDOWN")
 	{
 	    vCalHeader += "<td align='center'><select name='MonthSelector' onChange='javascript:Cal.SwitchMth(this.selectedIndex);RenderCssCal();'>";
@@ -597,10 +513,8 @@ function RenderCssCal(bNewCal)
 			}
 			vCalHeader += "<option " + SelectStr + " value=" + i + ">" + MonthName[i] + "</option>";
 		}
-
 		vCalHeader += "</select></td>";
 		//Year selector
-
 		vCalHeader += "<td align='center'><select name='YearSelector' size='1' onChange='javascript:Cal.SwitchYear(this.value);RenderCssCal();'>";
 		for (i = StartYear; i <= (dtToday.getFullYear() + EndYear); i += 1)
 		{
@@ -617,11 +531,8 @@ function RenderCssCal(bNewCal)
 		vCalHeader += "</select></td>\n";
 		calHeight += 30;
 	}
-
 	//******************End Month and Year selector in dropdown list*********************
-
 	//******************Month and Year selector in arrow*********************************
-
 	else if (Cal.Scroller === "ARROW")
 	{
 		if (UseImageFiles)
@@ -643,20 +554,15 @@ function RenderCssCal(bNewCal)
 			calHeight += 22;
 		}
 	}
-
 	vCalHeader += "</tr></table></td></tr>";
-
 	//******************End Month and Year selector in arrow******************************
-
 	//Calendar header shows Month and Year
 	if (ShowMonthYear && Cal.Scroller === "DROPDOWN")
 	{
 	    vCalHeader += "<tr><td colspan='7' class='calR' style='color:" + MonthYearColor + "'>" + Cal.GetMonthName(ShowLongMonth) + " " + Cal.Year + "</td></tr>";
 		calHeight += 19;
 	}
-
 	//Week day header
-
 	vCalHeader += "<tr><td colspan=\"7\"><table style='border-spacing:1px;border-collapse:separate;'><tr>";
 	if (MondayFirstDay === true)
 	{
@@ -670,15 +576,12 @@ function RenderCssCal(bNewCal)
 	{
 	    vCalHeader += "<td style='background-color:"+WeekHeadColor+";width:"+CellWidth+"px;color:#FFFFFF' class='calTD'>" + WeekDayName[i].substr(0, WeekChar) + "</td>";
 	}
-
 	calHeight += 19;
 	vCalHeader += "</tr>";
 	//Calendar detail
 	CalDate = new Date(Cal.Year, Cal.Month);
 	CalDate.setDate(1);
-
 	vFirstDay = CalDate.getDay();
-
 	//Added version 1.7
 	if (MondayFirstDay === true)
 	{
@@ -688,7 +591,6 @@ function RenderCssCal(bNewCal)
 			vFirstDay = 6;
 		}
 	}
-
 	//Added version 1.7
 	vCalData = "<tr>";
 	calHeight += 19;
@@ -697,7 +599,6 @@ function RenderCssCal(bNewCal)
 		vCalData = vCalData + GenCell();
 		vDayCount = vDayCount + 1;
 	}
-
 	//Added version 1.7
 	for (j = 1; j <= Cal.GetMonDays(); j += 1)
 	{
@@ -705,7 +606,6 @@ function RenderCssCal(bNewCal)
 		{
 			vCalData = vCalData + "<tr>";
 		}
-
 		vDayCount = vDayCount + 1;
 		//added version 2.1.2
 		if (Cal.EnableDateMode === "future" && ((j < dtToday.getDate()) && (Cal.Month === dtToday.getMonth()) && (Cal.Year === dtToday.getFullYear()) || (Cal.Month < dtToday.getMonth()) && (Cal.Year === dtToday.getFullYear()) || (Cal.Year < dtToday.getFullYear())))
@@ -764,18 +664,14 @@ function RenderCssCal(bNewCal)
 				}
 			}
 		}
-
 		vCalData = vCalData + strCell;
-
 		if ((vDayCount % 7 === 0) && (j < Cal.GetMonDays()))
 		{
 			vCalData = vCalData + "</tr>";
 			calHeight += 19;
 		}
 	}
-
 	// finish the table proper
-
 	if (vDayCount % 7 !== 0)
 	{
 		while (vDayCount % 7 !== 0)
@@ -784,55 +680,43 @@ function RenderCssCal(bNewCal)
 			vDayCount = vDayCount + 1;
 		}
 	}
-
 	vCalData = vCalData + "</table></td></tr>";
-
-
 	//Time picker
 	if (Cal.ShowTime === true)
 	{
 		showHour = Cal.getShowHour();
-
 		if (Cal.ShowSeconds === false && TimeMode === 24)
 		{
 			ShowArrows = true;
 			HourCellWidth = "10px";
 		}
-
 		vCalTime = "<tr><td colspan='7' style=\"text-align:center;\"><table border='0' width='199px' cellpadding='0' cellspacing='0'><tbody><tr><td height='5px' width='" + HourCellWidth + "'>&nbsp;</td>";
-
 		if (ShowArrows && UseImageFiles) //this is where the up and down arrow control the hour.
 		{
 		    vCalTime += "<td style='vertical-align:middle;'><table cellspacing='0' cellpadding='0' style='line-height:0pt;width:100%;'><tr><td style='text-align:center;'><img onclick='nextStep(\"Hour\", \"plus\");' onmousedown='startSpin(\"Hour\", \"plus\");' onmouseup='stopSpin();' src='" + imageFilesPath + "cal_plus.gif' width='13px' height='9px' onmouseover='changeBorder(this, 0)' onmouseout='changeBorder(this, 1)' style='border:1px solid white'></td></tr><tr><td style='text-align:center;'><img onclick='nextStep(\"Hour\", \"minus\");' onmousedown='startSpin(\"Hour\", \"minus\");' onmouseup='stopSpin();' src='" + imageFilesPath + "cal_minus.gif' width='13px' height='9px' onmouseover='changeBorder(this, 0)' onmouseout='changeBorder(this, 1)' style='border:1px solid white'></td></tr></table></td>\n";
 		}
-
 		vCalTime += "<td width='22px'><input type='text' name='hour' maxlength=2 size=1 style=\"WIDTH:22px\" value=" + showHour + " onkeyup=\"javascript:Cal.SetHour(this.value)\">";
 		vCalTime += "</td><td style='font-weight:bold;text-align:center;'>:</td><td width='22px'>";
 		vCalTime += "<input type='text' name='minute' maxlength=2 size=1 style=\"WIDTH: 22px\" value=" + Cal.Minutes + " onkeyup=\"javascript:Cal.SetMinute(this.value)\">";
-
 		if (Cal.ShowSeconds)
 		{
 		    vCalTime += "</td><td style='font-weight:bold;'>:</td><td width='22px'>";
 			vCalTime += "<input type='text' name='second' maxlength=2 size=1 style=\"WIDTH: 22px\" value=" + Cal.Seconds + " onkeyup=\"javascript:Cal.SetSecond(parseInt(this.value,10))\">";
 		}
-
 		if (TimeMode === 12)
 		{
 			SelectAm = (Cal.AMorPM === "AM") ? "Selected" : "";
 			SelectPm = (Cal.AMorPM === "PM") ? "Selected" : "";
-
 			vCalTime += "</td><td>";
 			vCalTime += "<select name=\"ampm\" onChange=\"javascript:Cal.SetAmPm(this.options[this.selectedIndex].value);\">\n";
 			vCalTime += "<option " + SelectAm + " value=\"AM\">AM</option>";
 			vCalTime += "<option " + SelectPm + " value=\"PM\">PM<option>";
 			vCalTime += "</select>";
 		}
-
 		if (ShowArrows && UseImageFiles) //this is where the up and down arrow to change the "Minute".
 		{
 		    vCalTime += "</td>\n<td style='vertical-align:middle;'><table cellspacing='0' cellpadding='0' style='line-height:0pt;width:100%'><tr><td style='text-align:center;'><img onclick='nextStep(\"Minute\", \"plus\");' onmousedown='startSpin(\"Minute\", \"plus\");' onmouseup='stopSpin();' src='" + imageFilesPath + "cal_plus.gif' width='13px' height='9px' onmouseover='changeBorder(this, 0)' onmouseout='changeBorder(this, 1)' style='border:1px solid white'></td></tr><tr><td style='text-align:center;'><img onmousedown='startSpin(\"Minute\", \"minus\");' onmouseup='stopSpin();' onclick='nextStep(\"Minute\",\"minus\");' src='" + imageFilesPath + "cal_minus.gif' width='13px' height='9px' onmouseover='changeBorder(this, 0)' onmouseout='changeBorder(this, 1)' style='border:1px solid white'></td></tr></table>";
 		}
-
 		vCalTime += "</td>\n<td align='right' valign='bottom' width='" + HourCellWidth + "px'></td></tr>";
 		vCalTime += "<tr><td colspan='8' style=\"text-align:center;\"><input style='width:60px;font-size:12px;' onClick='javascript:closewin(\"" + Cal.Ctrl + "\");'  type=\"button\" value=\"OK\">&nbsp;<input style='width:60px;font-size:12px;' onClick='javascript: winCal.style.visibility = \"hidden\"' type=\"button\" value=\"Cancel\"></td></tr>";
 	}
@@ -851,7 +735,6 @@ function RenderCssCal(bNewCal)
 	vCalClosing += "</tbody></table></td></tr>";
 	calHeight += 31;
 	vCalClosing += "</tbody></table>\n</span>";
-
 	//end time picker
 	funcCalback = "function callback(id, datum) {";
 	funcCalback += " var CalId = document.getElementById(id);if (datum=== 'undefined') { var d = new Date(); datum = d.getDate() + '/' +(d.getMonth()+1) + '/' + d.getFullYear(); } window.calDatum=datum;CalId.value=datum;";
@@ -860,18 +743,14 @@ function RenderCssCal(bNewCal)
 	funcCalback += " if (Cal.ShowSeconds)  CalId.value+=':'+Cal.Seconds;";
 	funcCalback += " if (TimeMode === 12)  CalId.value+=''+Cal.getShowAMorPM();";
 	funcCalback += "}if(CalId.onchange!=undefined) CalId.onchange();CalId.focus();winCal.style.visibility='hidden';}";
-
-
 	// determines if there is enough space to open the cal above the position where it is called
 	if (ypos > calHeight)
 	{
 		ypos = ypos - calHeight;
 	}
-
 	if (!winCal)
 	{
 		headID = document.getElementsByTagName("head")[0];
-
 		// add javascript function to the span cal
 		e = document.createElement("script");
 		e.type = "text/javascript";
@@ -879,10 +758,8 @@ function RenderCssCal(bNewCal)
 		e.text = funcCalback;
 		headID.appendChild(e);
 		// add stylesheet to the span cal
-
 		cssStr = ".calTD {font-family: verdana; font-size: 12px; text-align: center; border:0; }\n";
 		cssStr += ".calR {font-family: verdana; font-size: 12px; text-align: center; font-weight: bold;}";
-
 		style = document.createElement("style");
 		style.type = "text/css";
 		style.rel = "stylesheet";
@@ -890,13 +767,11 @@ function RenderCssCal(bNewCal)
 		{ // IE
 			style.styleSheet.cssText = cssStr;
 		}
-
 		else
 		{ // w3c
 			cssText = document.createTextNode(cssStr);
 			style.appendChild(cssText);
 		}
-
 		headID.appendChild(style);
 		// create the outer frame that allows the cal. to be moved
 		span = document.createElement("span");
@@ -913,12 +788,10 @@ function RenderCssCal(bNewCal)
 		document.body.appendChild(span);
 		winCal = document.getElementById(calSpanID);
 	}
-
 	else
 	{
 		winCal.style.visibility = "visible";
 		winCal.style.Height = calHeight;
-
 		// set the position for a new calendar only
 		if (bNewCal === true)
 		{
@@ -926,19 +799,14 @@ function RenderCssCal(bNewCal)
 			winCal.style.top = (ypos - CalPosOffsetY) + 'px';
 		}
 	}
-
 	winCal.innerHTML = winCalData + vCalHeader + vCalData + vCalTime + vCalClosing;
 	return true;
 }
-
-
 function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds, pEnableDateMode)
 {
 	// get current date and time
-
 	dtToday = new Date();
 	Cal = new Calendar(dtToday);
-
 	if (pShowTime !== undefined)
 	{
 	    if (pShowTime) {
@@ -947,7 +815,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 	    else {
 	        Cal.ShowTime = false;
 	    }
-
 		if (pTimeMode)
 		{
 			pTimeMode = parseInt(pTimeMode, 10);
@@ -960,7 +827,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 		{
 			TimeMode = 24;
 		}
-
 		if (pShowSeconds !== undefined)
 		{
 			if (pShowSeconds)
@@ -976,14 +842,11 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 		{
 			Cal.ShowSeconds = false;
 		}
-
 	}
-
 	if (pCtrl !== undefined)
 	{
 		Cal.Ctrl = pCtrl;
 	}
-
 	if (pFormat!== undefined && pFormat !=="")
 	{
 		Cal.Format = pFormat.toUpperCase();
@@ -992,7 +855,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 	{
 		Cal.Format = "MMDDYYYY";
 	}
-
 	if (pScroller!== undefined && pScroller!=="")
 	{
 		if (pScroller.toUpperCase() === "ARROW")
@@ -1004,13 +866,10 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 			Cal.Scroller = "DROPDOWN";
 		}
     }
-
     if (pEnableDateMode !== undefined && (pEnableDateMode === "future" || pEnableDateMode === "past")) {
         Cal.EnableDateMode= pEnableDateMode;
     }
-
 	exDateTime = document.getElementById(pCtrl).value; //Existing Date Time value in textbox.
-
 	if (exDateTime)
 	{ //Parse existing Date String
 		var Sp1 = exDateTime.indexOf(DateSeparator, 0),//Index of Date Separator 1
@@ -1029,7 +888,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 		offset = parseInt(Cal.Format.toUpperCase().lastIndexOf("M"), 10) - parseInt(Cal.Format.toUpperCase().indexOf("M"), 10) - 1,
 		strAMPM = "";
 		//parse month
-
 		if (Cal.Format.toUpperCase() === "DDMMYYYY" || Cal.Format.toUpperCase() === "DDMMMYYYY")
 		{
 			if (DateSeparator === "")
@@ -1045,7 +903,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 					strMonth = exDateTime.substring(8, 11);
 					strDate  = exDateTime.substring(0, 2);
 					strYear  = "20" + exDateTime.substring(11, 13);  //Hack, nur für Jahreszahlen ab 2000
-
 				}
 				else
 				{
@@ -1055,7 +912,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 				}
 			}
 		}
-
 		else if (Cal.Format.toUpperCase() === "MMDDYYYY" || Cal.Format.toUpperCase() === "MMMDDYYYY"){
 			if (DateSeparator === ""){
 				strMonth = exDateTime.substring(0, 2 + offset);
@@ -1068,7 +924,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 				strYear = exDateTime.substring(Sp2 + 1, Sp2 + 5);
 			}
 		}
-
 		else if (Cal.Format.toUpperCase() === "YYYYMMDD" || Cal.Format.toUpperCase() === "YYYYMMMDD")
 		{
 			if (DateSeparator === ""){
@@ -1082,7 +937,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 				strYear = exDateTime.substring(0, Sp1);
 			}
 		}
-
 		else if (Cal.Format.toUpperCase() === "YYMMDD" || Cal.Format.toUpperCase() === "YYMMMDD")
 		{
 			if (DateSeparator === "")
@@ -1098,7 +952,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 				strYear = exDateTime.substring(0, Sp1);
 			}
 		}
-
 		if (isNaN(strMonth)){
 			intMonth = Cal.GetMonthIndex(strMonth);
 		}
@@ -1109,7 +962,6 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 			Cal.Month = intMonth;
 		}
 		//end parse month
-
 		//parse year
 		YearPattern = /^\d{4}$/;
 		if (YearPattern.test(strYear)) {
@@ -1117,40 +969,30 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 		        Cal.Year = parseInt(strYear, 10);
 		}
 		//end parse year
-		
 		//parse Date
 		if ((parseInt(strDate, 10) <= Cal.GetMonDays()) && (parseInt(strDate, 10) >= 1)) {
 			Cal.Date = strDate;
 		}
 		//end parse Date
-
 		//parse time
-
 		if (Cal.ShowTime === true)
 		{
-
 			//parse AM or PM
-
 			if (TimeMode === 12)
 			{
 				strAMPM = exDateTime.substring(exDateTime.length - 2, exDateTime.length);
 				Cal.AMorPM = strAMPM;
 			}
-
 			tSp1 = exDateTime.indexOf(":", 0);
 			tSp2 = exDateTime.indexOf(":", (parseInt(tSp1, 10) + 1));
 			if (tSp1 > 0)
 			{
-
 				strHour = exDateTime.substring(tSp1, tSp1 - 2);
 				Cal.SetHour(strHour);
-
 				strMinute = exDateTime.substring(tSp1 + 1, tSp1 + 3);
 				Cal.SetMinute(strMinute);
-
 				strSecond = exDateTime.substring(tSp2 + 1, tSp2 + 3);
 				Cal.SetSecond(strSecond);
-
 			}
 			else if (exDateTime.indexOf("D*") !== -1)
 			{   //DTG
@@ -1158,15 +1000,12 @@ function NewCssCal(pCtrl, pFormat, pScroller, pShowTime, pTimeMode, pShowSeconds
 				Cal.SetHour(strHour);
 				strMinute = exDateTime.substring(4, 6);
 				Cal.SetMinute(strMinute);
-
 			}
 		}
-
 	}
 	selDate = new Date(Cal.Year, Cal.Month, Cal.Date);//version 1.7
 	RenderCssCal(true);
 }
-
 function closewin(id) {
     if (Cal.ShowTime === true) {
         var MaxYear = dtToday.getFullYear() + EndYear;
@@ -1179,7 +1018,6 @@ function closewin(id) {
                     (Cal.Year === dtToday.getFullYear())
                     ||
                     (Cal.Year < dtToday.getFullYear());
-
         if ((Cal.Year <= MaxYear) && (Cal.Year >= StartYear) && (Cal.Month === selDate.getMonth()) && (Cal.Year === selDate.getFullYear())) {
             if (Cal.EnableDateMode === "future") {
                 if (beforeToday === false) {
@@ -1190,12 +1028,10 @@ function closewin(id) {
                 callback(id, Cal.FormatDate(Cal.Date));
         }
     }
-    
 	var CalId = document.getElementById(id);
 	CalId.focus();
 	winCal.style.visibility = 'hidden';
 }
-
 function changeBorder(element, col, oldBgColor)
 {
 	if (col === 0)
@@ -1204,7 +1040,6 @@ function changeBorder(element, col, oldBgColor)
 		element.style.borderColor = "black";
 		element.style.cursor = "pointer";
 	}
-
 	else
 	{
 		if (oldBgColor)
@@ -1219,14 +1054,12 @@ function changeBorder(element, col, oldBgColor)
 		element.style.cursor = "auto";
 	}
 }
-
 function selectDate(element, date) {
     Cal.Date = date;
     selDate = new Date(Cal.Year, Cal.Month, Cal.Date);
     element.style.background = SelDateColor;
     RenderCssCal();
 }
-
 function pickIt(evt)
 {
 	var objectID,
@@ -1242,54 +1075,43 @@ function pickIt(evt)
 			dom = document.getElementById(objectID);
 			cnLeft = evt.pageX;
 			cnTop = evt.pageY;
-
 			if (dom.offsetLeft)
 			{
 				cnLeft = (cnLeft - dom.offsetLeft);
 				cnTop = (cnTop - dom.offsetTop);
 			}
 		}
-
 		// get mouse position on click
 		xpos = (evt.pageX);
 		ypos = (evt.pageY);
 	}
-
 	else
 	{ // IE
 		objectID = event.srcElement.id;
 		cnLeft = event.offsetX;
 		cnTop = (event.offsetY);
-
 		// get mouse position on click
 		de = document.documentElement;
 		b = document.body;
-
 		xpos = event.clientX + (de.scrollLeft || b.scrollLeft) - (de.clientLeft || 0);
 		ypos = event.clientY + (de.scrollTop || b.scrollTop) - (de.clientTop || 0);
 	}
-
 	// verify if this is a valid element to pick
 	if (objectID.indexOf(calSpanID) !== -1)
 	{
 		domStyle = document.getElementById(objectID).style;
 	}
-
 	if (domStyle)
 	{
 		domStyle.zIndex = 100;
 		return false;
 	}
-
 	else
 	{
 		domStyle = null;
 		return;
 	}
 }
-
-
-
 function dragIt(evt)
 {
 	if (domStyle)
@@ -1306,7 +1128,6 @@ function dragIt(evt)
 		}
 	}
 }
-
 // performs a single increment or decrement
 function nextStep(whatSpinner, direction)
 {
@@ -1336,9 +1157,7 @@ function nextStep(whatSpinner, direction)
 			RenderCssCal();
 		}
 	}
-
 }
-
 // starts the time spinner
 function startSpin(whatSpinner, direction)
 {
@@ -1347,25 +1166,20 @@ function startSpin(whatSpinner, direction)
 		nextStep(whatSpinner, direction);
 	}, 125); //125 ms
 }
-
 //stops the time spinner
 function stopSpin()
 {
 	clearInterval(document.thisLoop);
 }
-
 function dropIt()
 {
 	stopSpin();
-
 	if (domStyle)
 	{
 		domStyle = null;
 	}
 }
-
 // Default events configuration
-
 document.onmousedown = pickIt;
 document.onmousemove = dragIt;
 document.onmouseup = dropIt;

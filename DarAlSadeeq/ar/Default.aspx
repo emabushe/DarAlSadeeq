@@ -9,10 +9,8 @@
         }, i[r].l = 1 * new Date(); a = s.createElement(o),
             m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
         ga('create', 'UA-26594561-10', 'auto');
         ga('send', 'pageview');
-
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="content-language" content="en" />
@@ -25,7 +23,6 @@
     <!-- Script Start-->
     <script type="text/javascript" language="javascript" src="../javascript/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" language="javascript" src="../javascript/javascript.js"></script>
-
     <!-- Script End-->
 </head>
 <body>
@@ -79,7 +76,6 @@
                                 <div class="block-main block10 clear-block" onclick="location.href='ChangeYourLife.aspx'">
                                     <span id="changeYourLifeTab">غير حياتك</span>
                                 </div>
-
                                 <div class="logo-img">
                                 </div>
                                 <div class="footerDiv">
@@ -103,7 +99,6 @@
                 respective publishers. Powered by <a href="http://www.shkhaidem.com" target="_blank">Shkhaidem</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </form>

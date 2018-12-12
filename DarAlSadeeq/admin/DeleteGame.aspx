@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="DeleteGame.aspx.vb" Inherits="admin_DeleteGame" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -51,7 +50,6 @@
                          <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
                             SelectCommand="SELECT * FROM [Class] WHERE ([IsGame] = 1)">
-                           
                         </asp:SqlDataSource>
                     </td>
                     </td>
@@ -84,7 +82,6 @@
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
-                            
                             SelectCommand="SELECT * FROM [Games] WHERE (([ClassID] = @ClassID) AND ([SubjectID] = @SubjectID))">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="DrpDwnClasses" Name="ClassID" 
@@ -93,10 +90,8 @@
                                     PropertyName="SelectedValue" Type="Int32" />
                             </SelectParameters>
                         </asp:SqlDataSource>
-                        
                     </td>
                 </tr>
-           
                 <tr>
                     <td>
                     </td>
@@ -110,11 +105,9 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Delete" runat="server" Text="حذف" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>
-
             </ContentTemplate>
                 </asp:UpdatePanel>
         </div>

@@ -1,9 +1,7 @@
 ﻿Imports System.Data
 Imports System.IO
-
 Partial Class admin_DeleteTeacherMaterial
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim DT As DataTable = New DataTable
         DT = Admin.GetTeacherFileName(DropDownList1.SelectedValue)

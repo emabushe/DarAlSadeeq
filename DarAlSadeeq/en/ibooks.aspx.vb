@@ -1,5 +1,3 @@
-﻿
-Partial Class en_ibooks
+﻿Partial Class en_ibooks
     Inherits System.Web.UI.Page
-
 End Class

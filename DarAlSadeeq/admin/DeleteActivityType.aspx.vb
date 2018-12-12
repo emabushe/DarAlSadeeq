@@ -2,7 +2,6 @@
 Imports System.IO
 Partial Class admin_DeleteActivityType
     Inherits System.Web.UI.Page
-
     Protected Sub btn_Delete_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_Delete.Click
         Dim DT As DataTable = New DataTable
         DT = Admin.GetActivityPic(DrpDwnType.SelectedValue)
@@ -17,5 +16,4 @@ Partial Class admin_DeleteActivityType
             Label1.Text = "خطأ في عملية الحذف"
         End If
     End Sub
-
 End Class

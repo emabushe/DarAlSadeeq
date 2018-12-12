@@ -18,7 +18,6 @@
             <ul class="box">
                 <li id="submenu-active"><a href="AddSchool.aspx">إضافة مدرسة  </a></li>
                 <li ><a href="DeleteSchool.aspx">حذف مدرسة  </a></li>
-                
             </ul>
         </div>
         <!-- /aside -->
@@ -54,7 +53,6 @@
                             ControlToValidate="txtWebsite" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-              
                 <tr>
                     <td style="width: 111px">
                         <p>
@@ -62,10 +60,8 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="UploaderMatFile" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="UploaderMatFile" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>

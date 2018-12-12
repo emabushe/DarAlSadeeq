@@ -1,15 +1,11 @@
 /* =============================================================================
-
 	MAIN.CSS
 	version: 1.7
 	updated: 2009-03-14, 12:44 GMT+1
-
 ============================================================================= */
-
 /* =============================================================================
 HTML - styles
 ============================================================================= */
-
 body {font:0.8em/1.5 "arial", sans-serif;}
 h1, h2, h3, h4, h5, h6, address, blockquote, dl, fieldset, ol, p, table, ul {margin:15px 0;}
 #content h1 {font-size:180%;}
@@ -35,11 +31,9 @@ h1, h2, h3, h4, h5, h6, address, blockquote, dl, fieldset, ol, p, table, ul {mar
 #content legend {font-size:120%; font-weight:bold;}
 #content code {font-family:"",monospace;}
 #content .help {cursor:help;}
-
 /* =============================================================================
 HTML - without styles
 ============================================================================= */
-
 table.nostyle, table.nostyle th, table.nostyle td {border:0 !important;}
 table.nostyle th {background:none !important; text-align:left !important;}
 table.nostyle th, table.nostyle td {padding:3px 5px !important;}
@@ -48,13 +42,11 @@ ul.nostyle ul {margin:0 0 0 25px !important; list-style-type:square !important;}
 ul.nostyle li {padding:0 !important; background:none !important;}
 dl.nostyle dt {font-weight:bold !important;}
 dl.nostyle dd {margin:0 !important;}
-
 /* =============================================================================
 LAYOUT
 ============================================================================= */
-
 #main {min-width:980px; width:expression(document.body.clientWidth < 980? "980px" : "auto" );}
-#tray {padding:12px 15px; background:url("../design/tray.gif") 0 0 repeat-x; font:85%/1.2 "tahoma",sans-serif;}
+#tray {padding:2px 15px; background:url("../design/tray.gif") 0 0 repeat-x; font:85%/1.2 "tahoma",sans-serif;}
 #tray p {margin:0;}
 #tray p.f-left {width:50%;}
 #tray #logout {padding-left:18px; background:url("../design/tray-logout.gif") 0 50% no-repeat; text-transform:uppercase;}
@@ -71,12 +63,10 @@ LAYOUT
 #content {padding:20px; overflow:hidden;}
 #footer {clear:both; padding:15px; background:url("../design/separator.gif") 0 0 repeat-x; font:85%/1.2 "tahoma",sans-serif;}
 #footer p {margin:0;}
-
 /* =============================================================================
 /* =============================================================================
 OTHERS
 ============================================================================= */
-
 #aside .padding {padding-left:15px;}
 #aside #logo {margin:0 0 15px 0;}
 #aside #logo img {display:block; width:200px;}
@@ -118,13 +108,10 @@ OTHERS
 .msg.info {background:url("../design/ico-info.gif") 10px 50% no-repeat;}
 .msg.done {background:url("../design/ico-done.gif") 10px 50% no-repeat;}
 .msg.error {background:url("../design/ico-delete.gif") 10px 50% no-repeat;}
-
 /* =============================================================================
 FONT STYLES
 ============================================================================= */
-
 .bigger {font-size:120%;}
 .smaller {font:85%/1.2 "tahoma",sans-serif;}
-
 /* This line can be deleted */
 .tit {padding:10px; background:#f5f5f5;} .tag {background:#ffa;}

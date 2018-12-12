@@ -1,7 +1,5 @@
-﻿
-Partial Class ar_ContactUs
+﻿Partial Class ar_ContactUs
     Inherits System.Web.UI.Page
-
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         If txtBody.Text = "" Or txtEmail.Text = "" Or txtName.Text = "" Or txtSubject.Text = "" Then
             MsgBox("الرجاء تعبئة جميع الحقول", , "Required Fields!")
@@ -16,11 +14,7 @@ Partial Class ar_ContactUs
             Else
                 lblResult.Visible = True
                 lblResult.Text = "حاول مرة أخرى"
-
             End If
         End If
-        
-
-
     End Sub
 End Class

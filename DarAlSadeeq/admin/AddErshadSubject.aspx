@@ -22,7 +22,6 @@
                 <li ><a href="DeleteErshadSub.aspx">حذف  موضوع</a></li>
                 <li><a href="AddErshadType.aspx"> إضافة تصنيف </a></li>
                 <li><a href="DeleteErshadType.aspx"> حذف تصنيف </a></li>
-               
             </ul>
         </div>
         <!-- /aside -->
@@ -49,7 +48,6 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
                             SelectCommand="SELECT * FROM [HandMake]">
-                           
                         </asp:SqlDataSource>
                     </td>
                 </tr>
@@ -60,10 +58,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtName" runat="server"  Width="50%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>

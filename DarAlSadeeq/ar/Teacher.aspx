@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Teacher.aspx.vb" Inherits="ar_Teacher" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <script>
@@ -9,10 +7,8 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-26594561-10', 'auto');
   ga('send', 'pageview');
-
 </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="content-language" content="enss" />
@@ -103,7 +99,6 @@
                                             <span>الصف الثاني</span></div>
                                         <div class="block-classes block3rd" onclick="viewSubjects();return ClickServerSide(5);" >
                                             <span>الصف الثالث</span></div>
- 
                                         <asp:Button runat="server" ID="btnServerSide" Text="null" OnClick="btnServerSide_Click"
                                             CssClass="hidden" />
                                     </div>

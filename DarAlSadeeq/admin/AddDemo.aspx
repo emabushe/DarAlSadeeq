@@ -28,7 +28,6 @@
         <hr class="noscreen" />
         <!-- Content (Right Column) -->
         <div id="content" class="box">
-     
             <table width="99%">
                 <tr>
                     <td colspan="2">
@@ -82,13 +81,10 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="UploaderMatFile" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="UploaderMatFile" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
-                        
                         <asp:TextBox ID="txtFileCheck" runat="server" BorderWidth="0px" ForeColor="Red" 
                             ReadOnly="True" Visible="False">هذا الملف موجود مسبقاً</asp:TextBox>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -106,7 +102,6 @@
                         </td>
                 </tr>
             </table>
-          
         </div>
         <hr class="noscreen" />
         <!-- Footer -->

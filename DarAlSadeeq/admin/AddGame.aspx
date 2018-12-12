@@ -48,7 +48,6 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
                             SelectCommand="SELECT * FROM [Class] WHERE ([IsGame] = 1)">
-                           
                         </asp:SqlDataSource>
                     </td>
                 </tr>
@@ -75,10 +74,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtGameName" runat="server"  Width="50%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtGameName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -88,21 +85,16 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="UploaderMatFile" runat="server" />
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="UploaderMatFile" ErrorMessage="يجب إختيار ملف"></asp:RequiredFieldValidator>
-                        
                         <asp:TextBox ID="txtFileCheck" runat="server" BorderWidth="0px" ForeColor="Red" 
                             ReadOnly="True" Visible="False">هذا الملف موجود مسبقاً</asp:TextBox>
-                        
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 111px">
-                       
                     </td>
                     <td>
-                        
                     </td>
                 </tr>
                 <tr>

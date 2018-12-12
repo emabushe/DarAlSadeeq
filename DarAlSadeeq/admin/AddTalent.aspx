@@ -18,7 +18,6 @@
             <ul class="box">
                 <li id="submenu-active"><a href="AddTalent.aspx">إضافة موهبة</a></li>
                 <li ><a href="DeleteTalent.aspx">حذف  موهبة</a></li>
-              
             </ul>
         </div>
         <!-- /aside -->
@@ -75,10 +74,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtSchool" runat="server"  Width="30%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtSchool" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -88,10 +85,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtTalents" runat="server" Width="30%"></asp:TextBox>
-                        
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                             ControlToValidate="txtTalents" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -100,9 +95,7 @@
                              صورة الموهبة </p>
                     </td>
                     <td>
-                        
                         <asp:FileUpload ID="UploaderTalentPic" runat="server" />
-                        
                     </td>
                 </tr>
                 <tr>

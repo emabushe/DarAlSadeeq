@@ -5,17 +5,14 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: EnglishFont;
     src: url('../fonts/BreeSerif-Regular.otf');
 }
-
 html {
     background: #8dcacd;
     height: 100%;
 }
-
 body {
     color: #5C5A5A;
     font-family: ArabicFont, arial,sans-serif;
@@ -26,65 +23,52 @@ body {
     text-align: center;
     height: 100%;
 }
-
 form {
     height: 100%
 }
-
 .data-row {
     clear: both;
     display: block;
     float: none;
     overflow: hidden;
 }
-
 a {
     color: #307CB8;
     text-decoration: none;
 }
-
     a:hover {
         color: #307CB8;
         text-decoration: underline;
     }
-
     a img {
         border-width: 0;
     }
-
 .go-left {
     text-align: left;
 }
-
 .go-right {
     text-align: right;
 }
-
 .go-center {
     text-align: center;
 }
-
 .floating-left {
     float: left;
 }
-
 .floating-right {
     float: right;
 }
-
 .center-piece {
     width: 1200px;
     margin: auto;
     text-align: left;
 }
-
 .site-container {
     text-align: center;
     overflow: hidden;
     height: 100%;
     background: url(../images/footer.png) repeat-x center bottom;
 }
-
 .clouds-container {
     text-align: center;
     overflow: hidden;
@@ -95,37 +79,30 @@ a {
     -o-animation: moveclouds 100s linear infinite;
     -webkit-transition: left;
 }
-
 @-webkit-keyframes moveclouds {
     0% {
         background-position: 0 0;
     }
-
     100% {
         background-position: 5000px 0;
     }
 }
-
 @-moz-keyframes moveclouds {
     0% {
         background-position: 0 0;
     }
-
     100% {
         background-position: 5000px 0;
     }
 }
-
 @-o-keyframes moveclouds {
     0% {
         background-position: 0 0;
     }
-
     100% {
         background-position: 5000px 0;
     }
 }
-
 .everything-inside {
     height: 94%;
     width: 100%;
@@ -134,7 +111,6 @@ a {
     background: url(../images/white-bg.png);
     margin-top: 30px;
 }
-
 .userBox {
     margin: 5px;
     font-size: 15px;
@@ -146,7 +122,6 @@ a {
     border-radius: 15px;
     float: right;
 }
-
 .enlanguage {
     margin: 5px;
     font-size: 15px;
@@ -161,11 +136,9 @@ a {
     -moz-border-radius: 15px;
     border-radius: 15px;
 }
-
     .enlanguage a {
         color: #00101D;
     }
-
 .arlanguage {
     width: 80px;
     position: absolute;
@@ -179,30 +152,24 @@ a {
     -moz-border-radius: 15px;
     border-radius: 15px;
 }
-
     .arlanguage a {
         color: #00101D;
     }
-
 .userBox ul {
     list-style-type: circle;
 }
-
 .userBox li {
     display: inline;
     padding-left: 20px;
 }
-
 .userBox a {
     color: #00101D;
 }
-
 .blocks-container {
     margin: auto;
     width: 95%;
     padding-top: 22px;
 }
-
 .footerDiv {
     width: 150px;
     height: 60px;
@@ -216,18 +183,15 @@ a {
     margin-top: 1%;
     text-align: center;
 }
-
     .footerDiv:hover {
         opacity: 1.0;
         filter: alpha(opacity=100);
     }
-
 .smIcons {
     width: 150px;
     height: 65px;
     margin-top: 75px;
 }
-
 .fb {
     padding-left: 50px;
     padding-bottom: 50px;
@@ -238,12 +202,10 @@ a {
     opacity: 0.7;
     filter: alpha(opacity=70);
 }
-
     .fb:hover {
         opacity: 1.0;
         filter: alpha(opacity=100);
     }
-
 .youtube {
     padding-left: 50px;
     padding-bottom: 50px;
@@ -254,20 +216,16 @@ a {
     opacity: 0.7;
     filter: alpha(opacity=70);
 }
-
     .youtube:hover {
         opacity: 1.0;
         filter: alpha(opacity=100);
     }
-
 .no-margin {
     margin-left: 0;
 }
-
 .clear-block {
     clear: right;
 }
-
 .logo-img {
     width: 250px;
     height: 400px;
@@ -277,7 +235,6 @@ a {
     margin-top: 80px;
     margin-left: -5px;
 }
-
     .logo-img.en {
         background: url(../images/Dar_Logo_en.png);
         background-repeat: no-repeat;
@@ -289,7 +246,6 @@ a {
 #page2 {
     /*text-align:right;*/
 }
-
 h1 {
     color: #000;
     background: url(../images/white-bg.png);
@@ -303,13 +259,11 @@ h1 {
     max-height: 90%;
     overflow-y: auto;
 }
-
     h1 p {
         font-size: 20px;
         font-weight: normal;
         margin-bottom: 30px;
     }
-
 .content-inner {
     color: #000;
     background: url(../images/white-bg.png);
@@ -323,18 +277,15 @@ h1 {
     max-height: 590px;
     overflow-y: auto;
 }
-
     .content-inner p {
         font-size: 20px;
         font-weight: normal;
         margin-bottom: 30px;
     }
-
 .multi-img {
     overflow: hidden;
     float: right;
 }
-
     .multi-img .img-choise {
         padding: 10px;
         border: solid 1px #ccc;
@@ -352,38 +303,30 @@ h1 {
         transition: all .3s ease-in;
         position: relative;
     }
-
         .multi-img .img-choise:hover {
             margin-top: 3px;
             background: #BA131A !important;
             opacity: 1 !important;
         }
-
         .multi-img .img-choise.block2 {
             background: #FFD400;
         }
-
         .multi-img .img-choise.block3 {
             background: #94A924;
         }
-
         .multi-img .img-choise.block4 {
             background: #F04E23;
         }
-
 .button-container {
     margin-top: 80px;
 }
-
     .button-container img {
         margin-bottom: 30px;
         cursor: pointer;
     }
-
         .button-container img:hover {
             opacity: .75;
         }
-
 .correct {
     border: solid 5px #fff;
     border-radius: 5px;
@@ -400,31 +343,25 @@ h1 {
     direction: rtl;
     display: none;
 }
-
     .correct h3 {
         font-size: 30px;
         text-align: center;
         text-shadow: 0px 2px 0px #000;
     }
-
     .correct p {
         text-shadow: 0px 2px 0px #000;
         padding: 10px 0;
         text-align: center;
     }
-
     .correct .btn-container {
         text-align: center;
     }
-
         .correct .btn-container img {
             cursor: pointer;
         }
-
             .correct .btn-container img:hover {
                 opacity: .75;
             }
-
 .wrong {
     border: solid 5px #fff;
     border-radius: 5px;
@@ -441,31 +378,25 @@ h1 {
     direction: rtl;
     display: none;
 }
-
     .wrong h3 {
         font-size: 30px;
         text-align: center;
         text-shadow: 0px 2px 0px #000;
     }
-
     .wrong p {
         text-shadow: 0px 2px 0px #000;
         padding: 10px 0;
         text-align: center;
     }
-
     .wrong .btn-container {
         text-align: center;
     }
-
         .wrong .btn-container img {
             cursor: pointer;
         }
-
 .correct .btn-container img:hover {
     opacity: .75;
 }
-
 .main-footer {
     position: fixed;
     bottom: 0;
@@ -473,7 +404,6 @@ h1 {
     width: 100%;
     left: 10%;
 }
-
 .content-container {
     width: 75%;
     position: fixed;

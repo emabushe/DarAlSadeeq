@@ -17,7 +17,6 @@
                 <!-- Create a new project -->
             </div>
             <!-- /padding -->
-           
         </div>
         <!-- /aside -->
         <hr class="noscreen" />
@@ -47,7 +46,6 @@
                         </asp:DropDownList>
                     </td>
                 </tr>
-                
                 <tr>
                     <td style="width: 111px">
                         <p>
@@ -57,7 +55,6 @@
                          <cc2:HtmlEditor ID="HtmlEditor1" runat="server" Width="700px" Height="500px" />
                         </td>
                 </tr>
-             
                 <tr>
                     <td>
                     </td>

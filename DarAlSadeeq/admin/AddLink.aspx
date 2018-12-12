@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="AddLink.aspx.vb" Inherits="admin_AddLink" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -21,7 +20,6 @@
                 <li ><a href="DeleteLink.aspx">حذف موقع مجاني</a></li>
                 <li ><a href="AddLinkType.aspx">إضافة تصنيف</a></li>
                 <li><a href="DeleteLinkType.aspx">  حذف تصنيف</a></li>
-               
             </ul>
         </div>
         <!-- /aside -->
@@ -57,11 +55,9 @@
                             إسم الموقع</p>
                     </td>
                     <td>
-                        
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -70,14 +66,11 @@
                             رابط الموقع</p>
                     </td>
                     <td>
-                       
                         <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="txtURL" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                       
                     </td>
                 </tr>
-           
                 <tr>
                     <td>
                     </td>
@@ -91,11 +84,9 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Delete" runat="server" Text="حفظ" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>
-
             </ContentTemplate>
                 </asp:UpdatePanel>
         </div>

@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="false" CodeFile="AddLinkGame.aspx.vb" Inherits="admin_AddLinkGame" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <div id="cols" class="box">
         <!-- Aside (Left Column) -->
         <div id="aside" class="box">
@@ -22,14 +20,12 @@
                 <li ><a href="DeleteLinkGame.aspx">حذف  لعبة</a></li>
                 <li ><a href="AddLinkGameType.aspx">إضافة تصنيف</a></li>
                 <li><a href="DeleteLinkGameType.aspx">  حذف تصنيف</a></li>
-               
             </ul>
         </div>
         <!-- /aside -->
         <hr class="noscreen" />
         <!-- Content (Right Column) -->
         <div id="content" class="box">
-    
             <table width="99%">
                 <tr>
                     <td colspan="2">
@@ -57,11 +53,9 @@
                             إسم اللعبة</p>
                     </td>
                     <td>
-                        
                         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                             ControlToValidate="txtName" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                        
                     </td>
                 </tr>
                 <tr>
@@ -70,14 +64,11 @@
                             رابط اللعبة</p>
                     </td>
                     <td>
-                       
                         <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ControlToValidate="txtURL" ErrorMessage="يجب إدخال قيمة"></asp:RequiredFieldValidator>
-                       
                     </td>
                 </tr>
-           
                 <tr>
                     <td>
                     </td>
@@ -91,11 +82,9 @@
                     </td>
                     <td>
                         <asp:Button ID="btn_Save" runat="server" Text="حفظ" width= "60px"/>&nbsp;&nbsp;&nbsp;
-                        
                     </td>
                 </tr>
             </table>
-
         </div>
         <hr class="noscreen" />
         <!-- Footer -->
@@ -104,6 +93,4 @@
         <!-- /footer -->
     </div>
 </asp:Content>
-
-
 

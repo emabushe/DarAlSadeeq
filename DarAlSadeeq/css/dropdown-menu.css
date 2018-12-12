@@ -6,26 +6,19 @@
 	height:51px;
 	background: #d6eaf8 url(../Menu/dropdown-bg.gif) repeat-x left top;
 }
-
-
 ul.nav-main,
 ul.nav-main li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-
-
 ul.nav-main {
 	position: relative;
 	z-index: 597;
 }
-
 ul.nav-main li:hover > ul {
 	visibility: visible;
 }
-
-
 ul.nav-main li.hover,
 ul.nav-main li:hover {
 	position: relative;
@@ -33,9 +26,6 @@ ul.nav-main li:hover {
 	cursor: pointer;
 	background: url(../Menu/dropdown-bg-hover.gif) repeat-x left top;
 }
-
-
-
 ul.nav-main li {
 	float:left;
 	display:block;
@@ -44,7 +34,6 @@ ul.nav-main li {
 	font: 14px Arial, Helvetica, sans-serif;
 	background: url(../Menu/separator.gif) no-repeat right center;
 }
-
 ul.nav-main li a {
 	display:block;
 	padding: 16px 16px 0 16px;
@@ -53,20 +42,13 @@ ul.nav-main li a {
 	font: 14px Arial, Helvetica, sans-serif;
 	text-decoration:none;
 }
-
 ul.nav-main li a:hover {
 	color:#D6D6D6;
 }
-
-
-
 ul.nav-main *.list {
 	padding-right: 22px;
 	background: url(../Menu/navigation-arrow.gif) no-repeat right top;
 }
-
-
-
 ul.nav-sub {
 	visibility: hidden;
 	position: absolute;
@@ -79,8 +61,6 @@ ul.nav-sub {
 	border-bottom: 1px solid #000;
 	border-left: 1px solid #000;
 }
-
-
 ul.nav-sub li {
 	list-style:none;
 	display:block;
@@ -92,7 +72,6 @@ ul.nav-sub li {
 	background: none;
 	text-align:right;
 }
-
 ul.nav-sub li a {
 	list-style:none;
 	display:block;
@@ -103,5 +82,4 @@ ul.nav-sub li a {
 	background: none;
 	font: 12px Arial, Helvetica, sans-serif;	
 }
-
 

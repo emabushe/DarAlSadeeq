@@ -18,7 +18,6 @@
             <ul class="box">
                 <li id="submenu-active"><a href="AddUser.aspx">إضافة مستخدم  </a></li>
                 <li ><a href="DeleteUser.aspx">حذف مستخدم  </a></li>
-              
             </ul>
         </div>
         <!-- /aside -->
@@ -58,7 +57,6 @@
                             ValidationGroup="Group1"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-              
                 <tr>
                     <td style="width: 111px">
                         <p>
@@ -72,9 +70,7 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>" 
                             SelectCommand="SELECT * FROM [Schools] WHERE ([IsWebSchool] = 1)">
-                           
                         </asp:SqlDataSource>
-                        
                     </td>
                 </tr>
                 <tr>
