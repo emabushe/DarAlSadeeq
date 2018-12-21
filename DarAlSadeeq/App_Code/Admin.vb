@@ -10,7 +10,6 @@ Public Class Admin
         End If
         con.Open()
     End Sub
-
     Public Shared Function InsertSubjectClass(ByVal ClassID As Integer, ByVal SubjectID As Integer) As Integer
         Dim cmd As SqlCommand = New SqlCommand
         cmd.Connection = con

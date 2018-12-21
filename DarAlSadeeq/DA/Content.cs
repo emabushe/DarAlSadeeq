@@ -5,7 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-
 namespace DarAlSadeeq.DA
 {
     public class Content
@@ -24,7 +23,7 @@ namespace DarAlSadeeq.DA
         }
         public static bool InsertContent(string ContentTitleAR, string ContentTitleEN, string ContentType,
                                          string ContentPath, int LevelID, int CategoryID,
-                                         int PartID, int SectionID, string Description, string CoverPic)
+                                         int PartID, int SectionID, string Description, string CoverPic, int SubCategoryID)
         {
             bool check;
             oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
@@ -43,6 +42,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
             oSqlCommand.Parameters.Add("@Description", SqlDbType.NVarChar).Value = Description;
             oSqlCommand.Parameters.Add("@CoverPic", SqlDbType.NVarChar).Value = CoverPic;
+            oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
             try
             {
                 if (oSqlConnection.State == ConnectionState.Closed)
@@ -67,17 +67,79 @@ namespace DarAlSadeeq.DA
                     oSqlConnection.Close();
             }
             return check;
-
         }
-       
-        public static DataTable GetLevels(int SectionID = -1)
+        public static DataTable GetContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetContents";
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
+            oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
+            oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetContent(int ContentID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetContent";
+            oSqlCommand.Parameters.Add("@ContentID", SqlDbType.Int).Value = ContentID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetLevelsWithContents(int SectionID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetLevelWithContents";
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetLevels(int LevelID = -1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
             oSqlCommand.CommandText = "sp_GetLevels";
-            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try
@@ -125,7 +187,6 @@ namespace DarAlSadeeq.DA
                     oSqlConnection.Close();
             }
             return check;
-
         }
         public static bool UpdateLevel(int LevelID, string LevelTitleAR, string LevelTitleEN)
         {
@@ -134,7 +195,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
-            oSqlCommand.CommandText = "sp_UpdateLevels";
+            oSqlCommand.CommandText = "sp_UpdateLevel";
             oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
             oSqlCommand.Parameters.Add("@LevelTitleAR", SqlDbType.NVarChar).Value = LevelTitleAR;
             oSqlCommand.Parameters.Add("@LevelTitleEN", SqlDbType.NVarChar).Value = LevelTitleEN;
@@ -170,7 +231,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
-            oSqlCommand.CommandText = "sp_DeleteLevels";
+            oSqlCommand.CommandText = "sp_DeleteLevel";
             oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
             try
             {
@@ -252,7 +313,6 @@ namespace DarAlSadeeq.DA
                     oSqlConnection.Close();
             }
             return check;
-
         }
         public static bool UpdateSection(int SectionID, string SectionTitleAR, string SectionTitleEN)
         {
@@ -324,6 +384,90 @@ namespace DarAlSadeeq.DA
             }
             return check;
         }
+        public static DataTable GetCategories(int CategoryID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetCategories";
+            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetCategoriesWithContents(int SectionID = -1, int LevelID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetCategoriesWithContents";
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetPartsWithContents(int SectionID = -1, int LevelID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetPartsWithContents";
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetSubCategoriesWithContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetSubCategoriesWithContents";
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
         public static bool InsertCategory(string CategoryTitleAR, string CategoryTitleEN)
         {
             bool check;
@@ -359,7 +503,6 @@ namespace DarAlSadeeq.DA
                     oSqlConnection.Close();
             }
             return check;
-
         }
         public static bool UpdateCategory(int CategoryID, string CategoryTitleAR, string CategoryTitleEN)
         {
@@ -368,7 +511,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
-            oSqlCommand.CommandText = "sp_UpdateCategories";
+            oSqlCommand.CommandText = "sp_UpdateCategory";
             oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
             oSqlCommand.Parameters.Add("@CategoryTitleAR", SqlDbType.NVarChar).Value = CategoryTitleAR;
             oSqlCommand.Parameters.Add("@CategoryTitleEN", SqlDbType.NVarChar).Value = CategoryTitleEN;
@@ -404,7 +547,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
-            oSqlCommand.CommandText = "sp_DeleteCategories";
+            oSqlCommand.CommandText = "sp_DeleteCategory";
             oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
             try
             {
@@ -431,17 +574,194 @@ namespace DarAlSadeeq.DA
             }
             return check;
         }
-        public static DataTable GetContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int PartID = -1)
+        public static DataTable ListSubjects(int ClassID)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
-            oSqlCommand.CommandText = "sp_GetContents";
-            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
-            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
-            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
-            oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
+            oSqlCommand.CommandText = "ES_ListSubjectClass";
+            oSqlCommand.Parameters.Add("@ClassID", SqlDbType.Int).Value = ClassID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable ListGames(int ClassSubjectID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_ListGames";
+            oSqlCommand.Parameters.Add("@ClassSubjectID", SqlDbType.Int).Value = ClassSubjectID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable ViewLearnMaterails(int ClassSubjectID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_ViewLearnMaterails";
+            oSqlCommand.Parameters.Add("@ClassSubjectID", SqlDbType.Int).Value = ClassSubjectID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetGame(int GameID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_GetGame";
+            oSqlCommand.Parameters.Add("@GameID", SqlDbType.Int).Value = GameID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetMaterial(int MaterialID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_GetMaterial";
+            oSqlCommand.Parameters.Add("@MaterialID", SqlDbType.Int).Value = MaterialID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable ListErshad(int ErshadID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_ListErshad";
+            oSqlCommand.Parameters.Add("@ErshadID", SqlDbType.Int).Value = ErshadID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetGuidance(int ID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_Ershad";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable ChangeYourLifeList(int ID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_ListHayatak";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable ChangeYourLifeView(int ID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_LifeSubject";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetAboutUs(string PageCode)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_GetPage";
+            oSqlCommand.Parameters.Add("@PageCode", SqlDbType.NVarChar).Value = PageCode;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try

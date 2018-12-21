@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="divTitle" runat="server" class="block-main no-margin" onclick="prevFrame()" style="position: absolute;">
-        <asp:Label id="lblSectionTitle" runat="server">دار الصديق</asp:Label>
+        <asp:Label ID="lblSectionTitle" runat="server">دار الصديق</asp:Label>
     </div>
     <div class="content-inner">
         <div class="classes-container" style="height: 110px;" id="divLevels" runat="server">
@@ -17,29 +17,65 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-        <div id="divArrow1" runat="server" style="background-image: url(../../images/arrow_down.png); width: 50px; height: 50px; margin-left: 50%; margin-top: 5px; margin-bottom: 5px;">
-        </div>
-        <div class="classes-container" id="divCategories" runat="server" style="height: 110px;">
-            <div style="margin-right: 25%">
-                <div class="block-classes blockStories" onclick="viewSubjects();return ClickServerSide(1);" style="margin-right: 10px;">
-                    <span>القصص</span>
-                </div>
-                <div class="block-classes blockActivities" onclick="viewSubjects();return ClickServerSide(2);">
-                    <span>قصص وتمارين</span>
+        <div id="divCategories" runat="server" class="row" style="padding: 15px;">
+            <div class="col-md-2" style="float: right; background-image: url(../../images/arrow.png); background-repeat: no-repeat; height: 50px; margin: -10px;">
+            </div>
+            <div class="classes-container col-md-10"   style="height: 80px;">
+                <div>
+                    <asp:Repeater ID="rptCategories" runat="server">
+                        <ItemTemplate>
+                            <div class='<%# Eval("CSSClass")%>' onclick="appendURL('category=<%# Eval("CategoryID")%>')">
+                                <span>
+                                    <%# Eval("CategoryTitleAR")%></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
         </div>
-        <div id="divArrow2" runat="server" style="background-image: url(../../images/arrow_down.png); width: 50px; height: 50px; margin-left: 50%; margin-top: 5px; margin-bottom: 5px;">
+        <div id="divSubCategories" runat="server" class="row" style="padding: 15px;">
+            <div  class="col-md-3" style="float: right; background-image: url(../../images/arrow.png); background-repeat: no-repeat; height: 50px; margin: -10px;">
+            </div>
+            <div class="classes-container col-md-9"  style="height: 80px;">
+                <div>
+                    <asp:Repeater ID="rptSubCategories" runat="server">
+                        <ItemTemplate>
+                            <div class="block-classes block-small" onclick="appendURL('subcategory=<%# Eval("SubCategoryID")%>')">
+                                <span>
+                                    <%# Eval("SubCategoryTitleAR")%></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
         </div>
-        <div class="classes-container" id="divContentList" runat="server" style="background: url(../../images/Bookshelf.png); width: 85%; margin: 0% 7% 0% 7%;">
+        <div id="divParts" runat="server" class="row" style="padding: 15px;">
+            <div class="col-md-3" style="float: right; background-image: url(../../images/arrow.png); background-repeat: no-repeat; height: 50px; margin: -10px;">
+            </div>
+            <div class="classes-container col-md-9" style="height: 80px;">
+                <div>
+                    <asp:Repeater ID="rptParts" runat="server">
+                        <ItemTemplate>
+                            <div class="block-classes block-small" onclick="appendURL('part=<%# Eval("PartID")%>')">
+                                <span>
+                                    <%# Eval("PartTitleAR")%></span>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+        </div>
+        <%--  <div id="divArrow3" runat="server" style="background-image: url(../../images/arrow.png); width: 50px; height: 50px; margin-left: 50%; margin-top: 5px; margin-bottom: 5px;">
+        </div>--%>
+        <div class="classes-container" id="divContentList" runat="server" style="background: url(../../images/Bookshelf.png); width: 100%;margin-top: 10px;">
             <asp:Repeater ID="rptContent" runat="server">
                 <ItemTemplate>
-                    <div style="float: right; width: 180px; padding: 5px; text-align: center; padding-top: 24px;">
+                    <div style="float: right; width: 180px; padding: 5px; text-align: center; padding-top: 24px;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
                         <span class="tooltip tooltip-turnright"><span class="tooltip-item">
                             <table width="180px">
                                 <tr>
                                     <td style="text-align: center">
-                                        <asp:Image ID="imgCover" runat="server" ImageUrl='<%#Eval("CoverPic")%>' Style="width: 85%; height: 25%;" />
+                                        <asp:Image ID="imgCover" runat="server" ImageUrl='<%#Eval("CoverPic")%>' Style="width: 150px; height: 200px;" />
                                     </td>
                                 </tr>
                                 <tr>

@@ -1,13 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/MasterPage_admin.master" AutoEventWireup="true" CodeBehind="ManageContent.aspx.cs" Inherits="DarAlSadeeq.admin.ManageContent" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
-    <script type="text/javascript">
-        function activateEditTab() {
-            $("#add").removeClass("active");  // this deactivates the home tab
-            $("#edit").addClass("active");
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="cols" class="box">
@@ -84,6 +77,24 @@
                 <tr>
                     <td style="width: 20%;">
                         <p>
+                            المستوى الفرعي
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpSubCategories" runat="server" Width="25%"
+                            DataSourceID="SqlDataSource11" DataTextField="SubCategoryTitleAR"
+                            DataValueField="SubCategoryID">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource11" runat="server"
+                            ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
+                            SelectCommand="SELECT * FROM [tbl_SubCategories]"></asp:SqlDataSource>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
                             المادة
                         </p>
                     </td>
@@ -118,12 +129,8 @@
                             SelectCommand="SELECT * FROM [tbl_Parts]"></asp:SqlDataSource>
                     </td>
                     <td>
-                        <button type="button" title="إضافة او تعديل جزء" id="btnManageParts">
-                            <i class="fa fa-cog"></i>
-                        </button>
                     </td>
                 </tr>
-
                 <tr>
                     <td style="width: 20%;">
                         <p>
@@ -250,7 +257,6 @@
                                         <li><a data-toggle="tab" href="#edit">تعديل</a></li>
                                         <li><a data-toggle="tab" href="#delete">حذف</a></li>
                                     </ul>
-
                                     <div class="tab-content">
                                         <div id="add" class="tab-pane fade in active">
                                             <div class="row" style="margin-top: 20px;">
@@ -271,7 +277,6 @@
                                                                 <asp:TextBox ID="txtSectionTitleEN" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Style="color: red"
                                                                     ControlToValidate="txtSectionTitleAR" ErrorMessage="يجب إدخال قيمة" ValidationGroup="sectionsValidationGroup"></asp:RequiredFieldValidator>
-
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -290,7 +295,8 @@
                                                         <tr>
                                                             <td><span>اختر</span></td>
                                                             <td>
-                                                                <asp:DropDownList ID="drpSectionsEdit" runat="server" AutoPostBack="true" OnSelectedIndexChanged="sectionSelected"
+                                                                <asp:DropDownList ID="drpSectionsEdit" runat="server" style="float: left;" 
+                                                                    AutoPostBack="true" OnSelectedIndexChanged="sectionSelected"
                                                                     DataSourceID="SqlDataSource3" DataTextField="SectionTitleAR"
                                                                     DataValueField="SectionID">
                                                                 </asp:DropDownList>
@@ -313,7 +319,6 @@
                                                                 <asp:TextBox ID="txtSectionTitleENEdit" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" Style="color: red"
                                                                     ControlToValidate="txtSectionTitleENEdit" ErrorMessage="يجب إدخال قيمة" ValidationGroup="sectionsEditValidationGroup"></asp:RequiredFieldValidator>
-
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -388,7 +393,6 @@
                                         <li><a data-toggle="tab" href="#editLevel">تعديل</a></li>
                                         <li><a data-toggle="tab" href="#deleteLevel">حذف</a></li>
                                     </ul>
-
                                     <div class="tab-content">
                                         <div id="addLevel" class="tab-pane fade in active">
                                             <div class="row" style="margin-top: 20px;">
@@ -398,17 +402,17 @@
                                                         <tr>
                                                             <td><span>اسم المستوى العربي</span></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtLevelARAdd" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtLevelTitleARAdd" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" Style="color: red"
-                                                                    ControlToValidate="txtLevelARAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="levelsValidationGroup"></asp:RequiredFieldValidator>
+                                                                    ControlToValidate="txtLevelTitleARAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="levelsValidationGroup"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><span>اسم القسم إنجليزي</span></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtLevelENAdd" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtLevelTitleENAdd" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" Style="color: red"
-                                                                    ControlToValidate="txtLevelENAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="levelsValidationGroup"></asp:RequiredFieldValidator>
+                                                                    ControlToValidate="txtLevelTitleENAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="levelsValidationGroup"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -427,7 +431,8 @@
                                                         <tr>
                                                             <td><span>اختر</span></td>
                                                             <td>
-                                                                <asp:DropDownList ID="drpLevelsEdit" runat="server" AutoPostBack="true" OnSelectedIndexChanged="levelSelected"
+                                                                <asp:DropDownList ID="drpLevelsEdit" runat="server" style="float: left;"
+                                                                    AutoPostBack="true" OnSelectedIndexChanged="LevelSelected"
                                                                     DataSourceID="SqlDataSource7" DataTextField="LevelTitleAR"
                                                                     DataValueField="LevelID">
                                                                 </asp:DropDownList>
@@ -450,7 +455,6 @@
                                                                 <asp:TextBox ID="txtLevelTitleENEdit" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" Style="color: red"
                                                                     ControlToValidate="txtLevelTitleENEdit" ErrorMessage="يجب إدخال قيمة" ValidationGroup="levelsEditValidationGroup"></asp:RequiredFieldValidator>
-
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -480,7 +484,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2">
-                                                                <asp:Button ID="btnDeleteEdit" runat="server" Text="حذف" OnClick="btnDeleteEdit_Click" ValidationGroup="levelsDeleteValidationGroup"></asp:Button></td>
+                                                                <asp:Button ID="btnDeleteLevel" runat="server" Text="حذف" OnClick="btnDeleteLevel_Click" ValidationGroup="levelsDeleteValidationGroup"></asp:Button></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -491,7 +495,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <asp:Label ID="lblLevelsResult" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblLevelsResults" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                 </ContentTemplate>
@@ -525,7 +529,6 @@
                                         <li><a data-toggle="tab" href="#editCategory">تعديل</a></li>
                                         <li><a data-toggle="tab" href="#deleteCategory">حذف</a></li>
                                     </ul>
-
                                     <div class="tab-content">
                                         <div id="addCategory" class="tab-pane fade in active">
                                             <div class="row" style="margin-top: 20px;">
@@ -535,17 +538,17 @@
                                                         <tr>
                                                             <td><span>اسم المادة العربي</span></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtCategoryARAdd" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtCategoryTitleARAdd" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Style="color: red"
-                                                                    ControlToValidate="txtCategoryARAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="CategoriesValidationGroup"></asp:RequiredFieldValidator>
+                                                                    ControlToValidate="txtCategoryTitleARAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="CategoriesValidationGroup"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><span>اسم المادة إنجليزي</span></td>
                                                             <td>
-                                                                <asp:TextBox ID="txtCategoryENAdd" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtCategoryTitleENAdd" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" Style="color: red"
-                                                                    ControlToValidate="txtCategoryENAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="CategoriesValidationGroup"></asp:RequiredFieldValidator>
+                                                                    ControlToValidate="txtCategoryTitleENAdd" ErrorMessage="يجب إدخال قيمة" ValidationGroup="CategoriesValidationGroup"></asp:RequiredFieldValidator>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -587,7 +590,6 @@
                                                                 <asp:TextBox ID="txtCategoryTitleENEdit" runat="server"></asp:TextBox>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" Style="color: red"
                                                                     ControlToValidate="txtCategoryTitleENEdit" ErrorMessage="يجب إدخال قيمة" ValidationGroup="CategoriesEditValidationGroup"></asp:RequiredFieldValidator>
-
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -628,7 +630,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <asp:Label ID="lblCategoriesResult" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblCategoriesResults" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                 </ContentTemplate>

@@ -13,7 +13,7 @@ $(function () {
 });
 $(function () {
     $('#btnManageCategory').click(function () {
-        $('#modalLogin').modal('show');
+        $('#modalManageCategories').modal('show');
         return false;
     });
 });
@@ -23,10 +23,16 @@ $(function () {
         return false;
     });
 });
+function openContentModal() {
+    $('#modalContentViewer').modal({ backdrop: 'static', keyboard: true });
+}
 function appendURL(data) {
     var param = data.substr(0, data.indexOf('='));
     var val = data.split('=').pop();
     var url = window.location.href;
+    if (url.indexOf(param) > -1) {
+        url = url.substring(url.indexOf(param) - 1, url.indexOf(''));
+    }
     url = url.replace('&' + data, '');
     url = url.replace('?' + data, '');
     if (url.indexOf('?') > -1) {
@@ -36,111 +42,98 @@ function appendURL(data) {
     }
     window.location.href = url;
 }
-function calposition()
-{
+function calposition() {
     var winW = 630, winH = 460;
     if (document.body && document.body.offsetWidth) {
-	winW = document.body.offsetWidth;
-	winH = document.body.offsetHeight;
+        winW = document.body.offsetWidth;
+        winH = document.body.offsetHeight;
     }
-    if (document.compatMode == 'CSS1Compat' &&
-		document.documentElement &&
-		document.documentElement.offsetWidth) {
-	winW = document.documentElement.offsetWidth;
-	winH = document.documentElement.offsetHeight;
+    if (document.compatMode === 'CSS1Compat' &&
+        document.documentElement &&
+        document.documentElement.offsetWidth) {
+        winW = document.documentElement.offsetWidth;
+        winH = document.documentElement.offsetHeight;
     }
     if (window.innerWidth && window.innerHeight) {
-	winW = window.innerWidth;
-	winH = window.innerHeight;
+        winW = window.innerWidth;
+        winH = window.innerHeight;
     }
-   /* var objMainContainer = jQuery('#everythingInside');
-    var marginTop = (winH - objMainContainer.height())/2.5;
-    objMainContainer.css("margin-top", marginTop);*/
+    /* var objMainContainer = jQuery('#everythingInside');
+     var marginTop = (winH - objMainContainer.height())/2.5;
+     objMainContainer.css("margin-top", marginTop);*/
 }
-function calDialogPosition()
-{
+function calDialogPosition() {
     var winW = 630, winH = 460;
     if (document.body && document.body.offsetWidth) {
-	winW = document.body.offsetWidth;
-	winH = document.body.offsetHeight;
+        winW = document.body.offsetWidth;
+        winH = document.body.offsetHeight;
     }
-    if (document.compatMode == 'CSS1Compat' &&
-		document.documentElement &&
-		document.documentElement.offsetWidth) {
-	winW = document.documentElement.offsetWidth;
-	winH = document.documentElement.offsetHeight;
+    if (document.compatMode === 'CSS1Compat' &&
+        document.documentElement &&
+        document.documentElement.offsetWidth) {
+        winW = document.documentElement.offsetWidth;
+        winH = document.documentElement.offsetHeight;
     }
     if (window.innerWidth && window.innerHeight) {
-	winW = window.innerWidth;
-	winH = window.innerHeight;
+        winW = window.innerWidth;
+        winH = window.innerHeight;
     }
     var objMainContainer = jQuery('#correct');
-    var TopSpace = (winH - objMainContainer.height()-200)/2;
+    var TopSpace = (winH - objMainContainer.height() - 200) / 2;
     objMainContainer.css("top", TopSpace);
-    var objMainContainer = jQuery('#correct');
-    var LeftSpace = (winW - objMainContainer.width())/2;
+    var LeftSpace = (winW - objMainContainer.width()) / 2;
     objMainContainer.css("left", LeftSpace);
 }
-function calDialogPositionW()
-{
+function calDialogPositionW() {
     var winW = 630, winH = 460;
     if (document.body && document.body.offsetWidth) {
-	winW = document.body.offsetWidth;
-	winH = document.body.offsetHeight;
+        winW = document.body.offsetWidth;
+        winH = document.body.offsetHeight;
     }
-    if (document.compatMode == 'CSS1Compat' &&
-		document.documentElement &&
-		document.documentElement.offsetWidth) {
-	winW = document.documentElement.offsetWidth;
-	winH = document.documentElement.offsetHeight;
+    if (document.compatMode === 'CSS1Compat' &&
+        document.documentElement &&
+        document.documentElement.offsetWidth) {
+        winW = document.documentElement.offsetWidth;
+        winH = document.documentElement.offsetHeight;
     }
     if (window.innerWidth && window.innerHeight) {
-	winW = window.innerWidth;
-	winH = window.innerHeight;
+        winW = window.innerWidth;
+        winH = window.innerHeight;
     }
     var objMainContainer = jQuery('#wrong');
-    var TopSpace = (winH - objMainContainer.height()-200)/2;
+    var TopSpace = (winH - objMainContainer.height() - 200) / 2;
     objMainContainer.css("top", TopSpace);
-    var objMainContainer = jQuery('#wrong');
-    var LeftSpace = (winW - objMainContainer.width())/2;
+    var LeftSpace = (winW - objMainContainer.width()) / 2;
     objMainContainer.css("left", LeftSpace);
 }
-function multiImgSelect(obj)
-{
+function multiImgSelect(obj) {
     var counter = 1;
-    while(counter <= jQuery('.img-choise').length)
-    {
-	var objCurrent = jQuery(jQuery('.img-choise')[counter-1]);
-	objCurrent.animate({
-	    opacity: 0.25
-	    }, 0, function() {
-	    jQuery(obj).css('opacity', '1');
-	});
-	counter ++;
+    while (counter <= jQuery('.img-choise').length) {
+        var objCurrent = jQuery(jQuery('.img-choise')[counter - 1]);
+        objCurrent.animate({
+            opacity: 0.25
+        }, 0, function () {
+            jQuery(obj).css('opacity', '1');
+        });
+        counter++;
     }
 }
-function toggleCorrectAnswer(obj)
-{
+function toggleCorrectAnswer(obj) {
     jQuery('#correct').fadeIn();
 }
-function toggleWrongAnswer(obj)
-{
+function toggleWrongAnswer(obj) {
     jQuery('#wrong').fadeIn();
 }
-function resetAll()
-{
-	jQuery('.img-choise').css('opacity', '1');
-	jQuery('#correct').fadeOut();
-	jQuery('#wrong').fadeOut();
+function resetAll() {
+    jQuery('.img-choise').css('opacity', '1');
+    jQuery('#correct').fadeOut();
+    jQuery('#wrong').fadeOut();
 }
-function nextFrame()
-{
+function nextFrame() {
     jQuery('#page1').fadeOut(500);
     jQuery('#page2').delay(500).fadeIn();
 }
-function prevFrame()
-{
-    debugger;
+function prevFrame() {
     $('#page2').fadeOut(500);
     $('#subjectsContainer').fadeOut(500);
     $('#subjectsArrow').fadeOut(500);
@@ -167,7 +160,6 @@ function login() {
 function closePopUp() {
     jQuery('#login').delay(100).fadeOut();
 }
-/*************** Language ********/
 function toEn(currentURL) {
     var str = currentURL.toString();
     var newURL = str.substr(str.indexOf("/ar/") + 4);
@@ -179,24 +171,4 @@ function toAr(currentURL) {
     var newURL = str.substr(str.indexOf("/en/") + 4);
     newURL = "../ar/" + newURL;
     location.href = newURL;
-}
-/***** Timer ****/
-var count = 8;
-var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-function timer() {
-    count = count - 1;
-    if (count <= 0) {
-        clearInterval(counter);
-        //counter ended, do something here
-        return;
-    }
-    //Do code for showing the number of seconds here
-}
-function timer() {
-    count = count - 1;
-    if (count <= 0) {
-        clearInterval(counter);
-        return;
-    }
-    document.getElementById("timer").innerHTML = count ; // watch for spelling
 }

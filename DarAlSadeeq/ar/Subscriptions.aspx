@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/ar/MasterPage.master" AutoEventWireup="false" CodeFile="Subscriptions.aspx.vb" Inherits="ar_Subscriptions" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ar/MasterPage.master" AutoEventWireup="true" CodeBehind="Subscriptions.aspx.cs" Inherits="DarAlSadeeq.ar.Subscriptions" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="block-main no-margin" onclick="prevFrame()" style="position: absolute;">
         <span>الإشتراكات</span>
     </div>
@@ -80,4 +80,3 @@
         </div>
     </div>
 </asp:Content>
-

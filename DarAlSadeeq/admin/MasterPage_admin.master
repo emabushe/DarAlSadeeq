@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="VB" CodeFile="MasterPage_admin.master.vb" Inherits="MasterPage_admin" %>
+
 <?xml version="1.0" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -19,14 +20,14 @@
     <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/styleAdmin.css" />
     <!-- GRAPHIC THEME -->
     <link rel="stylesheet" media="screen,projection" type="text/css" href="~/css/mystyle.css" />
-     <!-- Script Start-->
-    <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css"/>
+    <!-- Script Start-->
+    <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
     <!-- WRITE YOUR CSS CODE HERE -->
     <script type="text/javascript" src="../javascript/javascript.js"></script>
-     <!-- Styles Start-->
+    <!-- Styles Start-->
     <link rel="stylesheet" type="text/css" href="~/style/reset-min.css" />
     <link rel="stylesheet" type="text/css" href="~/style/style.css" />
     <link rel="stylesheet" type="text/css" href="~/style/pages.css" />
@@ -42,8 +43,8 @@
         });
     </script>
     <title>Dar Al-Sadeeq:: Control Panel</title>
-     <asp:ContentPlaceHolder ID="head" runat="server">
-            </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">

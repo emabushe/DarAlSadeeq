@@ -49,15 +49,6 @@ namespace DarAlSadeeq.ar {
         protected global::System.Web.UI.WebControls.Repeater rptLevels;
         
         /// <summary>
-        /// divArrow1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divArrow1;
-        
-        /// <summary>
         /// divCategories control.
         /// </summary>
         /// <remarks>
@@ -67,13 +58,49 @@ namespace DarAlSadeeq.ar {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCategories;
         
         /// <summary>
-        /// divArrow2 control.
+        /// rptCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divArrow2;
+        protected global::System.Web.UI.WebControls.Repeater rptCategories;
+        
+        /// <summary>
+        /// divSubCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSubCategories;
+        
+        /// <summary>
+        /// rptSubCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptSubCategories;
+        
+        /// <summary>
+        /// divParts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divParts;
+        
+        /// <summary>
+        /// rptParts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptParts;
         
         /// <summary>
         /// divContentList control.

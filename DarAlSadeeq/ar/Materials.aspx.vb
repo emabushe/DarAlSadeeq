@@ -1,6 +1,5 @@
 ﻿Partial Class ar_Materials
     Inherits System.Web.UI.Page
-
     Private Sub ar_Materials_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
             Dim SectionID As Integer = Request.QueryString("section")

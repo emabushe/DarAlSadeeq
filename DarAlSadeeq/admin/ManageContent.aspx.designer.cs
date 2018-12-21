@@ -6,12 +6,8 @@
 //     the code is regenerated. 
 // </auto-generated>
 //------------------------------------------------------------------------------
-
 namespace DarAlSadeeq.admin {
-    
-    
     public partial class ManageContent {
-        
         /// <summary>
         /// drpSections control.
         /// </summary>
@@ -20,7 +16,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpSections;
-        
         /// <summary>
         /// SqlDataSource3 control.
         /// </summary>
@@ -29,7 +24,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
-        
         /// <summary>
         /// DrpDwnLevels control.
         /// </summary>
@@ -38,7 +32,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DrpDwnLevels;
-        
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -47,7 +40,22 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
+        /// <summary>
+        /// drpSubCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpSubCategories;
+        /// <summary>
+        /// SqlDataSource11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource11;
         /// <summary>
         /// DrpDwnCategories control.
         /// </summary>
@@ -56,7 +64,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DrpDwnCategories;
-        
         /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
@@ -65,7 +72,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
         /// <summary>
         /// drpParts control.
         /// </summary>
@@ -74,7 +80,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpParts;
-        
         /// <summary>
         /// SqlDataSource4 control.
         /// </summary>
@@ -83,7 +88,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
-        
         /// <summary>
         /// txtContentTitleAR control.
         /// </summary>
@@ -92,7 +96,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContentTitleAR;
-        
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -101,7 +104,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
         /// <summary>
         /// txtContentTitleEN control.
         /// </summary>
@@ -110,7 +112,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContentTitleEN;
-        
         /// <summary>
         /// RequiredFieldValidator3 control.
         /// </summary>
@@ -119,7 +120,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
         /// <summary>
         /// drpContentType control.
         /// </summary>
@@ -128,7 +128,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpContentType;
-        
         /// <summary>
         /// coverFileUploader control.
         /// </summary>
@@ -137,7 +136,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload coverFileUploader;
-        
         /// <summary>
         /// RequiredFieldValidator2 control.
         /// </summary>
@@ -146,7 +144,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
         /// <summary>
         /// contentFileUploader control.
         /// </summary>
@@ -155,7 +152,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload contentFileUploader;
-        
         /// <summary>
         /// RequiredFieldValidator4 control.
         /// </summary>
@@ -164,7 +160,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
         /// <summary>
         /// txtDescription control.
         /// </summary>
@@ -173,7 +168,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
-        
         /// <summary>
         /// lblContentResult control.
         /// </summary>
@@ -182,7 +176,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblContentResult;
-        
         /// <summary>
         /// btn_save control.
         /// </summary>
@@ -191,7 +184,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_save;
-        
         /// <summary>
         /// UpdatePanelSections control.
         /// </summary>
@@ -200,7 +192,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanelSections;
-        
         /// <summary>
         /// txtSectionTitleAR control.
         /// </summary>
@@ -209,7 +200,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSectionTitleAR;
-        
         /// <summary>
         /// RequiredFieldValidator5 control.
         /// </summary>
@@ -218,7 +208,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
         /// <summary>
         /// txtSectionTitleEN control.
         /// </summary>
@@ -227,7 +216,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSectionTitleEN;
-        
         /// <summary>
         /// RequiredFieldValidator6 control.
         /// </summary>
@@ -236,7 +224,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
-        
         /// <summary>
         /// btnSaveNewSection control.
         /// </summary>
@@ -245,7 +232,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveNewSection;
-        
         /// <summary>
         /// drpSectionsEdit control.
         /// </summary>
@@ -254,7 +240,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpSectionsEdit;
-        
         /// <summary>
         /// SqlDataSource5 control.
         /// </summary>
@@ -263,7 +248,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
-        
         /// <summary>
         /// txtSectionTitleAREdit control.
         /// </summary>
@@ -272,7 +256,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSectionTitleAREdit;
-        
         /// <summary>
         /// RequiredFieldValidator7 control.
         /// </summary>
@@ -281,7 +264,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-        
         /// <summary>
         /// txtSectionTitleENEdit control.
         /// </summary>
@@ -290,7 +272,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSectionTitleENEdit;
-        
         /// <summary>
         /// RequiredFieldValidator8 control.
         /// </summary>
@@ -299,7 +280,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
-        
         /// <summary>
         /// btnEditSection control.
         /// </summary>
@@ -308,7 +288,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditSection;
-        
         /// <summary>
         /// drpSectionsDelete control.
         /// </summary>
@@ -317,7 +296,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpSectionsDelete;
-        
         /// <summary>
         /// SqlDataSource6 control.
         /// </summary>
@@ -326,7 +304,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource6;
-        
         /// <summary>
         /// btnDeleteSection control.
         /// </summary>
@@ -335,7 +312,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeleteSection;
-        
         /// <summary>
         /// lblSectionsResults control.
         /// </summary>
@@ -344,7 +320,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSectionsResults;
-        
         /// <summary>
         /// UpdatePanelLevels control.
         /// </summary>
@@ -353,16 +328,14 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanelLevels;
-        
         /// <summary>
-        /// txtLevelARAdd control.
+        /// txtLevelTitleARAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLevelARAdd;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtLevelTitleARAdd;
         /// <summary>
         /// RequiredFieldValidator9 control.
         /// </summary>
@@ -371,16 +344,14 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
-        
         /// <summary>
-        /// txtLevelENAdd control.
+        /// txtLevelTitleENAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLevelENAdd;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtLevelTitleENAdd;
         /// <summary>
         /// RequiredFieldValidator10 control.
         /// </summary>
@@ -389,7 +360,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
-        
         /// <summary>
         /// btnSaveNewLevel control.
         /// </summary>
@@ -398,7 +368,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveNewLevel;
-        
         /// <summary>
         /// drpLevelsEdit control.
         /// </summary>
@@ -407,7 +376,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpLevelsEdit;
-        
         /// <summary>
         /// SqlDataSource7 control.
         /// </summary>
@@ -416,7 +384,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource7;
-        
         /// <summary>
         /// txtLevelTitleAREdit control.
         /// </summary>
@@ -425,7 +392,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLevelTitleAREdit;
-        
         /// <summary>
         /// RequiredFieldValidator11 control.
         /// </summary>
@@ -434,7 +400,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
-        
         /// <summary>
         /// txtLevelTitleENEdit control.
         /// </summary>
@@ -443,7 +408,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLevelTitleENEdit;
-        
         /// <summary>
         /// RequiredFieldValidator12 control.
         /// </summary>
@@ -452,7 +416,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
-        
         /// <summary>
         /// btnEditLevel control.
         /// </summary>
@@ -461,7 +424,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditLevel;
-        
         /// <summary>
         /// drpLevelsDelete control.
         /// </summary>
@@ -470,7 +432,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpLevelsDelete;
-        
         /// <summary>
         /// SqlDataSource8 control.
         /// </summary>
@@ -479,25 +440,22 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource8;
-        
         /// <summary>
-        /// btnDeleteEdit control.
+        /// btnDeleteLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteEdit;
-        
+        protected global::System.Web.UI.WebControls.Button btnDeleteLevel;
         /// <summary>
-        /// lblLevelsResult control.
+        /// lblLevelsResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLevelsResult;
-        
+        protected global::System.Web.UI.WebControls.Label lblLevelsResults;
         /// <summary>
         /// UpdatePanelCategories control.
         /// </summary>
@@ -506,16 +464,14 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanelCategories;
-        
         /// <summary>
-        /// txtCategoryARAdd control.
+        /// txtCategoryTitleARAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategoryARAdd;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtCategoryTitleARAdd;
         /// <summary>
         /// RequiredFieldValidator13 control.
         /// </summary>
@@ -524,16 +480,14 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
-        
         /// <summary>
-        /// txtCategoryENAdd control.
+        /// txtCategoryTitleENAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategoryENAdd;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtCategoryTitleENAdd;
         /// <summary>
         /// RequiredFieldValidator14 control.
         /// </summary>
@@ -542,7 +496,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator14;
-        
         /// <summary>
         /// btnSaveNewCategory control.
         /// </summary>
@@ -551,7 +504,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveNewCategory;
-        
         /// <summary>
         /// drpCategoriesEdit control.
         /// </summary>
@@ -560,7 +512,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpCategoriesEdit;
-        
         /// <summary>
         /// SqlDataSource9 control.
         /// </summary>
@@ -569,7 +520,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource9;
-        
         /// <summary>
         /// txtCategoryTitleAREdit control.
         /// </summary>
@@ -578,7 +528,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCategoryTitleAREdit;
-        
         /// <summary>
         /// RequiredFieldValidator15 control.
         /// </summary>
@@ -587,7 +536,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
-        
         /// <summary>
         /// txtCategoryTitleENEdit control.
         /// </summary>
@@ -596,7 +544,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCategoryTitleENEdit;
-        
         /// <summary>
         /// RequiredFieldValidator16 control.
         /// </summary>
@@ -605,7 +552,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator16;
-        
         /// <summary>
         /// btnEditCategory control.
         /// </summary>
@@ -614,7 +560,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditCategory;
-        
         /// <summary>
         /// drpCategoriesDelete control.
         /// </summary>
@@ -623,7 +568,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpCategoriesDelete;
-        
         /// <summary>
         /// SqlDataSource10 control.
         /// </summary>
@@ -632,7 +576,6 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource10;
-        
         /// <summary>
         /// btnDeleteCategory control.
         /// </summary>
@@ -641,14 +584,13 @@ namespace DarAlSadeeq.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeleteCategory;
-        
         /// <summary>
-        /// lblCategoriesResult control.
+        /// lblCategoriesResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategoriesResult;
+        protected global::System.Web.UI.WebControls.Label lblCategoriesResults;
     }
 }

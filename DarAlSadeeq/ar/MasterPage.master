@@ -1,6 +1,6 @@
-﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="ar_MasterPage" %>
-<!DOCTYPE html>
-<html>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="DarAlSadeeq.ar.MasterPage" %>
+<!DOCTYPE html >
+<html xml:lang="en" lang="en">
 <head runat="server">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -18,23 +18,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="content-language" content="enss" />
     <title>دار الصديق </title>
-    <!-- Script Start-->
-    <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css"/>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../javascript/javascript.js"></script>
     <!-- Styles Start-->
-<%--     <link rel="stylesheet" type="text/css" href="~/style/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="~/style/demo.css" />--%>
-	
+     <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css"/>
     <link rel="stylesheet" type="text/css" href="~/style/reset-min.css"/>
     <link rel="stylesheet" type="text/css" href="~/style/style.css" />
     <link rel="stylesheet" type="text/css" href="~/style/pages.css" />
-    <link rel="stylesheet" type="text/css" href="~/style/ibooks.css" />
     <link rel="stylesheet" type="text/css" href="~/style/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="~/style/tooltip-sharp.css" />
     <!-- Styles End-->
+     <!-- Script Start-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../javascript/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="../javascript/javascript.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -82,38 +79,38 @@
                                         <span id="gamesTab">إنتجاتنا</span>
                                     </div>
                                 </div>
-                                <div class="block-main block2" onclick="location.href='ibooks.aspx'">
+                                <div class="block-main block2" onclick="location.href='Content.aspx?section=2'">
                                     <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span id="eBooksTab">المنهاج الإلكتروني</span>
                                     </div>
                                 </div>
-                                <div class="block-main block3" onclick="location.href='Stories.aspx?Level=1'">
+                                <div class="block-main block3" onclick="location.href='Content.aspx?section=3&level=1'">
                                     <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span>منهاج المستوى الأول</span>
                                     </div>
                                 </div>
-                                <div class="block-main block4" onclick="location.href='Books.aspx'">
+                                <div class="block-main block4" onclick="location.href='Content.aspx?section=4'">
                                     <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span>الكتب المطبوعة</span>
                                     </div>
                                 </div>
-                                <div class="block-main block5" onclick="location.href='Stories.aspx'">
+                                <div class="block-main block5" onclick="location.href='Content.aspx?section=5'">
                                     <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span>القصص</span>
                                     </div>
                                 </div>
                                 <div class="block-main block6" onclick="location.href='WorkSheets.aspx'">
                                     <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
-                                        <span id="workSheetsTab">أوراق عمل</span>
+                                        <span >أوراق عمل</span>
                                     </div>
                                 </div>
-                                <div class="block-main block7" onclick="location.href='Teacher.aspx'">
+                                <div class="block-main block7" onclick="location.href='Content.aspx?section=7'">
                                     <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
-                                        <span id="teachTab">للمعلم</span>
+                                        <span >للمعلم</span>
                                     </div>
                                 </div>
-                                <div class="block-main block8 no-margin" onclick="location.href='SongStories.aspx'">
-                                    <span id="songStoriesTab">فيديوهات</span>
+                                <div class="block-main block8 no-margin" onclick="location.href='Videos.aspx'">
+                                    <span>فيديوهات</span>
                                 </div>
                                 <div class="block-main block9" onclick="location.href='Guidance.aspx'">
                                     <span id="guidanceTab">إرشادات للطفل والأسرة</span>

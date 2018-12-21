@@ -167,7 +167,7 @@ a {
 }
 .blocks-container {
     margin: auto;
-    width: 95%;
+    width: 100%;
     padding-top: 22px;
 }
 .footerDiv {
@@ -272,7 +272,7 @@ h1 {
     font-size: 25px;
     border-radius: 7px;
     float: right;
-    width: 70%;
+    width: 80%;
     height: auto;
     max-height: 590px;
     overflow-y: auto;

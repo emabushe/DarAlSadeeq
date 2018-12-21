@@ -61,11 +61,25 @@
     <Content Include="admin\design\Thumbs.db" />
     <Content Include="admin\ManageContent.aspx" />
     <Content Include="admin\MasterPage_admin.master" />
+    <Content Include="ar\AboutUs.aspx" />
+    <Content Include="ar\ChangeYourLife.aspx" />
+    <Content Include="ar\ChangeYourLifeList.aspx" />
+    <Content Include="ar\ChangeYourLifeView.aspx" />
+    <Content Include="ar\ContactUs.aspx" />
     <Content Include="ar\Content.aspx" />
+    <Content Include="ar\ContentViewer.aspx" />
+    <Content Include="ar\Guidance.aspx" />
+    <Content Include="ar\GuidanceList.aspx" />
+    <Content Include="ar\GuidanceView.aspx" />
     <Content Include="ar\ibooks\ibooks_Master.master" />
     <Content Include="ar\ibooks\Level2\P2\L1\mobile\data.gz" />
-    <Content Include="ar\MasterPage.master" />
-    <Content Include="ar\web.config" />
+    <Content Include="ar\Partners.aspx" />
+    <Content Include="ar\Schools.aspx" />
+    <Content Include="ar\Subscriptions.aspx" />
+    <Content Include="ar\Videos.aspx" />
+    <Content Include="ar\View.aspx" />
+    <Content Include="ar\WorkSheets.aspx" />
+    <Content Include="ar\WorkSheetsMaterial.aspx" />
     <Content Include="bin\AjaxControlToolkit.dll.refresh" />
     <Content Include="fonts\.DS_Store" />
     <Content Include="fonts\BreeSerif-Regular.otf" />
@@ -86,7 +100,11 @@
     <Content Include="fonts\TheMixArab Bold.ttf" />
     <Content Include="fonts\TheMixArab Regular.ttf" />
     <Content Include="images\.DS_Store" />
+    <Content Include="images\tooltip3.svg" />
     <Content Include="javascript\.DS_Store" />
+    <Content Include="javascript\modernizr.2.5.3.min.js" />
+    <Content Include="javascript\turn.html4.min.js" />
+    <Content Include="javascript\turn.js" />
     <Content Include="Materials\2-Adjectives.pdf" />
     <Content Include="Materials\2-Adverbs.pdf" />
     <Content Include="Materials\2-Answer_the_following_questions.pdf" />
@@ -453,6 +471,7 @@
     <Content Include="obj\Debug\DarAlSadeeq.csprojAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="style\.DS_Store" />
+    <Content Include="style\basic.css" />
     <Content Include="style\demo.css" />
     <Content Include="style\normalize.css" />
     <Content Include="style\Presentations\BrainQuest.ppsx" />
@@ -484,6 +503,7 @@
     <Content Include="Teacher\New_Kawn-THALET.pdf" />
     <Content Include="Teacher\thalet-3lom-elma2-fe-tbe3a.pdf" />
     <Content Include="Teacher\thane-ejtm3eat-etejahat.pdf" />
+    <Content Include="ar\MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -662,30 +682,18 @@
     <Content Include="App_Code\LinkGames.vb" />
     <Content Include="App_Code\Teacher.vb" />
     <Content Include="App_Code\Worksheets.vb" />
-    <Content Include="ar\AboutUs.aspx" />
-    <Content Include="ar\AboutUs.aspx.vb" />
     <Content Include="ar\Activities.aspx" />
     <Content Include="ar\Activities.aspx.vb" />
     <Content Include="ar\Activity.aspx" />
     <Content Include="ar\Activity.aspx.vb" />
     <Content Include="ar\ActivityView.aspx" />
     <Content Include="ar\ActivityView.aspx.vb" />
-    <Content Include="ar\ChangeYourLife.aspx" />
-    <Content Include="ar\ChangeYourLife.aspx.vb" />
-    <Content Include="ar\ChangeYourLifeList.aspx" />
-    <Content Include="ar\ChangeYourLifeList.aspx.vb" />
-    <Content Include="ar\ChangeYourLifeView.aspx" />
-    <Content Include="ar\ChangeYourLifeView.aspx.vb" />
-    <Content Include="ar\ContactUs.aspx" />
-    <Content Include="ar\ContactUs.aspx.vb" />
+    <Content Include="ar\ContactUs_old.aspx" />
+    <Content Include="ar\ContactUs_old.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="ar\Default.aspx" />
     <Content Include="ar\Default.aspx.vb" />
-    <Content Include="ar\Guidance.aspx" />
-    <Content Include="ar\Guidance.aspx.vb" />
-    <Content Include="ar\GuidanceList.aspx" />
-    <Content Include="ar\GuidanceList.aspx.vb" />
-    <Content Include="ar\GuidanceView.aspx" />
-    <Content Include="ar\GuidanceView.aspx.vb" />
     <Content Include="ar\HandMake.aspx" />
     <Content Include="ar\HandMake.aspx.vb" />
     <Content Include="ar\HandMakeList.aspx" />
@@ -700,7 +708,9 @@
     <Content Include="ar\ibooks\Default.aspx.vb" />
     <Content Include="ar\ibooks\ibooks_Master.master.vb" />
     <Content Include="ar\ibooks\Lessons.aspx" />
-    <Content Include="ar\ibooks\Lessons.aspx.vb" />
+    <Content Include="ar\ibooks\Lessons.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="ar\ibooks\LessonViewer.aspx" />
     <Content Include="ar\ibooks\LessonViewer.aspx.vb" />
     <Content Include="ar\ibooks\Level2\P2\L1\ioslaunch.html" />
@@ -1085,37 +1095,22 @@
     <Content Include="ar\LinkGames.aspx.vb" />
     <Content Include="ar\LinkGamesList.aspx" />
     <Content Include="ar\LinkGamesList.aspx.vb" />
-    <Content Include="ar\MasterPage.master.vb">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="ar\Materials.aspx" />
     <Content Include="ar\Materials.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="ar\OurProducts.aspx" />
     <Content Include="ar\OurProducts.aspx.vb" />
-    <Content Include="ar\Partners.aspx" />
-    <Content Include="ar\Partners.aspx.vb" />
-    <Content Include="ar\Schools.aspx" />
-    <Content Include="ar\Schools.aspx.vb" />
-    <Content Include="ar\SongsStories.aspx" />
-    <Content Include="ar\SongsStories.aspx.vb" />
     <Content Include="ar\SongStories.aspx" />
-    <Content Include="ar\SongStories.aspx.vb" />
-    <Content Include="ar\Subscriptions.aspx" />
-    <Content Include="ar\Subscriptions.aspx.vb" />
+    <Content Include="ar\SongStories.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="ar\Talents.aspx" />
     <Content Include="ar\Talents.aspx.vb" />
     <Content Include="ar\Teacher.aspx" />
     <Content Include="ar\Teacher.aspx.vb" />
     <Content Include="ar\TeacherMaterial.aspx" />
     <Content Include="ar\TeacherMaterial.aspx.vb" />
-    <Content Include="ar\View.aspx" />
-    <Content Include="ar\View.aspx.vb" />
-    <Content Include="ar\WorkSheets.aspx" />
-    <Content Include="ar\WorkSheets.aspx.vb" />
-    <Content Include="ar\WorkSheetsMaterial.aspx" />
-    <Content Include="ar\WorkSheetsMaterial.aspx.vb" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\Winthusiasm.HtmlEditor.dll" />
     <Content Include="css\1col.css" />
@@ -1193,7 +1188,9 @@
     <Content Include="fonts\ge-ss-two-medium.svg" />
     <Content Include="google4f9e5398bcfc29e5.html" />
     <Content Include="help\error.aspx" />
-    <Content Include="help\error.aspx.vb" />
+    <Content Include="help\error.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="images\--.png" />
     <Content Include="images\000.png" />
     <Content Include="images\1.png" />
@@ -1521,6 +1518,41 @@
     <Compile Include="admin\ManageContent.aspx.designer.cs">
       <DependentUpon>ManageContent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\ChangeYourLife.aspx.cs">
+      <DependentUpon>ChangeYourLife.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\ChangeYourLife.aspx.designer.cs">
+      <DependentUpon>ChangeYourLife.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\ChangeYourLifeList.aspx.cs">
+      <DependentUpon>ChangeYourLifeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\ChangeYourLifeList.aspx.designer.cs">
+      <DependentUpon>ChangeYourLifeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\ChangeYourLifeView.aspx.cs">
+      <DependentUpon>ChangeYourLifeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\ChangeYourLifeView.aspx.designer.cs">
+      <DependentUpon>ChangeYourLifeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ar\Content.aspx.cs">
       <DependentUpon>Content.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1528,7 +1560,92 @@
     <Compile Include="ar\Content.aspx.designer.cs">
       <DependentUpon>Content.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\ContentViewer.aspx.cs">
+      <DependentUpon>ContentViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\ContentViewer.aspx.designer.cs">
+      <DependentUpon>ContentViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\Guidance.aspx.cs">
+      <DependentUpon>Guidance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Guidance.aspx.designer.cs">
+      <DependentUpon>Guidance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\GuidanceList.aspx.cs">
+      <DependentUpon>GuidanceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\GuidanceList.aspx.designer.cs">
+      <DependentUpon>GuidanceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\GuidanceView.aspx.cs">
+      <DependentUpon>GuidanceView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\GuidanceView.aspx.designer.cs">
+      <DependentUpon>GuidanceView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ar\Partners.aspx.cs">
+      <DependentUpon>Partners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Partners.aspx.designer.cs">
+      <DependentUpon>Partners.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\Schools.aspx.cs">
+      <DependentUpon>Schools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Schools.aspx.designer.cs">
+      <DependentUpon>Schools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\Subscriptions.aspx.cs">
+      <DependentUpon>Subscriptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Subscriptions.aspx.designer.cs">
+      <DependentUpon>Subscriptions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\Videos.aspx.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Videos.aspx.designer.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\WorkSheets.aspx.cs">
+      <DependentUpon>WorkSheets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\WorkSheets.aspx.designer.cs">
+      <DependentUpon>WorkSheets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ar\WorkSheetsMaterial.aspx.cs">
+      <DependentUpon>WorkSheetsMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\WorkSheetsMaterial.aspx.designer.cs">
+      <DependentUpon>WorkSheetsMaterial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DA\Content.cs" />
+    <Compile Include="DA\Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
