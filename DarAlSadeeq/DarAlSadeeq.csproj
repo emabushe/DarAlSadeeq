@@ -682,26 +682,8 @@
     <Content Include="App_Code\LinkGames.vb" />
     <Content Include="App_Code\Teacher.vb" />
     <Content Include="App_Code\Worksheets.vb" />
-    <Content Include="ar\Activities.aspx" />
-    <Content Include="ar\Activities.aspx.vb" />
-    <Content Include="ar\Activity.aspx" />
-    <Content Include="ar\Activity.aspx.vb" />
-    <Content Include="ar\ActivityView.aspx" />
-    <Content Include="ar\ActivityView.aspx.vb" />
-    <Content Include="ar\ContactUs_old.aspx" />
-    <Content Include="ar\ContactUs_old.aspx.vb">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="ar\Default.aspx" />
     <Content Include="ar\Default.aspx.vb" />
-    <Content Include="ar\HandMake.aspx" />
-    <Content Include="ar\HandMake.aspx.vb" />
-    <Content Include="ar\HandMakeList.aspx" />
-    <Content Include="ar\HandMakeList.aspx.vb" />
-    <Content Include="ar\HandMakeView.aspx" />
-    <Content Include="ar\HandMakeView.aspx.vb" />
-    <Content Include="ar\ibooks.aspx" />
-    <Content Include="ar\ibooks.aspx.vb" />
     <Content Include="ar\ibooks\BooksShelf.aspx" />
     <Content Include="ar\ibooks\BooksShelf.aspx.vb" />
     <Content Include="ar\ibooks\Default.aspx" />
@@ -1091,26 +1073,6 @@
     <Content Include="ar\ibooks\Level2\P2\L1\story_unsupported.html" />
     <Content Include="ar\ibooks\Sounds\Correct.wav" />
     <Content Include="ar\ibooks\Sounds\wrong.wav" />
-    <Content Include="ar\LinkGames.aspx" />
-    <Content Include="ar\LinkGames.aspx.vb" />
-    <Content Include="ar\LinkGamesList.aspx" />
-    <Content Include="ar\LinkGamesList.aspx.vb" />
-    <Content Include="ar\Materials.aspx" />
-    <Content Include="ar\Materials.aspx.vb">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="ar\OurProducts.aspx" />
-    <Content Include="ar\OurProducts.aspx.vb" />
-    <Content Include="ar\SongStories.aspx" />
-    <Content Include="ar\SongStories.aspx.vb">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="ar\Talents.aspx" />
-    <Content Include="ar\Talents.aspx.vb" />
-    <Content Include="ar\Teacher.aspx" />
-    <Content Include="ar\Teacher.aspx.vb" />
-    <Content Include="ar\TeacherMaterial.aspx" />
-    <Content Include="ar\TeacherMaterial.aspx.vb" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\Winthusiasm.HtmlEditor.dll" />
     <Content Include="css\1col.css" />
