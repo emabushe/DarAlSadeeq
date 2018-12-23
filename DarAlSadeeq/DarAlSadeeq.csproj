@@ -68,6 +68,7 @@
     <Content Include="ar\ContactUs.aspx" />
     <Content Include="ar\Content.aspx" />
     <Content Include="ar\ContentViewer.aspx" />
+    <Content Include="ar\Default.aspx" />
     <Content Include="ar\Guidance.aspx" />
     <Content Include="ar\GuidanceList.aspx" />
     <Content Include="ar\GuidanceView.aspx" />
@@ -682,8 +683,6 @@
     <Content Include="App_Code\LinkGames.vb" />
     <Content Include="App_Code\Teacher.vb" />
     <Content Include="App_Code\Worksheets.vb" />
-    <Content Include="ar\Default.aspx" />
-    <Content Include="ar\Default.aspx.vb" />
     <Content Include="ar\ibooks\BooksShelf.aspx" />
     <Content Include="ar\ibooks\BooksShelf.aspx.vb" />
     <Content Include="ar\ibooks\Default.aspx" />
@@ -1529,6 +1528,13 @@
     <Compile Include="ar\ContentViewer.aspx.designer.cs">
       <DependentUpon>ContentViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ar\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ar\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ar\Guidance.aspx.cs">
       <DependentUpon>Guidance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1608,6 +1614,7 @@
     </Compile>
     <Compile Include="DA\Content.cs" />
     <Compile Include="DA\Mail.cs" />
+    <Compile Include="DA\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

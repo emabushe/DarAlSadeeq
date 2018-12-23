@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="DarAlSadeeq.ar.MasterPage" %>
+
 <!DOCTYPE html >
 <html xml:lang="en" lang="en">
 <head runat="server">
@@ -19,14 +20,14 @@
     <meta http-equiv="content-language" content="enss" />
     <title>دار الصديق </title>
     <!-- Styles Start-->
-     <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css"/>
-    <link rel="stylesheet" type="text/css" href="~/style/reset-min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/style/bootstrap-combined.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/style/reset-min.css" />
     <link rel="stylesheet" type="text/css" href="~/style/style.css" />
     <link rel="stylesheet" type="text/css" href="~/style/pages.css" />
     <link rel="stylesheet" type="text/css" href="~/style/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="~/style/tooltip-sharp.css" />
     <!-- Styles End-->
-     <!-- Script Start-->
+    <!-- Script Start-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
@@ -37,13 +38,37 @@
     <form runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
+        <input type="hidden" id="hdnUserType" runat="server" />
         <div class="site-container">
             <div class="clouds-container">
                 <div class="content-container">
                     <div class="userBox">
+                        <div class="row">
+                            <div class="col-sm-1">
+                            </div>
+                              <div class="col-sm-1">
+                            </div>
+                            <div class="col-sm-1">
+                              
+                            </div>
+                             <div class="col-sm-1">
+                              
+                            </div>
+                            <div class="col-sm-1">
+                                
+                            </div>
+                            <div class="col-sm-1">
+                               
+                            </div>
+                            <div class="col-sm-6">
+                                  <a href="../admin/ManageContent.aspx" id="controlPanel" runat="server" style="padding: 5px;">إدارة المحتوى</a>
+                                <a href="Subscriptions.aspx" id="registerTab" style="padding: 5px;">الإشتراكات</a>
+                                 <asp:LinkButton ID="BtnLogOut" runat="server" OnClick="BtnLogOut_Click1" style="padding: 5px;">تسجيل الخروج</asp:LinkButton>
+                                 <a href="#" id="loginBtn" runat="server" style="padding: 5px;">تسجيل الدخول</a>
+                                <asp:Label ID="lblFullName" runat="server" style="padding: 5px;"></asp:Label>
+                            </div>
+                        </div>
                         <ul>
-                            <li><a href="Subscriptions.aspx" id="registerTab">الإشتراكات</a></li>
-                            <li><a href="#" id="loginBtn">تسجيل الدخول</a></li>
                         </ul>
                     </div>
                     <div class="enlanguage">
@@ -79,34 +104,34 @@
                                         <span id="gamesTab">إنتجاتنا</span>
                                     </div>
                                 </div>
-                                <div class="block-main block2" onclick="location.href='Content.aspx?section=2'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                <div class="block-main block2" onclick="checkUser('Content.aspx?section=2');">
+                                    <div id="ibooksLocked" runat="server" class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span id="eBooksTab">المنهاج الإلكتروني</span>
                                     </div>
                                 </div>
-                                <div class="block-main block3" onclick="location.href='Content.aspx?section=3&level=1'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                <div class="block-main block3" onclick="checkUser('Content.aspx?section=3&level=1');">
+                                    <div id="level1Locked" runat="server" class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span>منهاج المستوى الأول</span>
                                     </div>
                                 </div>
-                                <div class="block-main block4" onclick="location.href='Content.aspx?section=4'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                <div class="block-main block4" onclick="checkUser('Content.aspx?section=4');">
+                                    <div id="booksLocked" runat="server" class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span>الكتب المطبوعة</span>
                                     </div>
                                 </div>
-                                <div class="block-main block5" onclick="location.href='Content.aspx?section=5'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                <div class="block-main block5" onclick="checkUser('Content.aspx?section=5');">
+                                    <div id="storiesLocked" runat="server" class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
                                         <span>القصص</span>
                                     </div>
                                 </div>
-                                <div class="block-main block6" onclick="location.href='WorkSheets.aspx'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
-                                        <span >أوراق عمل</span>
+                                <div class="block-main block6" onclick="checkUser('WorkSheets.aspx');">
+                                    <div id="worksheetsLocked" runat="server" class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span>أوراق عمل</span>
                                     </div>
                                 </div>
-                                <div class="block-main block7" onclick="location.href='Content.aspx?section=7'">
-                                    <div class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
-                                        <span >للمعلم</span>
+                                <div class="block-main block7" onclick="checkUser('Content.aspx?section=7');">
+                                    <div id="teacherLocked" runat="server" class="locked" title="هذا المحتوى متاح للإشتراكات فقط">
+                                        <span>للمعلم</span>
                                     </div>
                                 </div>
                                 <div class="block-main block8 no-margin" onclick="location.href='Videos.aspx'">
@@ -145,39 +170,102 @@
                 </div>
             </div>
         </div>
-    <div class="modal fade fill-in" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-            <img src="../images/close-icon.png" width="25" height="25" />
-        </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img src="../images/login.png" width="50" height="50" />
+        <div class="modal fade fill-in" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <img src="../images/close-icon.png" width="25" height="25" />
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="../images/login.png" width="50" height="50" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 no-padding sm-m-t-10 sm-text-center">
+                                <table class="table table-responsive">
+                                    <tr>
+                                        <td><span>اسم المستخدم</span></td>
+                                        <td>
+                                            <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>كلمة السر</span></td>
+                                        <td>
+                                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span><a href="">مساعدة؟</a></span></td>
+                                        <td>
+                                            <asp:Button ID="btnLogin" runat="server" Text="دخول" OnClick="btnLogin_Click"></asp:Button></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><span>
+                                            <asp:Label ID="lblResult" runat="server" Text=""></asp:Label></span></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="row" style="margin-top:10px">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 no-padding sm-m-t-10 sm-text-center">
-                            <table class="table table-responsive">
-                                <tr><td><span>اسم المستخدم</span></td><td><asp:TextBox ID="txtUserName" runat="server"></asp:TextBox></td></tr>
-                                <tr><td><span>كلمة السر</span></td><td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></td></tr>
-                                <tr><td><span><a href="">مساعدة؟</a></span></td><td><asp:Button ID="btnLogin" runat="server" Text="دخول"></asp:Button></td></tr>
-                                <tr><td colspan="2"><span><asp:Label ID="lblResult" runat="server" Text=""></asp:Label></span></td></tr>
-                            </table>
-                        </div>
+                    <div class="modal-footer">
                     </div>
                 </div>
-                <div class="modal-footer">
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-        </form>
+        <div class="modal fade fill-in" id="modalSectionBlocked" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <img src="../images/close-icon.png" width="25" height="25" />
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="../images/blocked.png" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 no-padding sm-m-t-10 sm-text-center">
+                                <div class="row" style="text-align: center">
+                                    <span>هذاالمحتوى متاح للإشتراكات فقط</span>
+                                </div>
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="Subscriptions.aspx">إشترك الان</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#" id="loginFromBlockedModal">دخول</a>
+                                    </div>
+                                    <div class="col-md-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <script>
+            $(document).ready(function () {
+                checkUser();
+            });
+        </script>
+    </form>
+
 </body>
 </html>

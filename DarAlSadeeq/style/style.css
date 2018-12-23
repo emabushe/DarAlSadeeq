@@ -114,13 +114,14 @@ a {
 .userBox {
     margin: 5px;
     font-size: 15px;
-    width: 235px;
+    width: 100%;
     background-color: #FFF;
     opacity: 0.6;
     filter: alpha(opacity=60);
     -moz-border-radius: 15px;
     border-radius: 15px;
     float: right;
+    text-align: right;
 }
 .enlanguage {
     margin: 5px;
@@ -130,7 +131,7 @@ a {
     background: url(../images/enLang.png);
     background-repeat: no-repeat;
     padding: 0px;
-    background-color: #FFF;
+    /*background-color: #FFF;*/
     opacity: 0.6;
     filter: alpha(opacity=60);
     -moz-border-radius: 15px;

@@ -6,6 +6,13 @@ $(function () {
     });
 });
 $(function () {
+    $('#loginFromBlockedModal').click(function () {
+        $('#modalSectionBlocked').modal('hide');
+        $('#modalLogin').modal('show');
+        return false;
+    });
+});
+$(function () {
     $('#btnManageLevel').click(function () {
         $('#modalManageLevels').modal('show');
         return false;
@@ -23,6 +30,60 @@ $(function () {
         return false;
     });
 });
+$(function () {
+    $('#btnLogout').click(function () {
+        localStorage.clear();
+        location.href = '../ar/Default.aspx';
+        return false;
+    });
+});
+function checkUser(url) {
+    var userType = document.getElementById('hdnUserType').value;
+    var currentURL = location.pathname + location.search;
+    if (userType === 'admin') {
+        if (url != null) {
+            location.href = url;
+        }
+    }
+    else if (userType === 'school') {
+        var schoolSections = ["Content.aspx?section=2", "Content.aspx?section=3", "Content.aspx?section=4", "Content.aspx?section=5", "Content.aspx?section=6", "Content.aspx?section=7"];
+        if (schoolSections.indexOf(url) > -1) {
+            location.href = url;
+        }
+        else {
+            if (url != null) {
+                $('#modalSectionBlocked').modal('show');
+            }
+        }
+    }
+    else if (userType === 'teacher') {
+        var teacherSections = ["Content.aspx?section=7"];
+        if (teacherSections.indexOf(url) > -1) {
+            location.href = url;
+        }
+        else {
+            if (url != null) {
+                $('#modalSectionBlocked').modal('show');
+            }
+        }
+    }
+    else if (userType === 'student') {
+        var studentSections = ["Content.aspx?section=2", "Content.aspx?section=3", "Content.aspx?section=4", "Content.aspx?section=5", "Content.aspx?section=6"];
+        if (studentSections.indexOf(url) > -1) {
+            location.href = url;
+        }
+        else {
+            if (url != null) {
+                $('#modalSectionBlocked').modal('show');
+            }
+        }
+    }
+    else {
+        if (url != null) {
+            $('#modalSectionBlocked').modal('show');
+        }
+    }
+}
 function openContentModal() {
     $('#modalContentViewer').modal({ backdrop: 'static', keyboard: true });
 }
