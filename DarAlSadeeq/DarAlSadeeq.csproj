@@ -60,7 +60,6 @@
   <ItemGroup>
     <Content Include="admin\design\Thumbs.db" />
     <Content Include="admin\ManageContent.aspx" />
-    <Content Include="admin\MasterPage_admin.master" />
     <Content Include="ar\AboutUs.aspx" />
     <Content Include="ar\ChangeYourLife.aspx" />
     <Content Include="ar\ChangeYourLifeList.aspx" />
@@ -505,6 +504,7 @@
     <Content Include="Teacher\thalet-3lom-elma2-fe-tbe3a.pdf" />
     <Content Include="Teacher\thane-ejtm3eat-etejahat.pdf" />
     <Content Include="ar\MasterPage.Master" />
+    <Content Include="admin\AdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -663,9 +663,6 @@
     <Content Include="admin\design\ul.gif" />
     <Content Include="admin\Login.aspx" />
     <Content Include="admin\Login.aspx.vb" />
-    <Content Include="admin\MasterPage_admin.master.vb">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="admin\UpdateAboutUs.aspx" />
     <Content Include="admin\UpdateAboutUs.aspx.vb" />
     <Content Include="admin\UserPage.aspx" />
@@ -1472,6 +1469,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="admin\ManageContent.aspx.cs">
       <DependentUpon>ManageContent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -61,7 +61,7 @@
                                
                             </div>
                             <div class="col-sm-6">
-                                  <a href="../admin/ManageContent.aspx" id="controlPanel" runat="server" style="padding: 5px;">إدارة المحتوى</a>
+                                  <a href="../admin/ManageContent.aspx" target="_blank" id="controlPanel" runat="server" style="padding: 5px;" >إدارة المحتوى</a>
                                 <a href="Subscriptions.aspx" id="registerTab" style="padding: 5px;">الإشتراكات</a>
                                  <asp:LinkButton ID="BtnLogOut" runat="server" OnClick="BtnLogOut_Click1" style="padding: 5px;">تسجيل الخروج</asp:LinkButton>
                                  <a href="#" id="loginBtn" runat="server" style="padding: 5px;">تسجيل الدخول</a>

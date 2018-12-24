@@ -1,4 +1,4 @@
-﻿<%@ Master Language="VB" CodeFile="MasterPage_admin.master.vb" Inherits="MasterPage_admin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="DarAlSadeeq.admin.AdminMaster" %>
 
 <?xml version="1.0" ?>
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
             <!-- Tray -->
             <div id="tray" class="box">
                 <p class="f-right">
-                    User: <strong><a href="UserPage.aspx">My Profile</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>
+                    User: <strong><a href="#">My Profile</a></strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>
                         <asp:LinkButton ID="logout" runat="server">Log out</asp:LinkButton></strong>
                 </p>
             </div>
