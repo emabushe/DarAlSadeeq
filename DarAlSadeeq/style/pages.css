@@ -124,7 +124,24 @@
 .block3rd {
     background: url(../images/3rd.png) 0 200px no-repeat #ffba00;
 }
-
+.block4th {
+    background: url(../images/4th.png) 0 200px no-repeat #26d5ac;
+}
+.block5th {
+    background: url(../images/5th.png) 0 200px no-repeat #71d526;
+}
+.block6th {
+    background: url(../images/6th.png) 0 200px no-repeat #f6f037;
+}
+.block7th {
+    background: url(../images/7th.png) 0 200px no-repeat #ad37f6;
+}
+.block8th {
+    background: url(../images/8th.png) 0 200px no-repeat #4337f6;
+}
+.block9th {
+    background: url(../images/9th.png) 0 200px no-repeat #37b8f6;
+}
 .blockEnGrammar {
     background: url(../images/EnGrammar.png) 0 200px no-repeat #93a923;
 }
@@ -156,7 +173,7 @@
 
 .block-classes span {
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 100px;
 }
 

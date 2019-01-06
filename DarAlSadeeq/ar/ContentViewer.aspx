@@ -22,8 +22,10 @@
             </div>
         </div>
         <div id="divPDFContent" runat="server">
-                 <embed id="pdfViewer" runat="server" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
-            </embed>
+                 <embed id="pdfViewer" runat="server" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"/>
+        </div>
+         <div id="divHTMLContent" runat="server">
+                 <iframe id="htmlViewer" runat="server" width="600" height="500" alt="pdf"></iframe>
         </div>
     </div>
     </div>

@@ -166,9 +166,10 @@
                     <td>
                         <asp:DropDownList ID="drpContentType" runat="server" Width="25%">
                             <asp:ListItem>PDF</asp:ListItem>
-                            <asp:ListItem>Flash</asp:ListItem>
-                            <asp:ListItem>Image</asp:ListItem>
                             <asp:ListItem>Pages</asp:ListItem>
+                            <asp:ListItem>Image</asp:ListItem>
+                            <asp:ListItem>HTML Page</asp:ListItem>
+                            <asp:ListItem>Flash</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td></td>

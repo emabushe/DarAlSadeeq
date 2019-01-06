@@ -18,6 +18,7 @@ namespace DarAlSadeeq.ar
                 int ContentID = Convert.ToInt32(Request.QueryString.Get("content"));
                 divPagesContent.Visible = false;
                 divPDFContent.Visible = false;
+                divHTMLContent.Visible = false;
                 DataTable dtContent;
                 if (ContentID != 0)
                 {
@@ -57,6 +58,17 @@ namespace DarAlSadeeq.ar
                                 foreach (var file in dir.GetFiles("*.pdf"))
                                 {
                                     pdfViewer.Attributes["src"] = contentPath + "/" + file.Name;
+                                    break;
+                                }
+                                break;
+                            case "HTML Page":
+                                divPagesContent.Visible = false;
+                                divPDFContent.Visible = false;
+                                divHTMLContent.Visible = true;
+                                contentPath = contentPath.Replace("~", "../..");
+                                foreach (var file in dir.GetFiles("*.html"))
+                                {
+                                    htmlViewer.Attributes["src"] = contentPath + "/" + file.Name;
                                     break;
                                 }
                                 break;
