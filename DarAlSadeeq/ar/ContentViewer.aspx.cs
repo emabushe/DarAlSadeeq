@@ -58,6 +58,7 @@ namespace DarAlSadeeq.ar
                                 foreach (var file in dir.GetFiles("*.pdf"))
                                 {
                                     pdfViewer.Attributes["src"] = contentPath + "/" + file.Name;
+                                    pdfURL.HRef= contentPath + "/" + file.Name;
                                     break;
                                 }
                                 break;
