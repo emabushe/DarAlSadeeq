@@ -68,6 +68,83 @@ namespace DarAlSadeeq.DA
             }
             return check;
         }
+        public static bool UpdateContent(string ContentTitleAR, string ContentTitleEN, int SectionID, int LevelID, int CategoryID,
+                                         int SubCategoryID, int PartID,  string Description, int ContentID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_UpdateContent";
+            oSqlCommand.Parameters.Add("@ContentID", SqlDbType.Int).Value = ContentID;
+            oSqlCommand.Parameters.Add("@ContentTitleAR", SqlDbType.NVarChar).Value = ContentTitleAR;
+            oSqlCommand.Parameters.Add("@ContentTitleEN", SqlDbType.NVarChar).Value = ContentTitleEN;
+            oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
+            oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
+            oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@Description", SqlDbType.NVarChar).Value = Description;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        public static bool DeleteContent(int ContentID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_DeleteContent";
+            oSqlCommand.Parameters.Add("@ContentID", SqlDbType.Int).Value = ContentID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
         public static DataTable GetContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);

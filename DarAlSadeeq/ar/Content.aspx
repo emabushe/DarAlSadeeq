@@ -94,14 +94,14 @@
         <div id="divLessons" runat="server" class="row" style="padding: 15px;">
             <div class="classes-container col-md-12" style="height: auto; overflow: hidden;">
                 <div>
-                    <ul>
+                   
                         <asp:Repeater ID="rptLessons" runat="server">
                             <ItemTemplate>
-                                <li onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'"><span>
-                                    <%# Eval("ContentTitleAR")%></span></li>
+                                 <li><a href='<%# "ContentViewer.aspx?content=" + Eval("ContentID")%>'>
+                                <%# Eval("ContentTitleAR")%></a></li>
                             </ItemTemplate>
                         </asp:Repeater>
-                    </ul>
+                    
                 </div>
             </div>
         </div>

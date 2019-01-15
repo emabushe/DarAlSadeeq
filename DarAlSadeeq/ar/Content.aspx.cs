@@ -93,17 +93,24 @@ namespace DarAlSadeeq.ar
                                 rptCategories.DataBind();
                                 if (CategoryID != 0)
                                 {
-                                    dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID);
-                                    divSubCategories.Visible = true;
-                                    rptSubCategories.DataSource = dtSubCategories;
-                                    rptSubCategories.DataBind();
-                                    dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID);
-                                    if(dtContentList.Rows.Count>0)
+                                    dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID);
+                                    if (dtParts.Rows.Count > 0)
                                     {
-                                        divLessons.Visible = true;
-                                        rptLessons.DataSource = dtContentList;
-                                        rptLessons.DataBind();
+                                        divParts.Visible = true;
+                                        rptParts.DataSource = dtParts;
+                                        rptParts.DataBind();
+                                        if (PartID != 0)
+                                        {
+                                            dtContentList = DA.Content.GetContents(SectionID, LevelID, -1, -1, PartID);
+                                            if (dtContentList.Rows.Count > 0)
+                                            {
+                                                divLessons.Visible = true;
+                                                rptLessons.DataSource = dtContentList;
+                                                rptLessons.DataBind();
+                                            }
+                                        }
                                     }
+                                    
                                 }
                             }
                         }
@@ -127,46 +134,29 @@ namespace DarAlSadeeq.ar
                                 divCategories.Visible = true;
                                 rptCategories.DataSource = dtCategories;
                                 rptCategories.DataBind();
-                                if (CategoryID != 0)
+                                switch (CategoryID)
                                 {
-                                    dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID);
-                                    divSubCategories.Visible = true;
-                                    rptSubCategories.DataSource = dtSubCategories;
-                                    rptSubCategories.DataBind();
-                                }
-                                if (SubCategoryID != 0)
-                                {
-                                    dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID);
-                                    divContentList.Visible = true;
-                                    rptContent.DataSource = dtContentList;
-                                    rptContent.DataBind();
-                                    if (ContentID != 0)
-                                    {
-                                        dtContent = DA.Content.GetContent(ContentID);
-                                        if (dtContent.Rows.Count > 0)
+                                    case 0:
+                                        break;
+                                    case 1:
+                                        dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID);
+                                        divSubCategories.Visible = true;
+                                        rptSubCategories.DataSource = dtSubCategories;
+                                        rptSubCategories.DataBind();
+                                        if (SubCategoryID != 0)
                                         {
-                                            switch (dtContent.Rows[0]["ContentType"].ToString())
-                                            {
-                                                case "Pages":
-                                                    DataTable dtPages = new DataTable();
-                                                    dtPages.Clear();
-                                                    dtPages.Columns.Add("PagePath");
-                                                    string contentPath = dtContent.Rows[0]["ContentPath"].ToString();
-                                                    DirectoryInfo dir = new DirectoryInfo(Server.MapPath(contentPath));
-                                                    contentPath = contentPath.Replace("~", "../..");
-                                                    foreach (var file in dir.GetFiles("*.png"))
-                                                    {
-                                                        if (file.Name != "cover.png")
-                                                        {
-                                                            DataRow row = dtPages.NewRow();
-                                                            row["PagePath"] = contentPath + "/" + file.Name;
-                                                            dtPages.Rows.Add(row);
-                                                        }
-                                                    }
-                                                    break;
-                                            }
+                                            dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID);
+                                            divContentList.Visible = true;
+                                            rptContent.DataSource = dtContentList;
+                                            rptContent.DataBind();
                                         }
-                                    }
+                                        break;
+                                     default:
+                                        dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID);
+                                        divContentList.Visible = true;
+                                        rptContent.DataSource = dtContentList;
+                                        rptContent.DataBind();
+                                        break;
                                 }
                             }
                         }

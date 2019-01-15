@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminMaster.master" AutoEventWireup="true" CodeBehind="ManageContent.aspx.cs" Inherits="DarAlSadeeq.admin.ManageContent" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -15,15 +16,15 @@
             </div>
             <!-- /padding -->
             <ul class="box">
-                <li id="submenu-active"><a href="ManageContent.aspx">إضافة محتوى</a></li>
-                <li><a href="#">حذف أو تعديل محتوى</a></li>
+                <li class="submenu-active"><a href="#" onclick="showTableAdd();">إضافة محتوى</a></li>
+                <li><a href="#" onclick="showTableEditDelete();">حذف أو تعديل محتوى</a></li>
             </ul>
         </div>
         <!-- /aside -->
         <hr class="noscreen" />
         <!-- Content (Right Column) -->
         <div id="content" class="box">
-            <table width="99%" class="table" style="text-align: left">
+            <table id="tblAdd" class="table col-md-11" style="text-align: left">
                 <tr>
                     <td colspan="3">
                         <p class=" msg info">
@@ -89,8 +90,7 @@
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
                             SelectCommand="SELECT * FROM [tbl_SubCategories]"></asp:SqlDataSource>
                     </td>
-                    <td>
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td style="width: 20%;">
@@ -128,8 +128,7 @@
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
                             SelectCommand="SELECT * FROM [tbl_Parts]"></asp:SqlDataSource>
                     </td>
-                    <td>
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td style="width: 20%;">
@@ -226,12 +225,165 @@
                     <td></td>
                 </tr>
             </table>
+            <asp:Updatepanel  ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+            <table id="tblEditDelete" class="table col-md-11" style="text-align: left">
+                <tr>
+                    <td colspan="3">
+                        <p class=" msg info">
+                            حذف أو تعديل محتوى
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            القسم
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpEditSections" runat="server" Width="25%"
+                            DataSourceID="SqlDataSource12" DataTextField="SectionTitleAR"
+                            DataValueField="SectionID" AutoPostBack="True" OnSelectedIndexChanged="drpEditSections_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource12" runat="server"
+                            ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
+                            SelectCommand="SELECT * FROM [tbl_Sections]"></asp:SqlDataSource>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            المستوى
+                        </p>
+                    </td>
+                    <td style="width: 40%;">
+                        <asp:DropDownList ID="drpEditLevels" runat="server" Width="25%"
+                            OnSelectedIndexChanged="drpEditLevels_SelectedIndexChanged" AutoPostBack="True" 
+                            DataSourceID="SqlDataSource1" DataTextField="LevelTitleAR"
+                            DataValueField="LevelID">
+                        </asp:DropDownList>
+                    </td>
+                    <td style="width: 40%;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            المستوى الفرعي
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpEditSubCategories" runat="server" Width="25%" AutoPostBack="True" 
+                            DataSourceID="SqlDataSource11" DataTextField="SubCategoryTitleAR"
+                            DataValueField="SubCategoryID"
+                            OnSelectedIndexChanged="drpEditSubCategories_SelectedIndexChanged">
+                        </asp:DropDownList>
+                      
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            المادة
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpEditCategories" runat="server" Width="25%" 
+                            DataSourceID="SqlDataSource2" DataTextField="CategoryTitleAR"
+                            DataValueField="CategoryID" AutoPostBack="True" OnSelectedIndexChanged="drpEditCategories_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            الجزء
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpEditParts" runat="server" Width="25%" AutoPostBack="True" 
+                            DataSourceID="SqlDataSource4" DataTextField="PartTitleAR"
+                            DataValueField="PartID" OnSelectedIndexChanged="drpEditParts_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            إسم المحتوى
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="drpContent" runat="server" Width="25%" AutoPostBack="True" 
+                            OnSelectedIndexChanged="drpContent_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            إسم المحتوى العربي
+                        </p>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtEditContentTitleAR" runat="server" Width="50%"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" Style="color: red"
+                            ControlToValidate="txtEditContentTitleAR" ErrorMessage="يجب إدخال قيمة" ValidationGroup="contentEditValidationGroup"></asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            إسم المحتوى الإنجليزي
+                        </p>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtEditContentTitleEN" runat="server" Width="50%"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" Style="color: red"
+                            ControlToValidate="txtEditContentTitleEN" ErrorMessage="يجب إدخال قيمة" ValidationGroup="contentEditValidationGroup"></asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            نبذة
+                        </p>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtEditDescription" runat="server" Width="50%" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <asp:Label ID="lblEditResult" runat="server" Text="تمت الإضافة بنجاح" Visible="false"></asp:Label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 111px"></td>
+                    <td>
+                        <asp:Button ID="BtnEdit" runat="server" Text="تعديل" Width="60px" OnClick="Btn_Update_Click" ValidationGroup="contentEditValidationGroup" />
+                        <asp:Button ID="BtnDelete" runat="server" Text="حذف" Width="60px" OnClick="Btn_Delete_Click" ValidationGroup="contentDeleteValidationGroup" />
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+                    </ContentTemplate>
+            </asp:Updatepanel>
         </div>
-        <hr class="noscreen" />
-        <!-- Footer -->
-        <div id="footer" class="box">
-        </div>
-        <!-- /footer -->
     </div>
     <div class="modal fade fill-in" id="modalManageSections" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -296,7 +448,7 @@
                                                         <tr>
                                                             <td><span>اختر</span></td>
                                                             <td>
-                                                                <asp:DropDownList ID="drpSectionsEdit" runat="server" style="float: left;" 
+                                                                <asp:DropDownList ID="drpSectionsEdit" runat="server" Style="float: left;"
                                                                     AutoPostBack="true" OnSelectedIndexChanged="sectionSelected"
                                                                     DataSourceID="SqlDataSource3" DataTextField="SectionTitleAR"
                                                                     DataValueField="SectionID">
@@ -432,7 +584,7 @@
                                                         <tr>
                                                             <td><span>اختر</span></td>
                                                             <td>
-                                                                <asp:DropDownList ID="drpLevelsEdit" runat="server" style="float: left;"
+                                                                <asp:DropDownList ID="drpLevelsEdit" runat="server" Style="float: left;"
                                                                     AutoPostBack="true" OnSelectedIndexChanged="LevelSelected"
                                                                     DataSourceID="SqlDataSource7" DataTextField="LevelTitleAR"
                                                                     DataValueField="LevelID">
@@ -640,4 +792,18 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
+    <script>
+        $(document).ready(function () {
+
+            $('#tblEditDelete').hide();
+        });
+        function showTableAdd() {
+            $('#tblAdd').show();
+            $('#tblEditDelete').hide();
+        }
+        function showTableEditDelete() {
+            $('#tblAdd').hide();
+            $('#tblEditDelete').show();
+        }
+    </script>
 </asp:Content>
