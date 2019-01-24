@@ -7,10 +7,20 @@
         <asp:Label ID="lblSectionTitle" runat="server">دار الصديق</asp:Label>
     </div>
     <div class="content-inner">
+          <div class="classes-container" style="height: auto; overflow: hidden;" id="divSubSections" runat="server">
+            <asp:Repeater ID="rptSubSections" runat="server">
+                <ItemTemplate>
+                    <div class="block-classes blockDar" onclick="appendURL('subsection=<%# Eval("SubSectionID")%>')">
+                        <span id="eBooksTab">
+                            <%# Eval("SubSectionTitleAR")%></span>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
         <div class="classes-container" style="height: auto; overflow: hidden;" id="divLevels" runat="server">
             <asp:Repeater ID="rptLevels" runat="server">
                 <ItemTemplate>
-                    <div class='<%# Eval("CSSClass")%>' onclick="appendURL('level=<%# Eval("LevelID")%>')">
+                    <div class='<%# Eval("CSSClass")%> block-small' onclick="appendURL('level=<%# Eval("LevelID")%>')">
                         <span id="eBooksTab">
                             <%# Eval("LevelTitleAR")%></span>
                     </div>
@@ -20,7 +30,7 @@
         <div id="divCategories" runat="server" class="row" style="padding: 15px;">
             <div class="col-md-2" style="float: right; background-image: url(../../images/arrow.png); background-repeat: no-repeat; height: 50px; margin: -10px;">
             </div>
-            <div class="classes-container col-md-10" style="height: 80px;">
+            <div class="classes-container col-md-10" style="height: auto; overflow: hidden;">
                 <div>
                     <asp:Repeater ID="rptCategories" runat="server">
                         <ItemTemplate>
@@ -36,7 +46,7 @@
         <div id="divSubCategories" runat="server" class="row" style="padding: 15px;">
             <div class="col-md-3" style="float: right; background-image: url(../../images/arrow.png); background-repeat: no-repeat; height: 50px; margin: -10px;">
             </div>
-            <div class="classes-container col-md-9" style="height: 80px;">
+            <div class="classes-container col-md-9" style="height: auto; overflow: hidden;">
                 <div>
                     <asp:Repeater ID="rptSubCategories" runat="server">
                         <ItemTemplate>
@@ -52,7 +62,7 @@
         <div id="divParts" runat="server" class="row" style="padding: 15px;">
             <div class="col-md-3" style="float: right; background-image: url(../../images/arrow.png); background-repeat: no-repeat; height: 50px; margin: -10px;">
             </div>
-            <div class="classes-container col-md-9" style="height: 80px;">
+            <div class="classes-container col-md-9" style="height: auto; overflow: hidden;">
                 <div>
                     <asp:Repeater ID="rptParts" runat="server">
                         <ItemTemplate>

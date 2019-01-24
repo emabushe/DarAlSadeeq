@@ -30,7 +30,24 @@
                 <embed id="pdfViewer" runat="server" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
             </div>
             <div id="divHTMLContent" runat="server">
-                <iframe id="htmlViewer" runat="server" width="600" height="500" alt="pdf"></iframe>
+                <iframe id="htmlViewer" runat="server" width="600" height="500"></iframe>
+            </div>
+             <div id="divImageContent" runat="server">
+                <div class="row">
+                    <div class="text-center">
+                        <asp:Label runat="server" ID="lblTitle"></asp:Label>
+                    </div>
+                </div>
+                 <div class="row">
+                     <div class="col-md-2"></div>
+                     <div class="col-md-8">
+                         <asp:Image runat="server" ID="imgContent" />
+                     </div>
+                     <div class="col-md-2"></div>
+                 </div>
+                 <div class="row">
+                     <asp:Label runat="server" ID="lblDescription"></asp:Label>
+                 </div>
             </div>
         </div>
     </div>

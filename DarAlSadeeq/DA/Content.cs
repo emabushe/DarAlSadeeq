@@ -23,7 +23,7 @@ namespace DarAlSadeeq.DA
         }
         public static bool InsertContent(string ContentTitleAR, string ContentTitleEN, string ContentType,
                                          string ContentPath, int LevelID, int CategoryID,
-                                         int PartID, int SectionID, string Description, string CoverPic, int SubCategoryID)
+                                         int PartID, int SectionID, string Description, string CoverPic, int SubCategoryID, int SubSectionID)
         {
             bool check;
             oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
@@ -43,6 +43,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.Parameters.Add("@Description", SqlDbType.NVarChar).Value = Description;
             oSqlCommand.Parameters.Add("@CoverPic", SqlDbType.NVarChar).Value = CoverPic;
             oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             try
             {
                 if (oSqlConnection.State == ConnectionState.Closed)
@@ -189,13 +190,34 @@ namespace DarAlSadeeq.DA
                 return new DataTable();
             }
         }
-        public static DataTable GetLevelsWithContents(int SectionID = -1)
+        public static DataTable GetLevelsWithContents(int SectionID = -1, int SubSectionID = -1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
             oSqlCommand.Connection = oSqlConnection;
             oSqlCommand.CommandType = CommandType.StoredProcedure;
             oSqlCommand.CommandText = "sp_GetLevelWithContents";
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetSubSectionsWithContents(int SectionID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetSubSectionsWithContents";
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
@@ -850,6 +872,42 @@ namespace DarAlSadeeq.DA
             {
                 return new DataTable();
             }
+        }
+        public static bool InsertSubSection(string SubSectionTitleAR, string SubSectionTitleEN)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_InsertSubSection";
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Direction = ParameterDirection.Output;
+            oSqlCommand.Parameters.Add("@SubSectionTitleAR", SqlDbType.NVarChar).Value = SubSectionTitleAR;
+            oSqlCommand.Parameters.Add("@SubSectionTitleEN", SqlDbType.NVarChar).Value = SubSectionTitleEN;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
         }
     }
 }

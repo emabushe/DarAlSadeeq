@@ -19,6 +19,7 @@ namespace DarAlSadeeq.ar
                 divPagesContent.Visible = false;
                 divPDFContent.Visible = false;
                 divHTMLContent.Visible = false;
+                divImageContent.Visible = false;
                 DataTable dtContent;
                 if (ContentID != 0)
                 {
@@ -33,8 +34,6 @@ namespace DarAlSadeeq.ar
                         switch (dtContent.Rows[0]["ContentType"].ToString())
                         {
                             case "Pages":
-                                divPagesContent.Visible = true;
-                                divPDFContent.Visible = false;
                                 DataTable dtPages = new DataTable();
                                 dtPages.Clear();
                                 dtPages.Columns.Add("PagePath");
@@ -52,8 +51,6 @@ namespace DarAlSadeeq.ar
                                 rptPages.DataBind();
                                 break;
                             case "PDF":
-                                divPagesContent.Visible = false;
-                                divPDFContent.Visible = true;
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.pdf"))
                                 {
@@ -63,15 +60,18 @@ namespace DarAlSadeeq.ar
                                 }
                                 break;
                             case "HTML Page":
-                                divPagesContent.Visible = false;
-                                divPDFContent.Visible = false;
-                                divHTMLContent.Visible = true;
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.html"))
                                 {
                                     htmlViewer.Attributes["src"] = contentPath + "/" + file.Name;
                                     break;
                                 }
+                                break;
+                            case "Image":
+                                divImageContent.Visible = true;
+                                lblTitle.Text= dtContent.Rows[0]["ContentTitleAR"].ToString();
+                                imgContent.ImageUrl = dtContent.Rows[0]["CoverPic"].ToString();
+                                lblDescription.Text = dtContent.Rows[0]["Description"].ToString();
                                 break;
                         }
                     }

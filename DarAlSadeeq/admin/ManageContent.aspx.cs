@@ -14,9 +14,14 @@ namespace DarAlSadeeq.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!Page.IsPostBack)
+            {
+                divSubSections.Visible = false;
+            }
         }
         protected void btn_save_Click(object sender, EventArgs e)
         {
+            int SubSectionID = (drpSections.SelectedItem.Value == "1") ? -1 : Convert.ToInt32((drpSections.SelectedItem.Value));
             string contentPath = "~/content/" + DrpDwnLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
                 "/" + drpParts.SelectedValue + "/" + txtContentTitleAR.Text + "/" + drpContentType.SelectedValue;
             if (!Directory.Exists(Server.MapPath(contentPath)))
@@ -42,7 +47,8 @@ namespace DarAlSadeeq.admin
             if (DA.Content.InsertContent(txtContentTitleAR.Text.Trim(), txtContentTitleEN.Text.Trim(), drpContentType.SelectedItem.Text,
                 contentPath, Convert.ToInt32(DrpDwnLevels.SelectedValue), Convert.ToInt32(DrpDwnCategories.SelectedValue),
                 Convert.ToInt32(drpParts.SelectedValue), Convert.ToInt32(drpSections.SelectedValue), txtDescription.Text,
-                contentPath + "/cover" + Path.GetExtension(coverFileUploader.FileName), Convert.ToInt32(drpSubCategories.SelectedValue)))
+                contentPath + "/cover" + Path.GetExtension(coverFileUploader.FileName), Convert.ToInt32(drpSubCategories.SelectedValue),
+                SubSectionID))
             {
                 lblContentResult.ForeColor = Color.Green;
                 lblContentResult.Visible = true;
@@ -198,7 +204,6 @@ namespace DarAlSadeeq.admin
             {
                 lblCategoriesResults.ForeColor = Color.Red;
                 lblCategoriesResults.Visible = true;
-                lblCategoriesResults.Text = "خطأ في عملية الإدخال";
             }
         }
         protected void Categorieselected(object sender, EventArgs e)
@@ -322,6 +327,33 @@ namespace DarAlSadeeq.admin
 
             foreach (ListItem item in collection)
                 control.Items.Add(item);
+        }
+
+        protected void drpSections_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(drpSections.SelectedItem.Value=="1")
+            {
+                divSubSections.Visible = true;
+            }
+            else
+            {
+                divSubSections.Visible = false;
+            }
+        }
+        protected void btnSaveNewSubSection_Click(object sender, EventArgs e)
+        {
+            if (DA.Content.InsertSubSection(txtSubSectionAR.Text.Trim(), txtSubSectionEN.Text.Trim()))
+            {
+                lblManageSubSections.ForeColor = Color.Green;
+                lblManageSubSections.Visible = true;
+                lblManageSubSections.Text = "تمت الإضافة بنجاح";
+            }
+            else
+            {
+                lblManageSubSections.ForeColor = Color.Red;
+                lblManageSubSections.Visible = true;
+                lblManageSubSections.Text = "خطأ في عملية الإدخال";
+            }
         }
     }
 }

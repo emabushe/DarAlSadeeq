@@ -16,6 +16,7 @@ namespace DarAlSadeeq.ar
             if (!Page.IsPostBack)
             {
                 int SectionID = Convert.ToInt32(Request.QueryString.Get("section"));
+                int SubSectionID = Convert.ToInt32(Request.QueryString.Get("subsection"));
                 int LevelID = Convert.ToInt32(Request.QueryString.Get("level"));
                 int CategoryID = Convert.ToInt32(Request.QueryString.Get("category"));
                 int SubCategoryID = Convert.ToInt32(Request.QueryString.Get("subcategory"));
@@ -27,12 +28,7 @@ namespace DarAlSadeeq.ar
                 divParts.Visible = false;
                 divContentList.Visible = false;
                 divLessons.Visible = false;
-                DataTable dtLevels;
-                DataTable dtCategories;
-                DataTable dtSubCategories;
-                DataTable dtParts;
                 DataTable dtContentList;
-                DataTable dtContent;
                 switch (SectionID)
                 {
                     default:
@@ -42,63 +38,52 @@ namespace DarAlSadeeq.ar
                     case 1:
                         lblSectionTitle.Text = "إنتاجاتنا";
                         divTitle.Attributes["class"] = "block-main no-margin";
-                        dtLevels = DA.Content.GetLevelsWithContents(SectionID);
-                        if (dtLevels.Rows.Count > 0)
+                        if(ShowSubSections(SectionID))
                         {
-                            divLevels.Visible = true;
-                            Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
-                            rptLevels.DataSource = dtLevels;
-                            rptLevels.DataBind();
-                        }
-                        if (LevelID != 0)
-                        {
-                            dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID);
-                            if (dtCategories.Rows.Count > 0)
+                            switch (SubSectionID)
                             {
-                                divCategories.Visible = true;
-                                rptCategories.DataSource = dtCategories;
-                                rptCategories.DataBind();
-                                if (CategoryID != 0)
-                                {
-                                    dtContentList = DA.Content.GetContents(SectionID, LevelID);
-                                    if (dtContentList.Rows.Count > 0)
+                               
+                                case 0:
+                                    break;
+                                case 3:
+                                    ShowCategories(SectionID);
+                                    if(CategoryID!=0)
                                     {
-                                        divContentList.Visible = true;
-                                        rptContent.DataSource = dtContentList;
-                                        rptContent.DataBind();
+                                        if(ShowSubCategories(SectionID, -1, CategoryID))
+                                        {
+                                            if(SubCategoryID!=0)
+                                            {
+                                                ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1);
+                                            }
+                                        }
                                     }
-                                }
-
+                                    
+                                    break;
+                                default:
+                                    if (ShowLevels(SectionID, SubSectionID))
+                                    {
+                                        if (LevelID != 0)
+                                        {
+                                            ShowContentList(SectionID, LevelID);
+                                        }
+                                    }
+                                    break;
                             }
+                            
                         }
                         break;
                     case 2:
                         lblSectionTitle.Text = "المنهاج الإلكتروني";
                         divTitle.Attributes["class"] = "block-main block2 no-margin";
-                        dtLevels = DA.Content.GetLevelsWithContents(SectionID);
-                        if (dtLevels.Rows.Count > 0)
-                        {
-                            divLevels.Visible = true;
-                            Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
-                            rptLevels.DataSource = dtLevels;
-                            rptLevels.DataBind();
-                        }
+                        ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
-                            dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID);
-                            if (dtCategories.Rows.Count > 0)
+                            if (ShowCategories(SectionID, LevelID))
                             {
-                                divCategories.Visible = true;
-                                rptCategories.DataSource = dtCategories;
-                                rptCategories.DataBind();
                                 if (CategoryID != 0)
                                 {
-                                    dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID);
-                                    if (dtParts.Rows.Count > 0)
+                                    if (ShowParts(SectionID, LevelID))
                                     {
-                                        divParts.Visible = true;
-                                        rptParts.DataSource = dtParts;
-                                        rptParts.DataBind();
                                         if (PartID != 0)
                                         {
                                             dtContentList = DA.Content.GetContents(SectionID, LevelID, -1, -1, PartID);
@@ -110,7 +95,6 @@ namespace DarAlSadeeq.ar
                                             }
                                         }
                                     }
-                                    
                                 }
                             }
                         }
@@ -118,44 +102,24 @@ namespace DarAlSadeeq.ar
                     case 3:
                         lblSectionTitle.Text = "منهاج المستوى الأول";
                         divTitle.Attributes["class"] = "block-main block3 no-margin";
-                        dtLevels = DA.Content.GetLevelsWithContents(SectionID);
-                        if (dtLevels.Rows.Count > 0)
-                        {
-                            divLevels.Visible = true;
-                            Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
-                            rptLevels.DataSource = dtLevels;
-                            rptLevels.DataBind();
-                        }
+                        ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
-                            dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID);
-                            if (dtCategories.Rows.Count > 0)
+                            if(ShowCategories(SectionID, LevelID))
                             {
-                                divCategories.Visible = true;
-                                rptCategories.DataSource = dtCategories;
-                                rptCategories.DataBind();
                                 switch (CategoryID)
                                 {
                                     case 0:
                                         break;
                                     case 1:
-                                        dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID);
-                                        divSubCategories.Visible = true;
-                                        rptSubCategories.DataSource = dtSubCategories;
-                                        rptSubCategories.DataBind();
+                                        ShowSubCategories(SectionID, LevelID, CategoryID);
                                         if (SubCategoryID != 0)
                                         {
-                                            dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID);
-                                            divContentList.Visible = true;
-                                            rptContent.DataSource = dtContentList;
-                                            rptContent.DataBind();
+                                            ShowContentList(SectionID, LevelID, CategoryID, SubCategoryID);
                                         }
                                         break;
-                                     default:
-                                        dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID);
-                                        divContentList.Visible = true;
-                                        rptContent.DataSource = dtContentList;
-                                        rptContent.DataBind();
+                                    default:
+                                        ShowContentList(SectionID, LevelID, CategoryID);
                                         break;
                                 }
                             }
@@ -164,28 +128,14 @@ namespace DarAlSadeeq.ar
                     case 4:
                         lblSectionTitle.Text = "الكتب المطبوعة";
                         divTitle.Attributes["class"] = "block-main block4 no-margin";
-                        dtLevels = DA.Content.GetLevelsWithContents(SectionID);
-                        if (dtLevels.Rows.Count > 0)
-                        {
-                            divLevels.Visible = true;
-                            Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
-                            rptLevels.DataSource = dtLevels;
-                            rptLevels.DataBind();
-                        }
+                        ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
-                            dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID);
-                            if (dtParts.Rows.Count > 0)
+                            if (ShowParts(SectionID, LevelID))
                             {
-                                divParts.Visible = true;
-                                rptParts.DataSource = dtParts;
-                                rptParts.DataBind();
                                 if (PartID != 0)
                                 {
-                                    dtContentList = DA.Content.GetContents(SectionID, LevelID, -1, -1, PartID);
-                                    divContentList.Visible = true;
-                                    rptContent.DataSource = dtContentList;
-                                    rptContent.DataBind();
+                                    ShowContentList(SectionID, LevelID, -1, -1, PartID);
                                 }
                             }
                         }
@@ -193,57 +143,100 @@ namespace DarAlSadeeq.ar
                     case 5:
                         lblSectionTitle.Text = "القصص";
                         divTitle.Attributes["class"] = "block-main block5 no-margin";
-                        dtLevels = DA.Content.GetLevelsWithContents(SectionID);
-                        if (dtLevels.Rows.Count > 0)
+                        ShowLevels(SectionID);
+                        if (LevelID != 0)
                         {
-                            divLevels.Visible = true;
-                            Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
-                            rptLevels.DataSource = dtLevels;
-                            rptLevels.DataBind();
-                            if (LevelID != 0)
-                            {
-
-                                dtContentList = DA.Content.GetContents(SectionID, LevelID);
-                                if (dtContentList.Rows.Count > 0)
-                                {
-                                    divContentList.Visible = true;
-                                    rptContent.DataSource = dtContentList;
-                                    rptContent.DataBind();
-                                }
-                            }
+                            ShowContentList(SectionID, LevelID);
                         }
                         break;
                     case 7:
                         lblSectionTitle.Text = "للمعلم";
                         divTitle.Attributes["class"] = "block-main block4 no-margin";
-                        dtLevels = DA.Content.GetLevelsWithContents(SectionID);
-                        if (dtLevels.Rows.Count > 0)
-                        {
-                            divLevels.Visible = true;
-                            Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
-                            rptLevels.DataSource = dtLevels;
-                            rptLevels.DataBind();
-                        }
+                        ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
-                            dtParts = DA.Content.GetCategoriesWithContents(SectionID, LevelID);
-                            if (dtParts.Rows.Count > 0)
+                            if (CategoryID != 0)
                             {
-                                divCategories.Visible = true;
-                                rptCategories.DataSource = dtParts;
-                                rptCategories.DataBind();
-                                if (CategoryID != 0)
-                                {
-                                    dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID);
-                                    divContentList.Visible = true;
-                                    rptContent.DataSource = dtContentList;
-                                    rptContent.DataBind();
-                                }
+                                ShowContentList(SectionID, LevelID, CategoryID);
                             }
                         }
                         break;
                 }
             }
+        }
+        public bool ShowSubSections(int SectionID = -1)
+        {
+            DataTable dtSubSections = DA.Content.GetSubSectionsWithContents(SectionID);
+            if (dtSubSections.Rows.Count > 0)
+            {
+                divSubSections.Visible = true;
+                Page.Title = "دار الصديق :: " + dtSubSections.Rows[0]["SubSectionTitleAR"].ToString() + " :: " + dtSubSections.Rows[0]["SubSectionTitleEN"].ToString();
+                rptSubSections.DataSource = dtSubSections;
+                rptSubSections.DataBind();
+                return true;
+            }
+            return false;
+        }
+        public bool ShowLevels(int SectionID=-1, int SubSectionID = -1)
+        {
+            DataTable dtLevels = DA.Content.GetLevelsWithContents(SectionID, SubSectionID);
+            if (dtLevels.Rows.Count > 0)
+            {
+                divLevels.Visible = true;
+                Page.Title = "دار الصديق :: " + dtLevels.Rows[0]["SectionTitleAR"].ToString() + " :: " + dtLevels.Rows[0]["SectionTitleEN"].ToString();
+                rptLevels.DataSource = dtLevels;
+                rptLevels.DataBind();
+                return true;
+            }
+            return false;
+        }
+        public bool ShowCategories(int SectionID=-1, int LevelID=-1)
+        {
+            DataTable dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID);
+            if (dtCategories.Rows.Count > 0)
+            {
+                divCategories.Visible = true;
+                rptCategories.DataSource = dtCategories;
+                rptCategories.DataBind();
+                return true;
+            }
+            return false;
+        }
+        public bool ShowSubCategories(int SectionID=-1, int LevelID=-1, int CategoryID=-1)
+        {
+            DataTable dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID);
+            if (dtSubCategories.Rows.Count > 0)
+            {
+                divSubCategories.Visible = true;
+                rptSubCategories.DataSource = dtSubCategories;
+                rptSubCategories.DataBind();
+                return true;
+            }
+            return false;
+        }
+        public bool ShowParts(int SectionID, int LevelID)
+        {
+            DataTable dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID);
+            if (dtParts.Rows.Count > 0)
+            {
+                divParts.Visible = true;
+                rptParts.DataSource = dtParts;
+                rptParts.DataBind();
+                return true;
+            }
+            return false;
+        }
+        public bool ShowContentList(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1)
+        {
+            DataTable dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID);
+            if (dtContentList.Rows.Count > 0)
+            {
+                divContentList.Visible = true;
+                rptContent.DataSource = dtContentList;
+                rptContent.DataBind();
+                return true;
+            }
+            return false;
         }
     }
 }

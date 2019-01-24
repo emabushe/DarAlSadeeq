@@ -31,6 +31,24 @@ namespace DarAlSadeeq.ar {
         protected global::System.Web.UI.WebControls.Label lblSectionTitle;
         
         /// <summary>
+        /// divSubSections control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSubSections;
+        
+        /// <summary>
+        /// rptSubSections control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptSubSections;
+        
+        /// <summary>
         /// divLevels control.
         /// </summary>
         /// <remarks>

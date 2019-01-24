@@ -41,7 +41,7 @@
                     <td>
                         <asp:DropDownList ID="drpSections" runat="server" Width="25%"
                             DataSourceID="SqlDataSource3" DataTextField="SectionTitleAR"
-                            DataValueField="SectionID">
+                            DataValueField="SectionID" AutoPostBack="True" OnSelectedIndexChanged="drpSections_SelectedIndexChanged">
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource3" runat="server"
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
@@ -49,6 +49,27 @@
                     </td>
                     <td>
                         <button type="button" title="إضافة او تعديل قسم" id="btnManageSections">
+                            <i class="fa fa-cog"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr runat="server" id="divSubSections">
+                    <td style="width: 20%;">
+                        <p>
+                              القسم الفرعي
+                        </p>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="DrpSubSections" runat="server" Width="25%"
+                            DataSourceID="SqlDataSource13" DataTextField="SubSectionTitleAR"
+                            DataValueField="SubSectionID">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource13" runat="server"
+                            ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
+                            SelectCommand="SELECT * FROM [tbl_SubSections]"></asp:SqlDataSource>
+                    </td>
+                    <td>
+                        <button type="button" title="إضافة او تعديل قسم" id="btnManageSubSections">
                             <i class="fa fa-cog"></i>
                         </button>
                     </td>
@@ -513,6 +534,75 @@
                         </div>
                         <div class="modal-footer">
                             <asp:Label ID="lblSectionsResults" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade fill-in" id="modalManageSubSections" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <img src="../images/close-icon.png" width="25" height="25" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class=" msg info">
+                                        إدارة أقسام الفرعية الموقع
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 10px">
+                                <div class="col-lg-10">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a data-toggle="tab" href="#add">إضافة</a></li>
+                                        <li><a data-toggle="tab" href="#edit">تعديل</a></li>
+                                        <li><a data-toggle="tab" href="#delete">حذف</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="add" class="tab-pane fade in active">
+                                            <div class="row" style="margin-top: 20px;">
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-10 no-padding sm-m-t-10 sm-text-center">
+                                                    <table class="table table-responsive">
+                                                        <tr>
+                                                            <td><span>اسم القسم العربي</span></td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtSubSectionAR" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" Style="color: red"
+                                                                    ControlToValidate="txtSubSectionAR" ErrorMessage="يجب إدخال قيمة" ValidationGroup="SubSectionsValidationGroup"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>اسم القسم إنجليزي</span></td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtSubSectionEN" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" Style="color: red"
+                                                                    ControlToValidate="txtSubSectionEN" ErrorMessage="يجب إدخال قيمة" ValidationGroup="SubSectionsValidationGroup"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <asp:Button ID="btnSaveNewSubSection" runat="server" Text="حفظ" OnClick="btnSaveNewSubSection_Click" ValidationGroup="SubSectionsValidationGroup"></asp:Button></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Label ID="lblManageSubSections" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
                 </ContentTemplate>

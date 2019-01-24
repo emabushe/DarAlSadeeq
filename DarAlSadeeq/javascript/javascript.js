@@ -31,6 +31,12 @@ $(function () {
     });
 });
 $(function () {
+    $('#btnManageSubSections').click(function () {
+        $('#modalManageSubSections').modal('show');
+        return false;
+    });
+});
+$(function () {
     $('#btnLogout').click(function () {
         localStorage.clear();
         location.href = '../ar/Default.aspx';

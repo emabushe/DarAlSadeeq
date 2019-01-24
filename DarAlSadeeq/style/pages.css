@@ -100,15 +100,17 @@
 }
 
 .block-small {
-    width: 100px;
-    height: 70px;
+    width: 120px;
+    height: 80px;
 }
 
     .block-small span {
-        font-size: 15px !important;
+        font-size: 14px !important;
         line-height: 70px !important;
     }
-
+.blockDar {
+    background: url(../images/Dar_Icon.png) 0 200px no-repeat #543070;
+}
 .blockKG2 {
     background: url(../images/kg2.png) 0 200px no-repeat #543070;
 }
