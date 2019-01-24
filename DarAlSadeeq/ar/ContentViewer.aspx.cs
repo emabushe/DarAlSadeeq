@@ -34,6 +34,7 @@ namespace DarAlSadeeq.ar
                         switch (dtContent.Rows[0]["ContentType"].ToString())
                         {
                             case "Pages":
+                                divPagesContent.Visible = true;
                                 DataTable dtPages = new DataTable();
                                 dtPages.Clear();
                                 dtPages.Columns.Add("PagePath");
@@ -51,6 +52,7 @@ namespace DarAlSadeeq.ar
                                 rptPages.DataBind();
                                 break;
                             case "PDF":
+                                divPDFContent.Visible = true;
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.pdf"))
                                 {
@@ -60,10 +62,12 @@ namespace DarAlSadeeq.ar
                                 }
                                 break;
                             case "HTML Page":
+                                divHTMLContent.Visible = true;
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.html"))
                                 {
                                     htmlViewer.Attributes["src"] = contentPath + "/" + file.Name;
+                                    ebookURL.HRef= contentPath + "/" + file.Name;
                                     break;
                                 }
                                 break;

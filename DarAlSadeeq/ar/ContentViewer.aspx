@@ -30,6 +30,10 @@
                 <embed id="pdfViewer" runat="server" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
             </div>
             <div id="divHTMLContent" runat="server">
+                 <div class="row">
+                    <a class="btn btn-default btn-sm" href="" runat="server" id="ebookURL" target="_blank">
+                    <i class="fa fa-search-plus "></i>تكبير</a>
+               </div>
                 <iframe id="htmlViewer" runat="server" width="600" height="500"></iframe>
             </div>
              <div id="divImageContent" runat="server">
@@ -41,7 +45,7 @@
                  <div class="row">
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
-                         <asp:Image runat="server" ID="imgContent" />
+                         <asp:Image runat="server" ID="imgContent" style="width:50%"/>
                      </div>
                      <div class="col-md-2"></div>
                  </div>
