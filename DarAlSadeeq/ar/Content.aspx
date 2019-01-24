@@ -80,8 +80,8 @@
         <div class="classes-container" id="divContentList" runat="server" style="background: url(../../images/Bookshelf.png); width: 100%; margin-top: 10px;">
             <asp:Repeater ID="rptContent" runat="server">
                 <ItemTemplate>
-                    <div style="float: right; width: 180px; padding: 5px; text-align: center; padding-top: 24px;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
-                        <span class="tooltip tooltip-turnright"><span class="tooltip-item">
+                    <div style="float: right; width: 180px; padding: 5px; text-align: center; cursor: pointer;padding-top: 24px;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
+                       <%-- <span class="tooltip tooltip-turnright"><span class="tooltip-item">--%>
                             <table width="180px">
                                 <tr>
                                     <td style="text-align: center">
@@ -95,8 +95,8 @@
                                 </tr>
                             </table>
                         </span>
-                            <span class="tooltip-content"><%# Eval("Description")%></span>
-                        </span>
+                            <%--<span class="tooltip-content"><%# Eval("Description")%></span>--%>
+                       <%-- </span>--%>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
