@@ -503,7 +503,7 @@ namespace DarAlSadeeq.DA
                 return new DataTable();
             }
         }
-        public static DataTable GetCategoriesWithContents(int SectionID = -1, int LevelID = -1)
+        public static DataTable GetCategoriesWithContents(int SectionID = -1, int LevelID = -1, int SubSectionID = -1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
@@ -512,6 +512,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.CommandText = "sp_GetCategoriesWithContents";
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
             oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try
@@ -524,7 +525,7 @@ namespace DarAlSadeeq.DA
                 return new DataTable();
             }
         }
-        public static DataTable GetPartsWithContents(int SectionID = -1, int LevelID = -1)
+        public static DataTable GetPartsWithContents(int SectionID = -1, int LevelID = -1, int SubSectionID = -1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
@@ -533,6 +534,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.CommandText = "sp_GetPartsWithContents";
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
             oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try
@@ -545,7 +547,7 @@ namespace DarAlSadeeq.DA
                 return new DataTable();
             }
         }
-        public static DataTable GetSubCategoriesWithContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1)
+        public static DataTable GetSubCategoriesWithContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubSectionID = -1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
@@ -555,6 +557,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
             oSqlCommand.Parameters.Add("@LevelID", SqlDbType.Int).Value = LevelID;
             oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try

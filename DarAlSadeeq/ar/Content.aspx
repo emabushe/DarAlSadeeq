@@ -77,7 +77,7 @@
         </div>
         <%--  <div id="divArrow3" runat="server" style="background-image: url(../../images/arrow.png); width: 50px; height: 50px; margin-left: 50%; margin-top: 5px; margin-bottom: 5px;">
         </div>--%>
-        <div class="classes-container" id="divContentList" runat="server" style="background: url(../../images/Bookshelf.png); width: 100%; margin-top: 10px;">
+        <div class="classes-container" id="divContentList" runat="server" style="background: url(../../images/Bookshelf.png); width: 100%; margin-top: 10px;height: auto;overflow: hidden;">
             <asp:Repeater ID="rptContent" runat="server">
                 <ItemTemplate>
                     <div style="float: right; width: 180px; padding: 5px; text-align: center; cursor: pointer;padding-top: 24px;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">

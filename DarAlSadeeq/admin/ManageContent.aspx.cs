@@ -21,7 +21,7 @@ namespace DarAlSadeeq.admin
         }
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            int SubSectionID = (drpSections.SelectedItem.Value == "1") ? -1 : Convert.ToInt32((drpSections.SelectedItem.Value));
+            int SubSectionID = (drpSections.SelectedItem.Value == "1") ? Convert.ToInt32(drpSections.SelectedItem.Value) : -1;
             string contentPath = "~/content/" + DrpDwnLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
                 "/" + drpParts.SelectedValue + "/" + txtContentTitleAR.Text + "/" + drpContentType.SelectedValue;
             if (!Directory.Exists(Server.MapPath(contentPath)))

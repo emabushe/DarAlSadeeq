@@ -45,11 +45,26 @@ namespace DarAlSadeeq.ar
                                
                                 case 0:
                                     break;
+                                case 1:
+                                    if(ShowParts(SectionID,-1,SubSectionID))
+                                    {
+                                        if (PartID != 0)
+                                        {
+                                            dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, PartID);
+                                            if (dtContentList.Rows.Count > 0)
+                                            {
+                                                divLessons.Visible = true;
+                                                rptLessons.DataSource = dtContentList;
+                                                rptLessons.DataBind();
+                                            }
+                                        }
+                                    }
+                                    break;
                                 case 3:
-                                    ShowCategories(SectionID);
+                                    ShowCategories(SectionID,-1, SubSectionID);
                                     if(CategoryID!=0)
                                     {
-                                        if(ShowSubCategories(SectionID, -1, CategoryID))
+                                        if(ShowSubCategories(SectionID, -1, CategoryID,SubSectionID))
                                         {
                                             if(SubCategoryID!=0)
                                             {
@@ -190,9 +205,9 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowCategories(int SectionID=-1, int LevelID=-1)
+        public bool ShowCategories(int SectionID=-1, int LevelID=-1, int SubSectionID = -1)
         {
-            DataTable dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID);
+            DataTable dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID,SubSectionID);
             if (dtCategories.Rows.Count > 0)
             {
                 divCategories.Visible = true;
@@ -202,9 +217,9 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowSubCategories(int SectionID=-1, int LevelID=-1, int CategoryID=-1)
+        public bool ShowSubCategories(int SectionID=-1, int LevelID=-1, int CategoryID=-1, int SubSectionID = -1)
         {
-            DataTable dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID);
+            DataTable dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID, SubSectionID);
             if (dtSubCategories.Rows.Count > 0)
             {
                 divSubCategories.Visible = true;
@@ -214,9 +229,9 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowParts(int SectionID, int LevelID)
+        public bool ShowParts(int SectionID, int LevelID=-1, int SubsectionID=-1)
         {
-            DataTable dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID);
+            DataTable dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID, SubsectionID);
             if (dtParts.Rows.Count > 0)
             {
                 divParts.Visible = true;
