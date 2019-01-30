@@ -25,6 +25,8 @@
         <!-- Content (Right Column) -->
         <div id="content" class="box">
             <table id="tblAdd" class="table col-md-11" style="text-align: left">
+                 <asp:Updatepanel  ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
                 <tr>
                     <td colspan="3">
                         <p class=" msg info">
@@ -40,10 +42,9 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="drpSections" runat="server" Width="25%"
-                            DataSourceID="SqlDataSource3" DataTextField="SectionTitleAR"
-                            DataValueField="SectionID" AutoPostBack="True" OnSelectedIndexChanged="drpSections_SelectedIndexChanged">
+                          AutoPostBack="True" OnSelectedIndexChanged="drpSections_SelectedIndexChanged">
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource3" runat="server"
+                         <asp:SqlDataSource ID="SqlDataSource3" runat="server"
                             ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
                             SelectCommand="SELECT * FROM [tbl_Sections]"></asp:SqlDataSource>
                     </td>
@@ -238,6 +239,8 @@
                     </td>
                     <td></td>
                 </tr>
+                    </ContentTemplate>
+                     </asp:Updatepanel>
                 <tr>
                     <td style="width: 111px"></td>
                     <td>
@@ -556,19 +559,19 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class=" msg info">
-                                        إدارة أقسام الفرعية الموقع
+                                        إدارة الأقسام الفرعية 
                                     </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 10px">
                                 <div class="col-lg-10">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#add">إضافة</a></li>
-                                        <li><a data-toggle="tab" href="#edit">تعديل</a></li>
-                                        <li><a data-toggle="tab" href="#delete">حذف</a></li>
+                                        <li class="active"><a data-toggle="tab" href="#addSubSection">إضافة</a></li>
+                                        <li><a data-toggle="tab" href="#editSubSection">تعديل</a></li>
+                                        <li><a data-toggle="tab" href="#deleteSubSection">حذف</a></li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div id="add" class="tab-pane fade in active">
+                                        <div id="addSubSection" class="tab-pane fade in active">
                                             <div class="row" style="margin-top: 20px;">
                                                 <div class="col-md-2"></div>
                                                 <div class="col-md-10 no-padding sm-m-t-10 sm-text-center">
@@ -592,6 +595,64 @@
                                                         <tr>
                                                             <td colspan="2">
                                                                 <asp:Button ID="btnSaveNewSubSection" runat="server" Text="حفظ" OnClick="btnSaveNewSubSection_Click" ValidationGroup="SubSectionsValidationGroup"></asp:Button></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="editSubSection" class="tab-pane fade">
+                                            <div class="row" style="margin-top: 20px;">
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-10 no-padding sm-m-t-10 sm-text-center">
+                                                    <table class="table table-responsive">
+                                                        <tr>
+                                                            <td><span>اختر</span></td>
+                                                            <td>
+                                                                <asp:DropDownList ID="DrpEditSubSections" runat="server" Style="float: left;"
+                                                                    AutoPostBack="true" OnSelectedIndexChanged="SubSectionSelected"
+                                                                    DataSourceID="SqlDataSource14" DataTextField="SubSectionTitleAR"
+                                                                    DataValueField="SubSectionID">
+                                                                </asp:DropDownList>
+                                                                <asp:SqlDataSource ID="SqlDataSource14" runat="server"
+                                                                    ConnectionString="<%$ ConnectionStrings:Dar_AlsadiqConnectionString %>"
+                                                                    SelectCommand="SELECT * FROM [tbl_SubSections]"></asp:SqlDataSource>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>اسم القسم العربي</span></td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtSubSectionTitleAR" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" Style="color: red"
+                                                                    ControlToValidate="txtSubSectionTitleAR" ErrorMessage="يجب إدخال قيمة" ValidationGroup="SubSectionsEditValidationGroup"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>اسم القسم إنجليزي</span></td>
+                                                            <td>
+                                                                <asp:TextBox ID="txtSubSectionTitleEN" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" Style="color: red"
+                                                                    ControlToValidate="txtSubSectionTitleEN" ErrorMessage="يجب إدخال قيمة" ValidationGroup="SubSectionsEditValidationGroup"></asp:RequiredFieldValidator>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><span>الترتيب</span></td>
+                                                            <td>
+                                                                <asp:DropDownList ID="DrpSortOrder" runat="server" Style="float: left;">
+                                                                    <asp:ListItem Value="1">1</asp:ListItem>
+                                                                    <asp:ListItem Value="2">2</asp:ListItem>
+                                                                    <asp:ListItem Value="3">3</asp:ListItem>
+                                                                    <asp:ListItem Value="4">4</asp:ListItem>
+                                                                    <asp:ListItem Value="5">5</asp:ListItem>
+                                                                    <asp:ListItem Value="6">6</asp:ListItem>
+                                                                    <asp:ListItem Value="7">7</asp:ListItem>
+                                                                    <asp:ListItem Value="8">8</asp:ListItem>
+                                                                    <asp:ListItem Value="9">9</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <asp:Button ID="BtnEditSubSection" runat="server" Text="حفظ" OnClick="BtnEditSubSection_Click" ValidationGroup="SubSectionsEditValidationGroup"></asp:Button></td>
                                                         </tr>
                                                     </table>
                                                 </div>

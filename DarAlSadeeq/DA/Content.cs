@@ -146,7 +146,7 @@ namespace DarAlSadeeq.DA
             }
             return check;
         }
-        public static DataTable GetContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1)
+        public static DataTable GetContents(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1, int SubSectionID=-1)
         {
             oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
             oSqlCommand = new SqlCommand();
@@ -158,6 +158,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
             oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
             oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try
@@ -365,6 +366,26 @@ namespace DarAlSadeeq.DA
             oSqlCommand.CommandType = CommandType.StoredProcedure;
             oSqlCommand.CommandText = "sp_GetSections";
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetSubSections(int SubSectionID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetSubSections";
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
             DataTable dt = new DataTable();
             try
@@ -885,6 +906,43 @@ namespace DarAlSadeeq.DA
             oSqlCommand.CommandType = CommandType.StoredProcedure;
             oSqlCommand.CommandText = "sp_InsertSubSection";
             oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Direction = ParameterDirection.Output;
+            oSqlCommand.Parameters.Add("@SubSectionTitleAR", SqlDbType.NVarChar).Value = SubSectionTitleAR;
+            oSqlCommand.Parameters.Add("@SubSectionTitleEN", SqlDbType.NVarChar).Value = SubSectionTitleEN;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        public static bool UpdateSubSection(int SubSectionID, string SubSectionTitleAR, string SubSectionTitleEN, int SortOrder)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_UpdateSubSections";
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
+            oSqlCommand.Parameters.Add("@SortOrder", SqlDbType.Int).Value = SortOrder;
             oSqlCommand.Parameters.Add("@SubSectionTitleAR", SqlDbType.NVarChar).Value = SubSectionTitleAR;
             oSqlCommand.Parameters.Add("@SubSectionTitleEN", SqlDbType.NVarChar).Value = SubSectionTitleEN;
             try

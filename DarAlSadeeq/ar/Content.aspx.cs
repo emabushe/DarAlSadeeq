@@ -50,7 +50,7 @@ namespace DarAlSadeeq.ar
                                     {
                                         if (PartID != 0)
                                         {
-                                            dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, PartID);
+                                            dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, PartID,SubSectionID);
                                             if (dtContentList.Rows.Count > 0)
                                             {
                                                 divLessons.Visible = true;
@@ -68,7 +68,7 @@ namespace DarAlSadeeq.ar
                                         {
                                             if(SubCategoryID!=0)
                                             {
-                                                ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1);
+                                                ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1,SubSectionID);
                                             }
                                         }
                                     }
@@ -79,7 +79,7 @@ namespace DarAlSadeeq.ar
                                     {
                                         if (LevelID != 0)
                                         {
-                                            ShowContentList(SectionID, LevelID);
+                                            ShowContentList(SectionID, LevelID,-1,-1,-1,SubSectionID);
                                         }
                                     }
                                     break;
@@ -241,9 +241,9 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowContentList(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1)
+        public bool ShowContentList(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1, int SubSectionID=-1)
         {
-            DataTable dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID);
+            DataTable dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID,PartID,SubSectionID);
             if (dtContentList.Rows.Count > 0)
             {
                 divContentList.Visible = true;

@@ -14,14 +14,26 @@ namespace DarAlSadeeq.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 divSubSections.Visible = false;
+
+                drpSections.Items.Clear();
+                DataTable dtSections = DA.Content.GetSections(-1);
+                if (dtSections.Rows.Count > 0)
+                {
+                    drpSections.DataSource = dtSections;
+                    drpSections.DataTextField = "SectionTitleAR";
+                    drpSections.DataValueField = "SectionID";
+                    drpSections.DataBind();
+                    drpSections.Items.Insert(0, new ListItem("اختر", "0"));
+                }
+                
             }
         }
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            int SubSectionID = (drpSections.SelectedItem.Value == "1") ? Convert.ToInt32(drpSections.SelectedItem.Value) : -1;
+            int SubSectionID = (drpSections.SelectedItem.Value == "1") ? Convert.ToInt32(DrpSubSections.SelectedItem.Value) : -1;
             string contentPath = "~/content/" + DrpDwnLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
                 "/" + drpParts.SelectedValue + "/" + txtContentTitleAR.Text + "/" + drpContentType.SelectedValue;
             if (!Directory.Exists(Server.MapPath(contentPath)))
@@ -110,6 +122,13 @@ namespace DarAlSadeeq.admin
             DataTable dt = DA.Content.GetSections(Convert.ToInt32(drpSectionsEdit.SelectedValue));
             txtSectionTitleAREdit.Text = dt.Rows[0]["SectionTitleAR"].ToString();
             txtSectionTitleENEdit.Text = dt.Rows[0]["SectionTitleEN"].ToString();
+        }
+        protected void SubSectionSelected(object sender, EventArgs e)
+        {
+            DataTable dt = DA.Content.GetSubSections(Convert.ToInt32(DrpEditSubSections.SelectedValue));
+            txtSubSectionTitleAR.Text = dt.Rows[0]["SubSectionTitleAR"].ToString();
+            txtSubSectionTitleEN.Text = dt.Rows[0]["SubSectionTitleEN"].ToString();
+            DrpSortOrder.SelectedValue = dt.Rows[0]["SortOrder"].ToString();
         }
         protected void btnSaveNewLevel_Click(object sender, EventArgs e)
         {
@@ -347,6 +366,22 @@ namespace DarAlSadeeq.admin
                 lblManageSubSections.ForeColor = Color.Green;
                 lblManageSubSections.Visible = true;
                 lblManageSubSections.Text = "تمت الإضافة بنجاح";
+            }
+            else
+            {
+                lblManageSubSections.ForeColor = Color.Red;
+                lblManageSubSections.Visible = true;
+                lblManageSubSections.Text = "خطأ في عملية الإدخال";
+            }
+        }
+        protected void BtnEditSubSection_Click(object sender, EventArgs e)
+        {
+            if (DA.Content.UpdateSubSection(Convert.ToInt32(DrpEditSubSections.SelectedValue), txtSubSectionTitleAR.Text.Trim(),
+                txtSubSectionTitleEN.Text.Trim(), Convert.ToInt32(DrpSortOrder.SelectedValue)))
+            {
+                lblManageSubSections.ForeColor = Color.Green;
+                lblManageSubSections.Visible = true;
+                lblManageSubSections.Text = "تمت التعديل بنجاح";
             }
             else
             {

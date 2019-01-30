@@ -86,6 +86,8 @@
     margin-top: 3px;
     float: right;
     height: 100px;
+    line-height: 100px;
+    text-align: center;
     background: url(../images/kg1.png) 0 200px no-repeat #00b3b5;
     -moz-transition: background-position 1s ease;
     /* WebKit */
@@ -176,7 +178,9 @@
 .block-classes span {
     color: #fff;
     font-size: 18px;
-    line-height: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
 .classes-container {
