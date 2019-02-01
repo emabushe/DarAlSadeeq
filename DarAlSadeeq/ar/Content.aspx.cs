@@ -38,19 +38,19 @@ namespace DarAlSadeeq.ar
                     case 1:
                         lblSectionTitle.Text = "إنتاجاتنا";
                         divTitle.Attributes["class"] = "block-main no-margin";
-                        if(ShowSubSections(SectionID))
+                        if (ShowSubSections(SectionID))
                         {
                             switch (SubSectionID)
                             {
-                               
+
                                 case 0:
                                     break;
                                 case 1:
-                                    if(ShowParts(SectionID,-1,SubSectionID))
+                                    if (ShowParts(SectionID, -1, SubSectionID))
                                     {
                                         if (PartID != 0)
                                         {
-                                            dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, PartID,SubSectionID);
+                                            dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, PartID, SubSectionID);
                                             if (dtContentList.Rows.Count > 0)
                                             {
                                                 divLessons.Visible = true;
@@ -60,31 +60,46 @@ namespace DarAlSadeeq.ar
                                         }
                                     }
                                     break;
-                                case 3:
-                                    ShowCategories(SectionID,-1, SubSectionID);
-                                    if(CategoryID!=0)
+                                case 2:
+                                    if (ShowLevels(SectionID, SubSectionID))
                                     {
-                                        if(ShowSubCategories(SectionID, -1, CategoryID,SubSectionID))
+                                        if (LevelID != 0)
                                         {
-                                            if(SubCategoryID!=0)
+                                            if (ShowParts(SectionID, -1, SubSectionID))
                                             {
-                                                ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1,SubSectionID);
+                                                if (PartID != 0)
+                                                {
+                                                    ShowContentList(SectionID, LevelID, -1, -1, PartID, SubSectionID);
+                                                }
                                             }
                                         }
                                     }
-                                    
+                                    break;
+                                case 3:
+                                    ShowCategories(SectionID, -1, SubSectionID);
+                                    if (CategoryID != 0)
+                                    {
+                                        if (ShowSubCategories(SectionID, -1, CategoryID, SubSectionID))
+                                        {
+                                            if (SubCategoryID != 0)
+                                            {
+                                                ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1, SubSectionID);
+                                            }
+                                        }
+                                    }
+
                                     break;
                                 default:
                                     if (ShowLevels(SectionID, SubSectionID))
                                     {
                                         if (LevelID != 0)
                                         {
-                                            ShowContentList(SectionID, LevelID,-1,-1,-1,SubSectionID);
+                                            ShowContentList(SectionID, LevelID, -1, -1, -1, SubSectionID);
                                         }
                                     }
                                     break;
                             }
-                            
+
                         }
                         break;
                     case 2:
@@ -120,7 +135,7 @@ namespace DarAlSadeeq.ar
                         ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
-                            if(ShowCategories(SectionID, LevelID))
+                            if (ShowCategories(SectionID, LevelID))
                             {
                                 switch (CategoryID)
                                 {
@@ -192,7 +207,7 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowLevels(int SectionID=-1, int SubSectionID = -1)
+        public bool ShowLevels(int SectionID = -1, int SubSectionID = -1)
         {
             DataTable dtLevels = DA.Content.GetLevelsWithContents(SectionID, SubSectionID);
             if (dtLevels.Rows.Count > 0)
@@ -205,9 +220,9 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowCategories(int SectionID=-1, int LevelID=-1, int SubSectionID = -1)
+        public bool ShowCategories(int SectionID = -1, int LevelID = -1, int SubSectionID = -1)
         {
-            DataTable dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID,SubSectionID);
+            DataTable dtCategories = DA.Content.GetCategoriesWithContents(SectionID, LevelID, SubSectionID);
             if (dtCategories.Rows.Count > 0)
             {
                 divCategories.Visible = true;
@@ -217,7 +232,7 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowSubCategories(int SectionID=-1, int LevelID=-1, int CategoryID=-1, int SubSectionID = -1)
+        public bool ShowSubCategories(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubSectionID = -1)
         {
             DataTable dtSubCategories = DA.Content.GetSubCategoriesWithContents(SectionID, LevelID, CategoryID, SubSectionID);
             if (dtSubCategories.Rows.Count > 0)
@@ -229,7 +244,7 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowParts(int SectionID, int LevelID=-1, int SubsectionID=-1)
+        public bool ShowParts(int SectionID, int LevelID = -1, int SubsectionID = -1)
         {
             DataTable dtParts = DA.Content.GetPartsWithContents(SectionID, LevelID, SubsectionID);
             if (dtParts.Rows.Count > 0)
@@ -241,9 +256,9 @@ namespace DarAlSadeeq.ar
             }
             return false;
         }
-        public bool ShowContentList(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1, int SubSectionID=-1)
+        public bool ShowContentList(int SectionID = -1, int LevelID = -1, int CategoryID = -1, int SubCategoryID = -1, int PartID = -1, int SubSectionID = -1)
         {
-            DataTable dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID,PartID,SubSectionID);
+            DataTable dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID, PartID, SubSectionID);
             if (dtContentList.Rows.Count > 0)
             {
                 divContentList.Visible = true;

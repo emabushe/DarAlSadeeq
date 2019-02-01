@@ -252,6 +252,66 @@ namespace DarAlSadeeq.DA
                 return new DataTable();
             }
         }
+        public static DataTable GetCategories(int CategoryID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetCategories";
+            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetSubCategories(int SubCategoryID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetSubCategories";
+            oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static DataTable GetParts(int PartID = -1)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_GetParts";
+            oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
         public static bool InsertLevel(string LevelTitleAR, string LevelTitleEN)
         {
             bool check;
@@ -503,26 +563,6 @@ namespace DarAlSadeeq.DA
                     oSqlConnection.Close();
             }
             return check;
-        }
-        public static DataTable GetCategories(int CategoryID = -1)
-        {
-            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
-            oSqlCommand = new SqlCommand();
-            oSqlCommand.Connection = oSqlConnection;
-            oSqlCommand.CommandType = CommandType.StoredProcedure;
-            oSqlCommand.CommandText = "sp_GetCategories";
-            oSqlCommand.Parameters.Add("@CategoryID", SqlDbType.Int).Value = CategoryID;
-            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
-            DataTable dt = new DataTable();
-            try
-            {
-                oDataAdapter.Fill(dt);
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                return new DataTable();
-            }
         }
         public static DataTable GetCategoriesWithContents(int SectionID = -1, int LevelID = -1, int SubSectionID = -1)
         {

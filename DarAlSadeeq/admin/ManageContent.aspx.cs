@@ -16,25 +16,34 @@ namespace DarAlSadeeq.admin
         {
             if (!Page.IsPostBack)
             {
-                divSubSections.Visible = false;
-
-                drpSections.Items.Clear();
-                DataTable dtSections = DA.Content.GetSections(-1);
-                if (dtSections.Rows.Count > 0)
-                {
-                    drpSections.DataSource = dtSections;
-                    drpSections.DataTextField = "SectionTitleAR";
-                    drpSections.DataValueField = "SectionID";
-                    drpSections.DataBind();
-                    drpSections.Items.Insert(0, new ListItem("اختر", "0"));
-                }
-                
+                LoadContent();
             }
+        }
+        public void LoadContent()
+        {
+            GetSections(drpSections, -1, "اختر");
+            GetSections(drpEditSections, -1, "الكل");
+            GetSections(drpSectionsEdit, -1, "اختر");
+            GetSubSections(DrpSubSections, -1, "غير محدد");
+            GetSubSections(DrpSubSectionsEdit, -1, "الكل");
+            GetSubSections(DrpEditSubSections, -1, "اختر");
+            GetLevels(DrpLevels, -1, "غير محدد");
+            GetLevels(drpEditLevels, -1, "الكل");
+            GetLevels(drpLevelsEdit, -1, "اختر");
+            GetLevels(drpLevelsDelete, -1, "اختر");
+            GetCategories(DrpDwnCategories, -1, "غير محدد");
+            GetCategories(drpEditCategories, -1, "الكل");
+            GetCategories(drpCategoriesEdit, -1, "اختر");
+            GetCategories(drpCategoriesDelete, -1, "اختر");
+            GetSubCategories(drpSubCategories, -1, "غير محدد");
+            GetSubCategories(drpEditSubCategories, -1, "الكل");
+            GetParts(drpParts, -1, "غير محدد");
+            GetParts(drpEditParts, -1, "الكل");
         }
         protected void btn_save_Click(object sender, EventArgs e)
         {
             int SubSectionID = (drpSections.SelectedItem.Value == "1") ? Convert.ToInt32(DrpSubSections.SelectedItem.Value) : -1;
-            string contentPath = "~/content/" + DrpDwnLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
+            string contentPath = "~/content/" + DrpLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
                 "/" + drpParts.SelectedValue + "/" + txtContentTitleAR.Text + "/" + drpContentType.SelectedValue;
             if (!Directory.Exists(Server.MapPath(contentPath)))
                 Directory.CreateDirectory(Server.MapPath(contentPath));
@@ -57,7 +66,7 @@ namespace DarAlSadeeq.admin
                 contentFileUploader.SaveAs(Server.MapPath(contentPath + "/" + contentFileUploader.FileName));
             }
             if (DA.Content.InsertContent(txtContentTitleAR.Text.Trim(), txtContentTitleEN.Text.Trim(), drpContentType.SelectedItem.Text,
-                contentPath, Convert.ToInt32(DrpDwnLevels.SelectedValue), Convert.ToInt32(DrpDwnCategories.SelectedValue),
+                contentPath, Convert.ToInt32(DrpLevels.SelectedValue), Convert.ToInt32(DrpDwnCategories.SelectedValue),
                 Convert.ToInt32(drpParts.SelectedValue), Convert.ToInt32(drpSections.SelectedValue), txtDescription.Text,
                 contentPath + "/cover" + Path.GetExtension(coverFileUploader.FileName), Convert.ToInt32(drpSubCategories.SelectedValue),
                 SubSectionID))
@@ -246,7 +255,6 @@ namespace DarAlSadeeq.admin
                 lblEditResult.Visible = true;
                 lblEditResult.Text = "خطأ";
             }
-            DropDownAutoPostBack(true);
         }
         protected void Btn_Delete_Click(object sender, EventArgs e)
         {
@@ -260,53 +268,107 @@ namespace DarAlSadeeq.admin
                 lblEditResult.Visible = true;
                 lblEditResult.Text = "خطأ";
             }
-            DropDownAutoPostBack(true);
         }
-
-        protected void drpEditSections_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetContents();
-        }
-        protected void drpEditLevels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetContents();
-        }
-
-        protected void drpEditSubCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetContents();
-        }
-
-        protected void drpEditCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetContents();
-        }
-
-        protected void drpEditParts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetContents();
-        }
-
         protected void drpContent_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable dtContent = DA.Content.GetContent(Convert.ToInt32(drpContent.SelectedItem.Value));
             if (dtContent.Rows.Count > 0)
             {
+                lblContent.Text ="ID: "+ dtContent.Rows[0]["ContentID"].ToString();
                 txtEditContentTitleAR.Text = dtContent.Rows[0]["ContentTitleAR"].ToString();
                 txtEditContentTitleEN.Text = dtContent.Rows[0]["ContentTitleEN"].ToString();
                 txtEditDescription.Text = dtContent.Rows[0]["Description"].ToString();
             }
         }
+        public void GetSections(DropDownList drp, int SectionID = -1, string FirstOption = "")
+        {
+            drp.Items.Clear();
+            DataTable dtSections = DA.Content.GetSections(SectionID);
+            if (dtSections.Rows.Count > 0)
+            {
+                drp.DataSource = dtSections;
+                drp.DataTextField = "SectionTitleAR";
+                drp.DataValueField = "SectionID";
+                drp.DataBind();
+
+                drp.Items.Insert(0, new ListItem(FirstOption, "-1"));
+            }
+        }
+        public void GetSubSections(DropDownList drp, int SubSectionID = -1, string FirstOption = "")
+        {
+            drp.Items.Clear();
+            DataTable dtSubSections = DA.Content.GetSubSections(SubSectionID);
+            if (dtSubSections.Rows.Count > 0)
+            {
+                drp.DataSource = dtSubSections;
+                drp.DataTextField = "SubSectionTitleAR";
+                drp.DataValueField = "SubSectionID";
+                drp.DataBind();
+                drp.Items.Insert(0, new ListItem(FirstOption, "-1"));
+            }
+        }
+        public void GetLevels(DropDownList drp, int LevelID = -1, string FirstOption = "")
+        {
+            drp.Items.Clear();
+            DataTable dtLevels = DA.Content.GetLevels(LevelID);
+            if (dtLevels.Rows.Count > 0)
+            {
+                drp.DataSource = dtLevels;
+                drp.DataTextField = "LevelTitleAR";
+                drp.DataValueField = "LevelID";
+                drp.DataBind();
+                drp.Items.Insert(0, new ListItem(FirstOption, "-1"));
+            }
+        }
+        public void GetCategories(DropDownList drp, int CategoryID = -1, string FirstOption = "")
+        {
+            drp.Items.Clear();
+            DataTable dtCategories = DA.Content.GetCategories(CategoryID);
+            if (dtCategories.Rows.Count > 0)
+            {
+                drp.DataSource = dtCategories;
+                drp.DataTextField = "CategoryTitleAR";
+                drp.DataValueField = "CategoryID";
+                drp.DataBind();
+                drp.Items.Insert(0, new ListItem(FirstOption, "-1"));
+            }
+        }
+        public void GetSubCategories(DropDownList drp, int SubCategoryID = -1, string FirstOption = "")
+        {
+            drp.Items.Clear();
+            DataTable dtSubCategories = DA.Content.GetSubCategories(SubCategoryID);
+            if (dtSubCategories.Rows.Count > 0)
+            {
+                drp.DataSource = dtSubCategories;
+                drp.DataTextField = "SubCategoryTitleAR";
+                drp.DataValueField = "SubCategoryID";
+                drp.DataBind();
+                drp.Items.Insert(0, new ListItem(FirstOption, "-1"));
+            }
+        }
+        public void GetParts(DropDownList drp, int PartID = -1, string FirstOption = "")
+        {
+            drp.Items.Clear();
+            DataTable dtParts = DA.Content.GetParts(PartID);
+            if (dtParts.Rows.Count > 0)
+            {
+                drp.DataSource = dtParts;
+                drp.DataTextField = "PartTitleAR";
+                drp.DataValueField = "PartID";
+                drp.DataBind();
+                drp.Items.Insert(0, new ListItem(FirstOption, "-1"));
+            }
+        }
         public void GetContents()
         {
+            drpContent.Items.Clear();
             int SectionID = (Convert.ToInt32(drpEditSections.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditSections.SelectedItem.Value);
+            int SubSectionID = (Convert.ToInt32(DrpSubSectionsEdit.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(DrpSubSectionsEdit.SelectedItem.Value);
             int LevelID = (Convert.ToInt32(drpEditLevels.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditLevels.SelectedItem.Value);
             int CategoryID = (Convert.ToInt32(drpEditCategories.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditCategories.SelectedItem.Value);
             int SubCategoryID = (Convert.ToInt32(drpEditSubCategories.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditSubCategories.SelectedItem.Value);
             int PartID = (Convert.ToInt32(drpEditParts.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditParts.SelectedItem.Value);
-            DataTable dtContentList = DA.Content.GetContents(Convert.ToInt32(drpEditSections.SelectedItem.Value),
-               Convert.ToInt32(drpEditLevels.SelectedItem.Value), Convert.ToInt32(drpEditCategories.SelectedItem.Value),
-               Convert.ToInt32(drpEditSubCategories.SelectedItem.Value));
+            DataTable dtContentList = DA.Content.GetContents(SectionID,LevelID,CategoryID,SubCategoryID,PartID,SubSectionID);
             if (dtContentList.Rows.Count > 0)
             {
                 drpContent.Items.Clear();
@@ -314,18 +376,10 @@ namespace DarAlSadeeq.admin
                 drpContent.DataTextField = "ContentTitleAR";
                 drpContent.DataValueField = "ContentID";
                 drpContent.DataBind();
-                drpContent.Items.Insert(0, new ListItem("اختر", "0"));
                 SortListControl(drpContent, true);
-                DropDownAutoPostBack(false);
+                drpContent.Items.Insert(0, new ListItem("اختر", "0"));
+                lblContent.Text = "Total: " + dtContentList.Rows.Count;
             }
-        }
-        public void DropDownAutoPostBack(bool option)
-        {
-            drpEditSections.AutoPostBack = option;
-            drpEditLevels.AutoPostBack = option;
-            drpEditCategories.AutoPostBack = option;
-            drpEditSubCategories.AutoPostBack = option;
-            drpEditParts.AutoPostBack = option;
         }
         public static void SortListControl(ListControl control, bool isAscending)
         {
@@ -346,18 +400,6 @@ namespace DarAlSadeeq.admin
 
             foreach (ListItem item in collection)
                 control.Items.Add(item);
-        }
-
-        protected void drpSections_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(drpSections.SelectedItem.Value=="1")
-            {
-                divSubSections.Visible = true;
-            }
-            else
-            {
-                divSubSections.Visible = false;
-            }
         }
         protected void btnSaveNewSubSection_Click(object sender, EventArgs e)
         {
@@ -389,6 +431,10 @@ namespace DarAlSadeeq.admin
                 lblManageSubSections.Visible = true;
                 lblManageSubSections.Text = "خطأ في عملية الإدخال";
             }
+        }
+        protected void BtnGetContent_Click(object sender, EventArgs e)
+        {
+            GetContents();
         }
     }
 }
