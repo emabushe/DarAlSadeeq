@@ -7,7 +7,7 @@
         <asp:Label ID="lblSectionTitle" runat="server">دار الصديق</asp:Label>
     </div>
     <div class="content-inner">
-        <div class="row" style="margin-top: 10px">
+        <div class="row" style="margin-top: 10px;width: 90%;">
             <div id="divPagesContent" runat="server">
                 <div class="flipbook-viewport">
                     <div class="container">
@@ -42,7 +42,7 @@
                         <asp:Label runat="server" ID="lblTitle"></asp:Label>
                     </div>
                 </div>
-                 <div class="row">
+                 <div class="row" >
                      <div class="col-md-2"></div>
                      <div class="col-md-8">
                          <asp:Image runat="server" ID="imgContent" style="width:75%"/>
@@ -50,7 +50,9 @@
                      <div class="col-md-2"></div>
                  </div>
                  <div class="row">
-                     <asp:Label runat="server" ID="lblDescription"></asp:Label>
+                     <div class="col-md-1"></div>
+                     <div class="col-md-10"><asp:Label runat="server" ID="lblDescription"></asp:Label></div>
+                     <div class="col-md-1"></div>
                  </div>
             </div>
         </div>

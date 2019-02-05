@@ -347,6 +347,17 @@
                             <td></td>
                         </tr>
                         <tr>
+                    <td style="width: 20%;">
+                        <p>
+                            صورة الغلاف
+                        </p>
+                    </td>
+                    <td>
+                        <asp:FileUpload ID="editCoverFileUploader" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG" />
+                    </td>
+                    <td></td>
+                </tr>
+                        <tr>
                             <td style="width: 20%;">
                                 <p>
                                     نبذة

@@ -12,6 +12,7 @@ namespace DarAlSadeeq.admin
 {
     public partial class ManageContent : System.Web.UI.Page
     {
+        public static string coverImagePath;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -222,7 +223,7 @@ namespace DarAlSadeeq.admin
         }
         protected void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-            if (DA.Content.DeleteCategory(Convert.ToInt32(drpCategoriesEdit.SelectedValue)))
+            if (DA.Content.DeleteCategory(Convert.ToInt32(drpCategoriesDelete.SelectedValue)))
             {
                 lblCategoriesResults.ForeColor = Color.Green;
                 lblCategoriesResults.Visible = true;
@@ -242,6 +243,10 @@ namespace DarAlSadeeq.admin
         }
         protected void Btn_Update_Click(object sender, EventArgs e)
         {
+            if(editCoverFileUploader.HasFile)
+            {
+                coverFileUploader.SaveAs(Server.MapPath(coverImagePath));
+            }
             if (DA.Content.UpdateContent(txtEditContentTitleAR.Text.Trim(), txtEditContentTitleEN.Text.Trim(),
                 Convert.ToInt32(drpEditSections.SelectedItem.Value), Convert.ToInt32(drpEditLevels.SelectedItem.Value),
                 Convert.ToInt32(drpEditCategories.SelectedItem.Value), Convert.ToInt32(drpEditSubCategories.SelectedItem.Value),
@@ -278,6 +283,7 @@ namespace DarAlSadeeq.admin
                 txtEditContentTitleAR.Text = dtContent.Rows[0]["ContentTitleAR"].ToString();
                 txtEditContentTitleEN.Text = dtContent.Rows[0]["ContentTitleEN"].ToString();
                 txtEditDescription.Text = dtContent.Rows[0]["Description"].ToString();
+                coverImagePath=dtContent.Rows[0]["CoverPic"].ToString();
             }
         }
         public void GetSections(DropDownList drp, int SectionID = -1, string FirstOption = "")

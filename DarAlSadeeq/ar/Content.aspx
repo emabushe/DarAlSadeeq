@@ -7,7 +7,7 @@
         <asp:Label ID="lblSectionTitle" runat="server">دار الصديق</asp:Label>
     </div>
     <div class="content-inner">
-          <div class="classes-container" style="height: auto; overflow: hidden;" id="divSubSections" runat="server">
+        <div class="classes-container" style="height: auto; overflow: hidden;" id="divSubSections" runat="server">
             <asp:Repeater ID="rptSubSections" runat="server">
                 <ItemTemplate>
                     <div class="block-classes blockDar" onclick="appendURL('subsection=<%# Eval("SubSectionID")%>')">
@@ -17,7 +17,7 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-        <div class="classes-container" style="height: auto; overflow: hidden;" id="divLevels" runat="server">
+        <div class="classes-container" style="height: auto; overflow: hidden; margin-top: 10px; margin-right: 10px;" id="divLevels" runat="server">
             <asp:Repeater ID="rptLevels" runat="server">
                 <ItemTemplate>
                     <div class='<%# Eval("CSSClass")%> block-small' onclick="appendURL('level=<%# Eval("LevelID")%>')">
@@ -75,43 +75,35 @@
                 </div>
             </div>
         </div>
-        <%--  <div id="divArrow3" runat="server" style="background-image: url(../../images/arrow.png); width: 50px; height: 50px; margin-left: 50%; margin-top: 5px; margin-bottom: 5px;">
-        </div>--%>
-        <div class="classes-container" id="divContentList" runat="server" style="background: url(../../images/Bookshelf.png); width: 100%; margin-top: 10px;height: auto;overflow: hidden;">
-            <asp:Repeater ID="rptContent" runat="server">
-                <ItemTemplate>
-                    <div style="float: right; width: 180px; padding: 5px; text-align: center; cursor: pointer;padding-top: 24px;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
-                       <%-- <span class="tooltip tooltip-turnright"><span class="tooltip-item">--%>
-                            <table width="180px">
-                                <tr>
-                                    <td style="text-align: center">
-                                        <asp:Image ID="imgCover" runat="server" ImageUrl='<%#Eval("CoverPic")%>' Style="width: 150px; height: 200px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px; text-align: center">
-                                        <label style="font-size: large; color: rgb(196, 218, 172);"><%# Eval("ContentTitleAR")%></label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </span>
-                            <%--<span class="tooltip-content"><%# Eval("Description")%></span>--%>
-                       <%-- </span>--%>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+        <div class="classes-container" id="divContentList" runat="server" style="width: 81%; margin-top: 10px; height: auto; overflow: hidden;">
+            <table>
+                <asp:Repeater ID="rptContent" runat="server">
+                    <ItemTemplate>
+                        <%# (Container.ItemIndex + 4) % 4 == 0 ? "<tr style=\"background: url(../../images/Bookshelf.png);\">" : string.Empty %>
+                        <td>
+                            <div style="float: right; width: 180px; text-align: center; cursor: pointer;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
+                                <div class="row">
+                                    <asp:Image ID="imgCover" runat="server" ImageUrl='<%#Eval("CoverPic")%>' Style="width: 150px; height: 200px;" />
+                                </div>
+                                <div class="row" style="padding: 20px;">
+                                    <label style="font-size: large; color: rgb(196, 218, 172);"><%# Eval("ContentTitleAR")%></label>
+                                </div>
+                            </div>
+                        </td>
+                        <%# (Container.ItemIndex + 4) % 4 == 3 ? "</tr>" : string.Empty %>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </table>
         </div>
         <div id="divLessons" runat="server" class="row" style="padding: 15px;">
             <div class="classes-container col-md-12" style="height: auto; overflow: hidden;">
                 <div>
-                   
-                        <asp:Repeater ID="rptLessons" runat="server">
-                            <ItemTemplate>
-                                 <li><a href='<%# "ContentViewer.aspx?content=" + Eval("ContentID")%>'>
+                    <asp:Repeater ID="rptLessons" runat="server">
+                        <ItemTemplate>
+                            <li><a href='<%# "ContentViewer.aspx?content=" + Eval("ContentID")%>'>
                                 <%# Eval("ContentTitleAR")%></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
         </div>

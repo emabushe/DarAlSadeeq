@@ -63,9 +63,15 @@ namespace DarAlSadeeq.ar
                                 case 2:
                                     if (ShowLevels(SectionID, SubSectionID))
                                     {
-                                        if (LevelID != 0)
+                                        if (LevelID == 0)
+                                            break;
+                                        else if(LevelID>8)
                                         {
-                                            if (ShowParts(SectionID, -1, SubSectionID))
+                                            ShowContentList(SectionID, LevelID, -1, -1, -1, SubSectionID);
+                                        }
+                                        else if (LevelID <= 8)
+                                        {
+                                            if (ShowParts(SectionID, LevelID, SubSectionID))
                                             {
                                                 if (PartID != 0)
                                                 {
@@ -79,13 +85,21 @@ namespace DarAlSadeeq.ar
                                     ShowCategories(SectionID, -1, SubSectionID);
                                     if (CategoryID != 0)
                                     {
-                                        if (ShowSubCategories(SectionID, -1, CategoryID, SubSectionID))
+                                        if(CategoryID==1)
                                         {
-                                            if (SubCategoryID != 0)
+                                            if (ShowSubCategories(SectionID, -1, CategoryID, SubSectionID))
                                             {
-                                                ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1, SubSectionID);
+                                                if (SubCategoryID != 0)
+                                                {
+                                                    ShowContentList(SectionID, -1, CategoryID, SubCategoryID, -1, SubSectionID);
+                                                }
                                             }
                                         }
+                                        else
+                                        {
+                                            ShowContentList(SectionID, -1, CategoryID, -1, -1, SubSectionID);
+                                        }
+                                       
                                     }
 
                                     break;
