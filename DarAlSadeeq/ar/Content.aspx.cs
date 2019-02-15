@@ -46,26 +46,33 @@ namespace DarAlSadeeq.ar
                                 case 0:
                                     break;
                                 case 1:
-                                    if (ShowParts(SectionID, -1, SubSectionID))
+                                    if (ShowLevels(SectionID, SubSectionID))
                                     {
-                                        if (PartID != 0)
+                                        if (LevelID != 0)
                                         {
-                                            dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, PartID, SubSectionID);
-                                            if (dtContentList.Rows.Count > 0)
+                                            if (ShowParts(SectionID, LevelID, SubSectionID))
                                             {
-                                                divLessons.Visible = true;
-                                                rptLessons.DataSource = dtContentList;
-                                                rptLessons.DataBind();
+                                                if (PartID != 0)
+                                                {
+                                                    dtContentList = DA.Content.GetContents(SectionID, LevelID, -1, -1, PartID, SubSectionID);
+                                                    if (dtContentList.Rows.Count > 0)
+                                                    {
+                                                        divLessons.Visible = true;
+                                                        rptLessons.DataSource = dtContentList;
+                                                        rptLessons.DataBind();
+                                                    }
+                                                }
                                             }
                                         }
                                     }
+
                                     break;
                                 case 2:
                                     if (ShowLevels(SectionID, SubSectionID))
                                     {
                                         if (LevelID == 0)
                                             break;
-                                        else if(LevelID>8)
+                                        else if (LevelID > 8)
                                         {
                                             ShowContentList(SectionID, LevelID, -1, -1, -1, SubSectionID);
                                         }
@@ -85,7 +92,7 @@ namespace DarAlSadeeq.ar
                                     ShowCategories(SectionID, -1, SubSectionID);
                                     if (CategoryID != 0)
                                     {
-                                        if(CategoryID==1)
+                                        if (CategoryID == 1)
                                         {
                                             if (ShowSubCategories(SectionID, -1, CategoryID, SubSectionID))
                                             {
@@ -99,7 +106,7 @@ namespace DarAlSadeeq.ar
                                         {
                                             ShowContentList(SectionID, -1, CategoryID, -1, -1, SubSectionID);
                                         }
-                                       
+
                                     }
 
                                     break;
@@ -122,22 +129,16 @@ namespace DarAlSadeeq.ar
                         ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
-                            if (ShowCategories(SectionID, LevelID))
+                            if (ShowParts(SectionID, LevelID, -1))
                             {
-                                if (CategoryID != 0)
+                                if (PartID != 0)
                                 {
-                                    if (ShowParts(SectionID, LevelID))
+                                    dtContentList = DA.Content.GetContents(SectionID, LevelID, -1, -1, PartID, -1);
+                                    if (dtContentList.Rows.Count > 0)
                                     {
-                                        if (PartID != 0)
-                                        {
-                                            dtContentList = DA.Content.GetContents(SectionID, LevelID, -1, -1, PartID);
-                                            if (dtContentList.Rows.Count > 0)
-                                            {
-                                                divLessons.Visible = true;
-                                                rptLessons.DataSource = dtContentList;
-                                                rptLessons.DataBind();
-                                            }
-                                        }
+                                        divLessons.Visible = true;
+                                        rptLessons.DataSource = dtContentList;
+                                        rptLessons.DataBind();
                                     }
                                 }
                             }

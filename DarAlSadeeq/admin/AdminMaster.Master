@@ -32,12 +32,7 @@
     <link rel="stylesheet" type="text/css" href="~/style/style.css" />
     <link rel="stylesheet" type="text/css" href="~/style/pages.css" />
     <link rel="stylesheet" type="text/css" href="~/style/font-awesome.css" />
-    <script type="text/javascript" src="~/js/jquery.js"></script>
-    <script type="text/javascript" src="~/js/switcher.js"></script>
-    <script type="text/javascript" src="~/js/toggle.js"></script>
-    <script type="text/javascript" src="~/js/ui.core.js"></script>
-    <script type="text/javascript" src="~/js/ui.tabs.js"></script>
-    <script type="text/javascript">
+         <script type="text/javascript">
         $(document).ready(function () {
             $(".tabs > ul").tabs();
         });
@@ -68,23 +63,9 @@
                 <ul class="box">
                     <!-- Active -->
                     <li><a href="ManageCOntent.aspx"><span>إدارة المحتوى</span></a></li>
-                    <%-- <li><a href="AddLearn.aspx"><span>هيا نتعلم</span></a></li>--%>
-                    <%--<li><a href="AddGame.aspx"><span>نلعب ونتعلم</span></a></li>
-                    <li><a href="AddKGMaterial.aspx"><span>رياض الأطفال</span></a></li>
-                    <li><a href="AddTeacherMaterial.aspx"><span>المعلم</span></a></li>
-                    <li><a href="AddSchool.aspx"><span>مدراسنا الصديقة</span></a></li>
-                    <li><a href="AddErshadSubject.aspx"><span>أصنع بيدي </span></a></li>
-                    <li><a href="AddLife.aspx"><span>غير حياتك</span></a></li>
-                    <li><a href="AddTalent.aspx"><span>موهبتي</span></a></li>
-                    <li><a href="AddChild.aspx"><span>أين أنت من طفلك</span></a></li>
-                    <li><a href="AddActivitySubject.aspx"><span>أنشطة</span></a></li>
-                    <li><a href="AddDemo.aspx"><span>نماذج</span></a></li>
-                    <li><a href="UpdateAboutUs.aspx"><span>من نحن</span></a></li>
-                    <li><a href="AddAds.aspx"><span>إعلانات </span></a></li>
-                    <li><a href="AddLinkGame.aspx"><span>ألعاب</span></a></li>
-                    <li><a href="AddPartner.aspx"><span>شركاء </span></a></li>
-                    <li><a href="AddSong.aspx"><span>أغاني وقصص </span></a></li>
-                    <li><a href="AddUser.aspx"><span>المستخدمين </span></a></li>--%>
+                    <li><a href="ManageVideos.aspx"><span>إدارة الفيديوهات</span></a></li>
+                    <li><a href="ManageErshad.aspx"><span>إدارة ارشادات </span></a></li>
+                    <li><a href="ManageChangeYourLife.aspx"><span>إدارة ارشادات </span></a></li>
                 </ul>
             </div>
             <!-- /header -->

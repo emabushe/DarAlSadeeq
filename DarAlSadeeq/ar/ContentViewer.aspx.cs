@@ -77,6 +77,10 @@ namespace DarAlSadeeq.ar
                                 imgContent.ImageUrl = dtContent.Rows[0]["CoverPic"].ToString();
                                 lblDescription.Text = dtContent.Rows[0]["Description"].ToString();
                                 break;
+                            case "Youtube":
+                                divYoutubeContent.Visible = true;
+                                divYoutube.InnerHtml = contentPath;
+                                break;
                         }
                     }
                 }

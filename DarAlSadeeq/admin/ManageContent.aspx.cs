@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using DarAlSadeeq.DA;
 using System.Data;
+using ICSharpCode.SharpZipLib.Zip;
+
 namespace DarAlSadeeq.admin
 {
     public partial class ManageContent : System.Web.UI.Page
@@ -44,28 +46,81 @@ namespace DarAlSadeeq.admin
         protected void btn_save_Click(object sender, EventArgs e)
         {
             int SubSectionID = (drpSections.SelectedItem.Value == "1") ? Convert.ToInt32(DrpSubSections.SelectedItem.Value) : -1;
-            string contentPath = "~/content/" + DrpLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
-                "/" + drpParts.SelectedValue + "/" + txtContentTitleAR.Text + "/" + drpContentType.SelectedValue;
-            if (!Directory.Exists(Server.MapPath(contentPath)))
-                Directory.CreateDirectory(Server.MapPath(contentPath));
-            coverFileUploader.SaveAs(Server.MapPath(contentPath + "/cover" + Path.GetExtension(coverFileUploader.FileName)));
-            HttpFileCollection fileCollection = Request.Files;
-            if (drpContentType.SelectedItem.Text == "Pages")
+            string contentPath = "";
+            if (drpContentType.SelectedItem.Text == "Youtube")
             {
-                for (int i = 0; i < fileCollection.Count; i++)
-                {
-                    HttpPostedFile uploadfile = fileCollection[i];
-                    string fileName = Path.GetFileName(uploadfile.FileName);
-                    if (uploadfile.ContentLength > 0)
-                    {
-                        uploadfile.SaveAs(Server.MapPath(contentPath + "/" + fileName));
-                    }
-                }
+                contentPath = txtYoutube.Text;
             }
             else
             {
-                contentFileUploader.SaveAs(Server.MapPath(contentPath + "/" + contentFileUploader.FileName));
+                contentPath = "~/content/" + DrpLevels.SelectedValue + "/" + DrpDwnCategories.SelectedValue +
+               "/" + drpParts.SelectedValue + "/" + txtContentTitleAR.Text + "/" + drpContentType.SelectedValue;
+                if (!Directory.Exists(Server.MapPath(contentPath)))
+                    Directory.CreateDirectory(Server.MapPath(contentPath));
+                if (drpContentType.SelectedItem.Text == "HTML Page")
+                {
+                    string dirName = "";
+                    string zippedFile = (Server.MapPath(contentPath+"/" + contentFileUploader.FileName));
+                    contentFileUploader.SaveAs(zippedFile);
+                    using (ZipInputStream s = new ZipInputStream(File.OpenRead(zippedFile)))
+                    {
+                        ZipEntry theEntry;
+                        while ((theEntry = s.GetNextEntry()) != null)
+                        {
+                            string directoryName = Path.GetDirectoryName(theEntry.Name);
+                            string fileName = Path.GetFileName(theEntry.Name);
+                            // create directory
+                            if (directoryName.Length > 0)
+                            {
+                                dirName = new DirectoryInfo(directoryName).Name;
+                                Directory.CreateDirectory(Server.MapPath(contentPath + "\\" + dirName));
+                            }
+                            if (fileName != String.Empty)
+                            {
+                                using (FileStream streamWriter = File.Create(Server.MapPath(contentPath + "\\"+theEntry.Name)))
+                                {
+
+                                    int size = 2048;
+                                    byte[] data = new byte[2048];
+                                    while (true)
+                                    {
+                                        size = s.Read(data, 0, data.Length);
+                                        if (size > 0)
+                                        {
+                                            streamWriter.Write(data, 0, size);
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (File.Exists(zippedFile))
+                        File.Delete(zippedFile);
+                }
+                coverFileUploader.SaveAs(Server.MapPath(contentPath + "/cover" + Path.GetExtension(coverFileUploader.FileName)));
+                HttpFileCollection fileCollection = Request.Files;
+                if (drpContentType.SelectedItem.Text == "Pages")
+                {
+                    for (int i = 0; i < fileCollection.Count; i++)
+                    {
+                        HttpPostedFile uploadfile = fileCollection[i];
+                        string fileName = Path.GetFileName(uploadfile.FileName);
+                        if (uploadfile.ContentLength > 0)
+                        {
+                            uploadfile.SaveAs(Server.MapPath(contentPath + "/" + fileName));
+                        }
+                    }
+                }
+                else
+                {
+                    contentFileUploader.SaveAs(Server.MapPath(contentPath + "/" + contentFileUploader.FileName));
+                }
             }
+
             if (DA.Content.InsertContent(txtContentTitleAR.Text.Trim(), txtContentTitleEN.Text.Trim(), drpContentType.SelectedItem.Text,
                 contentPath, Convert.ToInt32(DrpLevels.SelectedValue), Convert.ToInt32(DrpDwnCategories.SelectedValue),
                 Convert.ToInt32(drpParts.SelectedValue), Convert.ToInt32(drpSections.SelectedValue), txtDescription.Text,
@@ -243,7 +298,7 @@ namespace DarAlSadeeq.admin
         }
         protected void Btn_Update_Click(object sender, EventArgs e)
         {
-            if(editCoverFileUploader.HasFile)
+            if (editCoverFileUploader.HasFile)
             {
                 coverFileUploader.SaveAs(Server.MapPath(coverImagePath));
             }
@@ -279,11 +334,11 @@ namespace DarAlSadeeq.admin
             DataTable dtContent = DA.Content.GetContent(Convert.ToInt32(drpContent.SelectedItem.Value));
             if (dtContent.Rows.Count > 0)
             {
-                lblContent.Text ="ID: "+ dtContent.Rows[0]["ContentID"].ToString();
+                lblContent.Text = "ID: " + dtContent.Rows[0]["ContentID"].ToString();
                 txtEditContentTitleAR.Text = dtContent.Rows[0]["ContentTitleAR"].ToString();
                 txtEditContentTitleEN.Text = dtContent.Rows[0]["ContentTitleEN"].ToString();
                 txtEditDescription.Text = dtContent.Rows[0]["Description"].ToString();
-                coverImagePath=dtContent.Rows[0]["CoverPic"].ToString();
+                coverImagePath = dtContent.Rows[0]["CoverPic"].ToString();
             }
         }
         public void GetSections(DropDownList drp, int SectionID = -1, string FirstOption = "")
@@ -374,7 +429,7 @@ namespace DarAlSadeeq.admin
             int CategoryID = (Convert.ToInt32(drpEditCategories.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditCategories.SelectedItem.Value);
             int SubCategoryID = (Convert.ToInt32(drpEditSubCategories.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditSubCategories.SelectedItem.Value);
             int PartID = (Convert.ToInt32(drpEditParts.SelectedItem.Value) == 0) ? -1 : Convert.ToInt32(drpEditParts.SelectedItem.Value);
-            DataTable dtContentList = DA.Content.GetContents(SectionID,LevelID,CategoryID,SubCategoryID,PartID,SubSectionID);
+            DataTable dtContentList = DA.Content.GetContents(SectionID, LevelID, CategoryID, SubCategoryID, PartID, SubSectionID);
             if (dtContentList.Rows.Count > 0)
             {
                 drpContent.Items.Clear();

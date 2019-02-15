@@ -1010,5 +1010,224 @@ namespace DarAlSadeeq.DA
             }
             return check;
         }
+        #region Videos
+        public static bool InsertVideo(string Title, string Logo, string URL)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_InsertSongStory";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+            oSqlCommand.Parameters.Add("@Title", SqlDbType.NVarChar).Value = Title;
+            oSqlCommand.Parameters.Add("@Logo", SqlDbType.NVarChar).Value = Logo;
+            oSqlCommand.Parameters.Add("@URL", SqlDbType.NVarChar).Value = URL;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        public static bool DeleteVideo(int ID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_DeleteSongStory";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        #endregion
+        #region Ershad
+        public static bool InsertErshadSubject(string Title, string Body, int ErshadID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_InsertErshadSubject";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+            oSqlCommand.Parameters.Add("@Title", SqlDbType.NVarChar).Value = Title;
+            oSqlCommand.Parameters.Add("@Body", SqlDbType.NVarChar).Value = Body;
+            oSqlCommand.Parameters.Add("@ErshadID", SqlDbType.Int).Value = ErshadID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        public static bool DeleteErshadSubject(int ID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_DeleteErshadSub";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        #endregion
+        #region ChangeYourLife
+        public static bool InsertChangeYourLifeSubject(string Title, string Body, int LifeTypeID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_InsertLife";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+            oSqlCommand.Parameters.Add("@Title", SqlDbType.NVarChar).Value = Title;
+            oSqlCommand.Parameters.Add("@Body", SqlDbType.NVarChar).Value = Body;
+            oSqlCommand.Parameters.Add("@LifeTypeID", SqlDbType.Int).Value = LifeTypeID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        public static bool DeleteChangeYourLifeSubject(int ID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_DeleteLife";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        #endregion
     }
 }

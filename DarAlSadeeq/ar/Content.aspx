@@ -75,17 +75,19 @@
                 </div>
             </div>
         </div>
-        <div class="classes-container" id="divContentList" runat="server" style="width: 81%; margin-top: 10px; height: auto; overflow: hidden;">
+        <div class="classes-container" id="divContentList" runat="server" style="width: 81%; margin-top: 10px; height: auto; 
+            overflow: hidden; background: url(../../images/Bookshelf.png);">
             <table>
                 <asp:Repeater ID="rptContent" runat="server">
                     <ItemTemplate>
-                        <%# (Container.ItemIndex + 4) % 4 == 0 ? "<tr style=\"background: url(../../images/Bookshelf.png);\">" : string.Empty %>
+                        <%# (Container.ItemIndex + 4) % 4 == 0 ? "<tr>" : string.Empty %>
                         <td>
-                            <div style="float: right; width: 180px; text-align: center; cursor: pointer;" onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
+                            <div style="margin-top: 10px;float: right; width: 180px; text-align: center; cursor: pointer; height: 300px;position: relative;"    
+                                onclick="location.href='ContentViewer.aspx?content=<%# Eval("ContentID")%>'">
                                 <div class="row">
                                     <asp:Image ID="imgCover" runat="server" ImageUrl='<%#Eval("CoverPic")%>' Style="width: 150px; height: 200px;" />
                                 </div>
-                                <div class="row" style="padding: 20px;">
+                                <div class="row" style="position: absolute;bottom: 20px;text-align: center;left: 50%;">
                                     <label style="font-size: large; color: rgb(196, 218, 172);"><%# Eval("ContentTitleAR")%></label>
                                 </div>
                             </div>

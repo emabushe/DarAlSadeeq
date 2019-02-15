@@ -51,7 +51,7 @@
                 <tr>
                     <td style="width: 20%;">
                         <p>
-                               القسم الفرعي - إنتجاتنا
+                            القسم الفرعي - إنتجاتنا
 
                         </p>
                     </td>
@@ -155,12 +155,13 @@
                         </p>
                     </td>
                     <td>
-                        <asp:DropDownList ID="drpContentType" runat="server" Width="25%">
+                        <asp:DropDownList ID="drpContentType" runat="server" Width="25%" onchange="showDiv(this);">
                             <asp:ListItem>PDF</asp:ListItem>
                             <asp:ListItem>Pages</asp:ListItem>
                             <asp:ListItem>Image</asp:ListItem>
                             <asp:ListItem>HTML Page</asp:ListItem>
                             <asp:ListItem>Flash</asp:ListItem>
+                            <asp:ListItem Value="1">Youtube</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td></td>
@@ -178,7 +179,7 @@
                     </td>
                     <td></td>
                 </tr>
-                <tr>
+                <tr id="trContentUploader">
                     <td style="width: 20%;">
                         <p>
                             ملف المحتوى
@@ -188,6 +189,17 @@
                         <asp:FileUpload ID="contentFileUploader" runat="server" Multiple="Multiple" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Style="color: red"
                             ControlToValidate="contentFileUploader" ErrorMessage="يجب إختيار ملف" ValidationGroup="contentValidationGroup"></asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr id="trYoutubeLink">
+                    <td style="width: 20%;">
+                        <p>
+                            رابط يوتيوب
+                        </p>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtYoutube" runat="server" Width="50%" TextMode="MultiLine" Rows="3"></asp:TextBox>
                     </td>
                     <td></td>
                 </tr>
@@ -239,7 +251,7 @@
                             </td>
                             <td></td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td style="width: 20%;">
                                 <p>
                                     القسم الفرعي - إنتجاتنا
@@ -304,7 +316,7 @@
                             <td style="width: 20%;"></td>
                             <td style="width: 111px">
                                 <asp:Button ID="BtnGetContent" runat="server" Text="بحث" Width="100px" OnClick="BtnGetContent_Click" />
-                           </td>
+                            </td>
                             <td></td>
                         </tr>
                         <tr>
@@ -318,7 +330,8 @@
                                     OnSelectedIndexChanged="drpContent_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </td>
-                            <td><asp:Label ID="lblContent" runat="server"></asp:Label></td>
+                            <td>
+                                <asp:Label ID="lblContent" runat="server"></asp:Label></td>
                         </tr>
                         <tr>
                             <td style="width: 20%;">
@@ -347,16 +360,16 @@
                             <td></td>
                         </tr>
                         <tr>
-                    <td style="width: 20%;">
-                        <p>
-                            صورة الغلاف
-                        </p>
-                    </td>
-                    <td>
-                        <asp:FileUpload ID="editCoverFileUploader" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG" />
-                    </td>
-                    <td></td>
-                </tr>
+                            <td style="width: 20%;">
+                                <p>
+                                    صورة الغلاف
+                                </p>
+                            </td>
+                            <td>
+                                <asp:FileUpload ID="editCoverFileUploader" runat="server" accept=".png,.jpg,.jpeg,.PNG,.JPG,.JPEG" />
+                            </td>
+                            <td></td>
+                        </tr>
                         <tr>
                             <td style="width: 20%;">
                                 <p>
@@ -708,7 +721,7 @@
                                                                 <asp:DropDownList ID="drpLevelsEdit" runat="server" Style="float: left;"
                                                                     AutoPostBack="true" OnSelectedIndexChanged="LevelSelected">
                                                                 </asp:DropDownList>
-                                                               
+
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -745,7 +758,7 @@
                                                             <td>
                                                                 <asp:DropDownList ID="drpLevelsDelete" runat="server">
                                                                 </asp:DropDownList>
-                                                                
+
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -833,7 +846,7 @@
                                                         <tr>
                                                             <td><span>اختر</span></td>
                                                             <td>
-                                                                <asp:DropDownList ID="drpCategoriesEdit" runat="server" 
+                                                                <asp:DropDownList ID="drpCategoriesEdit" runat="server"
                                                                     AutoPostBack="true" OnSelectedIndexChanged="Categorieselected">
                                                                 </asp:DropDownList>
                                                             </td>
@@ -900,6 +913,7 @@
         $(document).ready(function () {
 
             $('#tblEditDelete').hide();
+            $('#trYoutubeLink').hide();
         });
         function showTableAdd() {
             $('#tblAdd').show();
@@ -909,5 +923,17 @@
             $('#tblAdd').hide();
             $('#tblEditDelete').show();
         }
+        function showDiv(elem) {
+            if (elem.value == 1) {
+                $('#trYoutubeLink').show();
+                $('#trContentUploader').hide();
+            }
+            else {
+                $('#trYoutubeLink').hide();
+                $('#trContentUploader').show();
+            }
+                
+        }
     </script>
+
 </asp:Content>
