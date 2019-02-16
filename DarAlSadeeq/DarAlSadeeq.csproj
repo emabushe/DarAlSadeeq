@@ -61,12 +61,17 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Winthusiasm.HtmlEditor, Version=1.9.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Winthusiasm.HtmlEditor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\design\Thumbs.db" />
     <Content Include="admin\ManageChangeYourLife.aspx" />
     <Content Include="admin\ManageContent.aspx" />
     <Content Include="admin\ManageErshad.aspx" />
+    <Content Include="admin\ManageVideos.aspx" />
     <Content Include="ar\AboutUs.aspx" />
     <Content Include="ar\ChangeYourLife.aspx" />
     <Content Include="ar\ChangeYourLifeList.aspx" />
@@ -991,6 +996,13 @@
     </Compile>
     <Compile Include="admin\ManageErshad.aspx.designer.cs">
       <DependentUpon>ManageErshad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ManageVideos.aspx.cs">
+      <DependentUpon>ManageVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ManageVideos.aspx.designer.cs">
+      <DependentUpon>ManageVideos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ar\AboutUs.aspx.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>

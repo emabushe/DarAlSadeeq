@@ -10,8 +10,8 @@
         <div class="row" style="margin-top: 5px; width: 90%;">
             <div id="divPagesContent" runat="server">
                 <div class="row">
-                    <a class="btn btn-default btn-sm" href="" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</a>
+                    <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
+                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <div class="flipbook-viewport">
                     <div class="container">
@@ -29,8 +29,8 @@
                 <div class="row">
                     <a class="btn btn-default btn-sm" href="" runat="server" id="pdfURL" target="_blank">
                         <i class="fa fa-search-plus "></i>تكبير الكتاب</a>
-                    <a class="btn btn-default btn-sm" href="" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</a>
+                     <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
+                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <embed id="pdfViewer" runat="server" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
             </div>
@@ -38,15 +38,15 @@
                 <div class="row">
                     <a class="btn btn-default btn-sm" href="" runat="server" id="ebookURL" target="_blank">
                         <i class="fa fa-search-plus "></i>تكبير</a>
-                    <a class="btn btn-default btn-sm" href="" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</a>
+                     <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
+                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <iframe id="htmlViewer" runat="server" width="600" height="500"></iframe>
             </div>
             <div id="divImageContent" runat="server">
                 <div class="row">
-                    <a class="btn btn-default btn-sm" href="" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</a>
+                      <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
+                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
                     <div class="row">
                         <div class="text-center">
                             <asp:Label runat="server" ID="lblTitle"></asp:Label>
@@ -59,19 +59,20 @@
                         </div>
                         <div class="col-md-2"></div>
                     </div>
-                    <div class="row" style="margin-top: 10px;">
+                    <div class="row" style="margin: 10px;">
                         <div class="col-md-12">
-                            <asp:Label runat="server" ID="lblDescription" Style="font-size: 14pt;"></asp:Label></div>
+                            <asp:Label runat="server" ID="lblDescription" Style="font-size: 12pt;"></asp:Label></div>
                     </div>
                 </div>
             </div>
             <div id="divYoutubeContent" runat="server">
                 <div class="row">
-                    <a class="btn btn-default btn-sm" href="" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</a>
+                      <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
+                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <div runat="server" id="divYoutube"></div>
             </div>
+        </div>
         </div>
     <script type="text/javascript">
         function loadApp() {

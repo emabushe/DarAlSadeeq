@@ -20,6 +20,7 @@ namespace DarAlSadeeq.ar
                 divPDFContent.Visible = false;
                 divHTMLContent.Visible = false;
                 divImageContent.Visible = false;
+                divYoutubeContent.Visible = false;
                 DataTable dtContent;
                 if (ContentID != 0)
                 {
