@@ -29,15 +29,6 @@
                     <div class="block-classes blockEnGrammar" onclick="viewSubjects();return ClickServerSide(6);">
                         <span>إنجليزي قواعد</span>
                     </div>
-                    <div class="block-classes blockFrGames" onclick="viewSubjects();return ClickServerSide(11);">
-                        <span>ألعاب فرنسي</span>
-                    </div>
-                    <div class="block-classes blockEnGames" onclick="viewSubjects();return ClickServerSide(12);">
-                        <span>ألعاب إنجليزي</span>
-                    </div>
-                    <div class="block-classes blockMathGames" onclick="viewSubjects();return ClickServerSide(13);" style="margin-right: 10px;">
-                        <span>ألعاب رياضيات</span>
-                    </div>
                     <asp:Button runat="server" ID="btnServerSide" Text="null" OnClick="btnServerSide_Click"
                         CssClass="hidden" />
                 </div>

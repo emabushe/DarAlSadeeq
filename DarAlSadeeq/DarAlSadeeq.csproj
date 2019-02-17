@@ -72,6 +72,7 @@
     <Content Include="admin\ManageContent.aspx" />
     <Content Include="admin\ManageErshad.aspx" />
     <Content Include="admin\ManageVideos.aspx" />
+    <Content Include="admin\ManageWorkSheets.aspx" />
     <Content Include="ar\AboutUs.aspx" />
     <Content Include="ar\ChangeYourLife.aspx" />
     <Content Include="ar\ChangeYourLifeList.aspx" />
@@ -1003,6 +1004,13 @@
     </Compile>
     <Compile Include="admin\ManageVideos.aspx.designer.cs">
       <DependentUpon>ManageVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ManageWorkSheets.aspx.cs">
+      <DependentUpon>ManageWorkSheets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ManageWorkSheets.aspx.designer.cs">
+      <DependentUpon>ManageWorkSheets.aspx</DependentUpon>
     </Compile>
     <Compile Include="ar\AboutUs.aspx.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>

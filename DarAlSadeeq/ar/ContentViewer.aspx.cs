@@ -21,6 +21,7 @@ namespace DarAlSadeeq.ar
                 divHTMLContent.Visible = false;
                 divImageContent.Visible = false;
                 divYoutubeContent.Visible = false;
+                divFlashContent.Visible = false;
                 DataTable dtContent;
                 if (ContentID != 0)
                 {
@@ -81,6 +82,15 @@ namespace DarAlSadeeq.ar
                             case "Youtube":
                                 divYoutubeContent.Visible = true;
                                 divYoutube.InnerHtml = contentPath;
+                                break;
+                            case "Flash":
+                                divFlashContent.Visible = true;
+                                contentPath = contentPath.Replace("~", "../..");
+                                foreach (var file in dir.GetFiles("*.swf"))
+                                {
+                                    flashViewer.Attributes["src"] = contentPath + "/" + file.Name;
+                                    break;
+                                }
                                 break;
                         }
                     }

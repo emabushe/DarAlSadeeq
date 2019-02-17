@@ -13,61 +13,48 @@ namespace DarAlSadeeq.ar
         protected void Page_Load(object sender, EventArgs e)
         {
             int MaterialID;
+            divPDFContent.Visible = false;
+            divFlashContent.Visible = false;
             if (!Page.IsPostBack)
             {
                 MaterialID = Convert.ToInt32(Request.QueryString.Get("mid"));
                 if (MaterialID != 0)
                 {
-                    DataTable dtMaterial;
-                    if (Session["IsGame"] == "Yes")
+                    DataTable dtMaterial= DA.Content.GetMaterial(MaterialID);
+                    if(dtMaterial.Rows.Count>0)
                     {
-                        dtMaterial = DA.Content.GetGame(MaterialID);
-                        if (dtMaterial.Rows.Count > 0)
+                        lblMaterialTitle.Text = dtMaterial.Rows[0]["MaterialTitle"].ToString();
+                        aClassName.InnerText = dtMaterial.Rows[0]["ClassNameAR"].ToString();
+                        aClassName.HRef = "WorkSheets.aspx?CID=" + dtMaterial.Rows[0]["ClassID"].ToString();
+                        ImgSubject.ImageUrl = dtMaterial.Rows[0]["SubjectPic"].ToString();
+                        aSubjectName.HRef = "WorkSheetsMaterial.aspx?sid=" + dtMaterial.Rows[0]["ClassSubjectID"].ToString();
+                        aSubjectName.InnerText = dtMaterial.Rows[0]["SubjectNameAR"].ToString();
+                        classDiv.Style.Add("background", dtMaterial.Rows[0]["DivBg"].ToString());
+                        switch (dtMaterial.Rows[0]["FileType"].ToString().ToUpper())
                         {
-                            lblMaterialTitle.Text = dtMaterial.Rows[0]["MaterialTitle"].ToString();
-                            aClassName.InnerText = dtMaterial.Rows[0]["ClassNameAR"].ToString();
-                            aClassName.HRef = "WorkSheets.aspx?CID=" + dtMaterial.Rows[0]["ClassID"].ToString();
-                            ImgSubject.ImageUrl = dtMaterial.Rows[0]["SubjectPic"].ToString();
-                            aSubjectName.HRef = "WorkSheetsMaterial.aspx?sid=" + dtMaterial.Rows[0]["ClassSubjectID"].ToString();
-                            aSubjectName.InnerText = dtMaterial.Rows[0]["SubjectNameAR"].ToString();
-                            classDiv.Style.Add("background", dtMaterial.Rows[0]["DivBg"].ToString());
+                            case "PDF":
+                                divPDFContent.Visible = true;
+                                divFlashContent.Visible = false;
+                                pdfViewer.Attributes["src"] = "../../Materials/" + dtMaterial.Rows[0]["MaterialFile"].ToString();
+                                pdfURL.HRef = "../../Materials/" + dtMaterial.Rows[0]["MaterialFile"].ToString();
+                                break;
+
+                            case "SWF":
+                                divPDFContent.Visible = false;
+                                divFlashContent.Visible = true;
+                                flashViewer.Attributes["src"] = "../../Materials/" + dtMaterial.Rows[0]["MaterialFile"].ToString();
+                                break;
                         }
                     }
                     else
                     {
-                        dtMaterial = DA.Content.GetMaterial(MaterialID);
-                        if (dtMaterial.Rows.Count > 0)
-                        {
-                            lblMaterialTitle.Text = dtMaterial.Rows[0]["MaterialTitle"].ToString();
-                            aClassName.InnerText = dtMaterial.Rows[0]["ClassNameAR"].ToString();
-                            aClassName.HRef = "WorkSheets.aspx?CID=" + dtMaterial.Rows[0]["ClassID"].ToString();
-                            ImgSubject.ImageUrl = dtMaterial.Rows[0]["SubjectPic"].ToString();
-                            aSubjectName.HRef = "WorkSheetsMaterial.aspx?sid=" + dtMaterial.Rows[0]["ClassSubjectID"].ToString();
-                            aSubjectName.InnerText = dtMaterial.Rows[0]["SubjectNameAR"].ToString();
-                            classDiv.Style.Add("background", dtMaterial.Rows[0]["DivBg"].ToString());
-                        }
+                        lblBody.Visible = true;
                     }
                 }
-            }
-        }
-        public string GetFileName()
-        {
-            int MaterialID = Convert.ToInt32(Request.QueryString.Get("mid"));
-            if (MaterialID == 0)
-            {
-                Response.Redirect("WorkSheets.aspx");
-            }
-            if (Session["IsGame"] == "Yes")
-            {
-                DataTable dtMaterial = DA.Content.GetGame(MaterialID);
-                lblMaterialTitle.Text = dtMaterial.Rows[0]["MaterialTitle"].ToString();
-                return dtMaterial.Rows[0]["MaterialFile"].ToString();
-            }
-            else
-            {
-                DataTable dtMaterial = DA.Content.GetMaterial(MaterialID);
-                lblMaterialTitle.Text = dtMaterial.Rows[0]["MaterialTitle"].ToString();
-                return dtMaterial.Rows[0]["MaterialFile"].ToString();
+                else
+                {
+                    lblBody.Visible = true;
+                }
             }
         }
     }

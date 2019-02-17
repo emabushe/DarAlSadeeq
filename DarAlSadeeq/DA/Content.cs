@@ -1229,5 +1229,105 @@ namespace DarAlSadeeq.DA
             return check;
         }
         #endregion
+        #region WorkSheets
+        public static bool InsertWorkSheet(int ClassID, int SubjectID, int ClassSubjectID, string MaterialTitle, string MaterialFile, 
+            string ClassNameAr, string SubjectNameAr, string FileType)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "ES_InsertMaterials";
+            oSqlCommand.Parameters.Add("@MaterialID", SqlDbType.Int).Direction = ParameterDirection.Output;
+            oSqlCommand.Parameters.Add("@ClassID", SqlDbType.Int).Value = ClassID;
+            oSqlCommand.Parameters.Add("@SubjectID", SqlDbType.Int).Value = SubjectID;
+            oSqlCommand.Parameters.Add("@ClassSubjectID", SqlDbType.Int).Value = ClassSubjectID;
+            oSqlCommand.Parameters.Add("@MaterialTitle", SqlDbType.NVarChar).Value = MaterialTitle;
+            oSqlCommand.Parameters.Add("@MaterialFile", SqlDbType.NVarChar).Value = MaterialFile;
+            oSqlCommand.Parameters.Add("@ClassNameAr", SqlDbType.NVarChar).Value = ClassNameAr;
+            oSqlCommand.Parameters.Add("@SubjectNameAr", SqlDbType.NVarChar).Value = SubjectNameAr;
+            oSqlCommand.Parameters.Add("@FileType", SqlDbType.NVarChar).Value = FileType;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        public static DataTable SaveClassSubject(int ClassID, int SubjectID)
+        {
+            oSqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["VATConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_SubjectClassSave";
+            oSqlCommand.Parameters.Add("@ClassID", SqlDbType.Int).Value = ClassID;
+            oSqlCommand.Parameters.Add("@SubjectID", SqlDbType.Int).Value = SubjectID;
+            SqlDataAdapter oDataAdapter = new SqlDataAdapter(oSqlCommand);
+            DataTable dt = new DataTable();
+            try
+            {
+                oDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+        public static bool DeleteWorkSheet(int ID)
+        {
+            bool check;
+            oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
+            oSqlCommand = new SqlCommand();
+            oSqlCommand.Connection = oSqlConnection;
+            oSqlCommand.CommandType = CommandType.StoredProcedure;
+            oSqlCommand.CommandText = "sp_DeleteWorkSheet";
+            oSqlCommand.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            try
+            {
+                if (oSqlConnection.State == ConnectionState.Closed)
+                {
+                    oSqlConnection.Open();
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+                else
+                {
+                    oSqlCommand.ExecuteNonQuery();
+                    check = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                check = false;
+            }
+            finally
+            {
+                if (oSqlConnection.State == ConnectionState.Open)
+                    oSqlConnection.Close();
+            }
+            return check;
+        }
+        #endregion
     }
 }

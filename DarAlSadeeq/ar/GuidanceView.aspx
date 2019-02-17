@@ -26,6 +26,10 @@
                 <div id="subjectsContainer" class="subjectsContainer material" runat="server">
                     <asp:Label ID="lblGuidanceTitle" runat="server" Font-Size="16"></asp:Label>
                 </div>
+                 <div id="divBack" class="subjectsContainer material" runat="server">
+                    <button type="button" class="btn btn-default btn-lg" onclick="goBack()" style="margin: 20%;">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
+                </div>
                 <div id="materials" class="subjectsContainer materialsList" runat="server">
                     <asp:Label ID="lblBody" runat="server" Text="لا يوجد مواد لعرضها" Visible="false"></asp:Label>
                     <asp:Repeater ID="Repeater1" runat="server">
@@ -39,4 +43,9 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+     <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </asp:Content>

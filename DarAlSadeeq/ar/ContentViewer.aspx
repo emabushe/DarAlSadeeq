@@ -10,8 +10,8 @@
         <div class="row" style="margin-top: 5px; width: 90%;">
             <div id="divPagesContent" runat="server">
                 <div class="row">
-                    <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
+                    <button type="button" class="btn btn-default btn-md" onclick="goBack()">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <div class="flipbook-viewport">
                     <div class="container">
@@ -27,26 +27,33 @@
             </div>
             <div id="divPDFContent" runat="server">
                 <div class="row">
-                    <a class="btn btn-default btn-sm" href="" runat="server" id="pdfURL" target="_blank">
+                    <a class="btn btn-default btn-md" href="" runat="server" id="pdfURL" target="_blank">
                         <i class="fa fa-search-plus "></i>تكبير الكتاب</a>
-                     <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
+                    <button type="button" class="btn btn-default btn-md" onclick="goBack()">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <embed id="pdfViewer" runat="server" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" />
             </div>
+             <div id="divFlashContent" runat="server">
+                <div class="row">
+                    <button type="button" class="btn btn-default btn-md" onclick="goBack()">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
+                </div>
+                <embed id="flashViewer" runat="server" width="600" height="500" alt="FLASH"  pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"  />
+            </div>
             <div id="divHTMLContent" runat="server">
                 <div class="row">
-                    <a class="btn btn-default btn-sm" href="" runat="server" id="ebookURL" target="_blank">
+                    <a class="btn btn-default btn-md" href="" runat="server" id="ebookURL" target="_blank">
                         <i class="fa fa-search-plus "></i>تكبير</a>
-                     <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
+                    <button type="button" class="btn btn-default btn-md" onclick="goBack()">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <iframe id="htmlViewer" runat="server" width="600" height="500"></iframe>
             </div>
             <div id="divImageContent" runat="server">
                 <div class="row">
-                      <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
+                    <button type="button" class="btn btn-default btn-md" onclick="goBack()">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
                     <div class="row">
                         <div class="text-center">
                             <asp:Label runat="server" ID="lblTitle"></asp:Label>
@@ -61,19 +68,20 @@
                     </div>
                     <div class="row" style="margin: 10px;">
                         <div class="col-md-12">
-                            <asp:Label runat="server" ID="lblDescription" Style="font-size: 12pt;"></asp:Label></div>
+                            <asp:Label runat="server" ID="lblDescription" Style="font-size: 12pt;"></asp:Label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div id="divYoutubeContent" runat="server">
                 <div class="row">
-                      <button type="button" class="btn btn-default btn-sm" onclick="goBack()">
-                        <i class="fa a-chevron-circle-left "></i>رجوع</button>
+                    <button type="button" class="btn btn-default btn-md" onclick="goBack()">
+                        <i class="fa fa-chevron-circle-left "></i>رجوع</button>
                 </div>
                 <div runat="server" id="divYoutube"></div>
             </div>
         </div>
-        </div>
+    </div>
     <script type="text/javascript">
         function loadApp() {
             // Create the flipbook

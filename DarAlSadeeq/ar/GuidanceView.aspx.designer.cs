@@ -85,6 +85,15 @@ namespace DarAlSadeeq.ar {
         protected global::System.Web.UI.WebControls.Label lblGuidanceTitle;
         
         /// <summary>
+        /// divBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBack;
+        
+        /// <summary>
         /// materials control.
         /// </summary>
         /// <remarks>

@@ -200,6 +200,7 @@ namespace DarAlSadeeq.ar
                         ShowLevels(SectionID);
                         if (LevelID != 0)
                         {
+                            ShowCategories(SectionID, LevelID, -1);
                             if (CategoryID != 0)
                             {
                                 ShowContentList(SectionID, LevelID, CategoryID);
