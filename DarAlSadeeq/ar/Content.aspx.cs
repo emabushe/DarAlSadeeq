@@ -72,20 +72,20 @@ namespace DarAlSadeeq.ar
                                     {
                                         if (LevelID == 0)
                                             break;
-                                        else if (LevelID > 8)
+                                        else
                                         {
                                             ShowContentList(SectionID, LevelID, -1, -1, -1, SubSectionID);
                                         }
-                                        else if (LevelID <= 8)
-                                        {
-                                            if (ShowParts(SectionID, LevelID, SubSectionID))
-                                            {
-                                                if (PartID != 0)
-                                                {
-                                                    ShowContentList(SectionID, LevelID, -1, -1, PartID, SubSectionID);
-                                                }
-                                            }
-                                        }
+                                        //else if (LevelID <= 8)
+                                        //{
+                                        //    if (ShowParts(SectionID, LevelID, SubSectionID))
+                                        //    {
+                                        //        if (PartID != 0)
+                                        //        {
+                                        //            ShowContentList(SectionID, LevelID, -1, -1, PartID, SubSectionID);
+                                        //        }
+                                        //    }
+                                        //}
                                     }
                                     break;
                                 case 3:
