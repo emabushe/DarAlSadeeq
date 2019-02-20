@@ -32,7 +32,7 @@ namespace DarAlSadeeq.ar
                         lblSectionTitle.Text = dtContent.Rows[0]["ContentTitleAR"].ToString();
                         divTitle.Attributes["class"] = "block-main no-margin";
                         string contentPath = dtContent.Rows[0]["ContentPath"].ToString();
-                        DirectoryInfo dir = new DirectoryInfo(Server.MapPath(contentPath));
+                        DirectoryInfo dir;
                         switch (dtContent.Rows[0]["ContentType"].ToString())
                         {
                             case "Pages":
@@ -40,6 +40,7 @@ namespace DarAlSadeeq.ar
                                 DataTable dtPages = new DataTable();
                                 dtPages.Clear();
                                 dtPages.Columns.Add("PagePath");
+                                 dir = new DirectoryInfo(Server.MapPath(contentPath));
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles())
                                 {
@@ -55,6 +56,7 @@ namespace DarAlSadeeq.ar
                                 break;
                             case "PDF":
                                 divPDFContent.Visible = true;
+                                dir = new DirectoryInfo(Server.MapPath(contentPath));
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.pdf"))
                                 {
@@ -65,6 +67,7 @@ namespace DarAlSadeeq.ar
                                 break;
                             case "HTML Page":
                                 divHTMLContent.Visible = true;
+                                dir = new DirectoryInfo(Server.MapPath(contentPath));
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.html"))
                                 {
@@ -85,6 +88,7 @@ namespace DarAlSadeeq.ar
                                 break;
                             case "Flash":
                                 divFlashContent.Visible = true;
+                                dir = new DirectoryInfo(Server.MapPath(contentPath));
                                 contentPath = contentPath.Replace("~", "../..");
                                 foreach (var file in dir.GetFiles("*.swf"))
                                 {
