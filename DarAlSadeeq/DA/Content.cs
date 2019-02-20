@@ -86,7 +86,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
             oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
-            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SubSectionID;
+            oSqlCommand.Parameters.Add("@SubSectionID", SqlDbType.Int).Value = SubSectionID;
             oSqlCommand.Parameters.Add("@Description", SqlDbType.NVarChar).Value = Description;
             try
             {
