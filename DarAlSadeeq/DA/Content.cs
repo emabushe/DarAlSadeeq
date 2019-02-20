@@ -70,7 +70,7 @@ namespace DarAlSadeeq.DA
             return check;
         }
         public static bool UpdateContent(string ContentTitleAR, string ContentTitleEN, int SectionID, int LevelID, int CategoryID,
-                                         int SubCategoryID, int PartID,  string Description, int ContentID)
+                                         int SubCategoryID, int PartID,  string Description, int ContentID, int SubSectionID)
         {
             bool check;
             oSqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Dar_AlsadiqConnectionString"].ConnectionString);
@@ -86,6 +86,7 @@ namespace DarAlSadeeq.DA
             oSqlCommand.Parameters.Add("@SubCategoryID", SqlDbType.Int).Value = SubCategoryID;
             oSqlCommand.Parameters.Add("@PartID", SqlDbType.Int).Value = PartID;
             oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SectionID;
+            oSqlCommand.Parameters.Add("@SectionID", SqlDbType.Int).Value = SubSectionID;
             oSqlCommand.Parameters.Add("@Description", SqlDbType.NVarChar).Value = Description;
             try
             {

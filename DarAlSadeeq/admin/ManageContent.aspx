@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminMaster.master" AutoEventWireup="true" CodeBehind="ManageContent.aspx.cs" Inherits="DarAlSadeeq.admin.ManageContent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminMaster.master" AutoEventWireup="true" CodeBehind="ManageContent.aspx.cs" Inherits="DarAlSadeeq.admin.ManageContent" validateRequest="false"%>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
@@ -187,8 +187,6 @@
                     </td>
                     <td>
                         <asp:FileUpload ID="contentFileUploader" runat="server" Multiple="Multiple" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Style="color: red"
-                            ControlToValidate="contentFileUploader" ErrorMessage="يجب إختيار ملف" ValidationGroup="contentValidationGroup"></asp:RequiredFieldValidator>
                     </td>
                     <td></td>
                 </tr>

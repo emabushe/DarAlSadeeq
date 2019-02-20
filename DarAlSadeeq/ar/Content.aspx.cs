@@ -108,7 +108,6 @@ namespace DarAlSadeeq.ar
                                         }
 
                                     }
-
                                     break;
                                 default:
                                     if (ShowLevels(SectionID, SubSectionID))
@@ -205,6 +204,24 @@ namespace DarAlSadeeq.ar
                             {
                                 ShowContentList(SectionID, LevelID, CategoryID);
                             }
+                        }
+                        break;
+                    case 8:
+                        lblSectionTitle.Text = "فيديوهات";
+                        divTitle.Attributes["class"] = "block-main no-margin";
+                        if (ShowSubSections(SectionID))
+                        {
+                            if (SubSectionID != 0)
+                            {
+                                dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, -1, SubSectionID);
+                                if (dtContentList.Rows.Count > 0)
+                                {
+                                    divLessons.Visible = true;
+                                    rptLessons.DataSource = dtContentList;
+                                    rptLessons.DataBind();
+                                }
+                            }
+
                         }
                         break;
                 }

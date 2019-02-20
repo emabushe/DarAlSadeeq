@@ -134,7 +134,7 @@
                                         <span>للمعلم</span>
                                     </div>
                                 </div>
-                                <div class="block-main block8 no-margin" onclick="location.href='Videos.aspx'">
+                                <div class="block-main block8 no-margin" onclick="location.href='Content.aspx?section=8'">
                                     <span>فيديوهات</span>
                                 </div>
                                 <div class="block-main block9" onclick="location.href='Guidance.aspx'">

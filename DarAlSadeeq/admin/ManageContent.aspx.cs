@@ -305,7 +305,8 @@ namespace DarAlSadeeq.admin
             if (DA.Content.UpdateContent(txtEditContentTitleAR.Text.Trim(), txtEditContentTitleEN.Text.Trim(),
                 Convert.ToInt32(drpEditSections.SelectedItem.Value), Convert.ToInt32(drpEditLevels.SelectedItem.Value),
                 Convert.ToInt32(drpEditCategories.SelectedItem.Value), Convert.ToInt32(drpEditSubCategories.SelectedItem.Value),
-                Convert.ToInt32(drpEditParts.SelectedItem.Value), txtEditDescription.Text, Convert.ToInt32(drpContent.SelectedItem.Value)))
+                Convert.ToInt32(drpEditParts.SelectedItem.Value), txtEditDescription.Text, Convert.ToInt32(drpContent.SelectedItem.Value), 
+                Convert.ToInt32(DrpSubSectionsEdit.SelectedItem.Value)))
             {
                 lblEditResult.Visible = true;
                 lblEditResult.Text = "تم التعديل بنجاح";

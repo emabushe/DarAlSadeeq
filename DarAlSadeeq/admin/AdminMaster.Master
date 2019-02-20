@@ -64,7 +64,7 @@
                     <!-- Active -->
                     <li><a href="ManageCOntent.aspx"><span>إدارة المحتوى</span></a></li>
                     <li><a href="ManageWorkSheets.aspx"><span>إدارة اوراق العمل </span></a></li>
-                    <li><a href="ManageVideos.aspx"><span>إدارة الفيديوهات</span></a></li>
+                    <%--<li><a href="ManageVideos.aspx"><span>إدارة الفيديوهات</span></a></li>--%>
                     <li><a href="ManageErshad.aspx"><span>إدارة ارشادات </span></a></li>
                     <li><a href="ManageChangeYourLife.aspx"><span>إدارة غير حياتك </span></a></li>
                 </ul>
