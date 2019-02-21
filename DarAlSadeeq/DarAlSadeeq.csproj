@@ -113,6 +113,7 @@
     <Content Include="fonts\TheMixArab Regular.ttf" />
     <Content Include="images\.DS_Store" />
     <Content Include="images\tooltip3.svg" />
+    <Content Include="images\video_background.png" />
     <Content Include="javascript\.DS_Store" />
     <Content Include="javascript\modernizr.2.5.3.min.js" />
     <Content Include="javascript\turn.html4.min.js" />

@@ -88,7 +88,7 @@
                                     <asp:Image ID="imgCover" runat="server" ImageUrl='<%#Eval("CoverPic")%>' Style="width: 150px; height: 200px;" />
                                 </div>
                                 <div class="row" style="position: absolute;bottom: 20px;padding-right:15%;padding-left:15%; width:100%">
-                                    <label style="font-size: large; color: rgb(196, 218, 172);"><%# Eval("ContentTitleAR")%></label>
+                                    <label style="font-size: large; color:black"><%# Eval("ContentTitleAR")%></label>
                                 </div>
                             </div>
                         </td>

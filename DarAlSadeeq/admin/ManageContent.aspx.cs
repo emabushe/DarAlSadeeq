@@ -45,7 +45,7 @@ namespace DarAlSadeeq.admin
         }
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            int SubSectionID = (drpSections.SelectedItem.Value == "1") ? Convert.ToInt32(DrpSubSections.SelectedItem.Value) : -1;
+            int SubSectionID = Convert.ToInt32(DrpSubSections.SelectedItem.Value);
             string contentPath = "";
             if (drpContentType.SelectedItem.Text == "Youtube")
             {

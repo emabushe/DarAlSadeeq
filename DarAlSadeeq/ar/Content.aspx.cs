@@ -110,6 +110,7 @@ namespace DarAlSadeeq.ar
                                     }
                                     break;
                                 default:
+                                    divContentList.Style.Add("background", "");
                                     if (ShowLevels(SectionID, SubSectionID))
                                     {
                                         if (LevelID != 0)
@@ -209,17 +210,12 @@ namespace DarAlSadeeq.ar
                     case 8:
                         lblSectionTitle.Text = "فيديوهات";
                         divTitle.Attributes["class"] = "block-main no-margin";
+                        divContentList.Style.Add("background", "url(../../images/video_background.png)");
                         if (ShowSubSections(SectionID))
                         {
                             if (SubSectionID != 0)
                             {
-                                dtContentList = DA.Content.GetContents(SectionID, -1, -1, -1, -1, SubSectionID);
-                                if (dtContentList.Rows.Count > 0)
-                                {
-                                    divLessons.Visible = true;
-                                    rptLessons.DataSource = dtContentList;
-                                    rptLessons.DataBind();
-                                }
+                                ShowContentList(SectionID, -1,-1,-1,-1, SubSectionID);
                             }
 
                         }
